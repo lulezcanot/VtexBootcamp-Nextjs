@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/Header";
+import ContextProvider from "@/providers/ContextProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
       referrerPolicy="no-referrer" />
       </head>
       <ClerkProvider>
+        <ContextProvider>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -40,8 +42,8 @@ export default function RootLayout({
         <main className="py-8 mx-[15rem] xl:mx-[25rem] h-full">
           {children}
         </main>
-
       </body>
+      </ContextProvider>
       </ClerkProvider>
     </html>
   );
