@@ -3,3 +3,5 @@ export const chart = <i className="fa-solid fa-chart-simple"></i>
 export const login = <i className="fa-solid fa-right-to-bracket"></i>
 export const dots = <i className="fa-regular fa-comment-dots"></i>;
 export const play = <i className="fa-solid fa-play"></i>;
+export const next = <i className="fa-solid fa-forward"></i>;
+export const flag = <i className="fa-solid fa-flag"></i>;

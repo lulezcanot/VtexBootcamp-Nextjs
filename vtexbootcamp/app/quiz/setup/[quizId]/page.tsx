@@ -11,8 +11,10 @@ import {
 } from "@/components/ui/select";
 import { useGlobalContext } from '@/Context/globalContext';
 import { play } from '@/utils/icons';
+import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
+import toast from 'react-hot-toast';
 
 function page() {
     const router = useRouter();
@@ -41,7 +43,32 @@ function page() {
   };
 
   const startQuiz = async () => {
-    
+    const selectedQuestions = selectedQuiz?.questions.slice(
+        0,
+        quizSetup?.questionCount
+    ).filter((q:{difficulty:string})=>{
+        return( 
+        quizSetup?.difficulty || 
+        q.difficulty?.toLowerCase() ===
+            selectedQuiz?.difficulty?.toLowerCase()
+        );
+    });
+    if(selectedQuestions.length > 0){
+        
+
+        try{
+            await axios.post("/api/user/quiz/start", {
+                categoryId: selectedQuiz?.categoryId,
+                quizId: selectedQuiz?.id,
+            });
+        } catch (error) {
+            console.log("Error starting quiz: ", error);
+        }
+
+        router.push("/quiz");
+    } else {
+        toast.error("No questions found fro the selected criteria")
+    }
   }
 
   return (
@@ -100,6 +127,7 @@ function page() {
         <Button
         variant={"blue"}
           className="px-10 py-6 font-bold text-white text-xl rounded-xl"
+          onClick={startQuiz}
         >
           <span className="flex items-center gap-2">{play} Start</span>
         </Button>
