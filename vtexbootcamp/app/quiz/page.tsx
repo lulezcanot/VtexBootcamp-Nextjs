@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { useGlobalContext } from '@/Context/globalContext';
 import { IOption, IQuestion, IResponse } from '@/types/types';
 import { flag, next } from '@/utils/icons';
+import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
 import toast from 'react-hot-toast';
@@ -95,7 +96,29 @@ function page() {
         }
     };
 
-    const handleFinishQuiz = () => {}
+    const handleFinishQuiz = async () => {
+        setQuizResponses(responses);
+
+        const score = responses.filter((res) => res.isCorrect).length;
+
+        try{
+            await axios.post("/api/user/quiz/finish", {
+                categoryId: selectedQuiz.categoryId,
+                quizId: selectedQuiz.id,
+                score,
+                responses,
+            });
+        } catch (error) {
+            console.log("Error finish quiz:", error)
+        }
+
+        setQuizSetup({
+            questionsCount: 1,
+            category: null,
+            difficulty: null,
+        });
+        router.push("/results")
+    }
 
     console.log("Selected Quiz: ", selectedQuiz)
     console.log("Shuffled Questions: ", shuffledQuestions)

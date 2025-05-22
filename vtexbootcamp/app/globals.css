@@ -120,3 +120,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+.loader {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: 5rem;
+  animation: l1 1s linear infinite alternate;
+}
+.loader:before {
+  content: "Loading...";
+}
+@keyframes l1 {
+  to {
+    opacity: 0;
+  }
+}

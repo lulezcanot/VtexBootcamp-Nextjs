@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import useCategories from "./useCategories"
 import { useUser } from '@clerk/nextjs';
+import axios from "axios";
 
 const GlobalContext = React.createContext();
 
