@@ -41,7 +41,7 @@ export default function RootLayout({
       >
         <Toaster position="top-center" />
         <Header/>
-        <main className="py-8 mx-[15rem] xl:mx-[25rem] h-full">
+        <main className=" h-full">
           {children}
         </main>
       </body>

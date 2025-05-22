@@ -74,10 +74,10 @@ function page() {
   return (
     <div>
         <div className="py-[6rem] w-[50%] fixed left-1/2 top-[45%] translate-x-[-50%] translate-y-[-50%] p-6 border-2 rounded-xl shadow-[0_.5rem_0_0_rgba(0,0,0,0.1)] mx-auto">
-            <h1 className='text-4xl font-bold mb-4'>Quiz Setup</h1>
+            <h1 className='text-4xl font-bold mb-4'>Configuración del Quizz</h1>
             <div className='space-y-6'>
                 <div className='space-y-2'>
-                    <Label htmlFor='questionCount' className='text-lg'>Number of Questions</Label>
+                    <Label htmlFor='questionCount' className='text-lg'>Numero de Preguntas</Label>
                     <Input 
                     type="number" 
                     min={1} 
@@ -89,7 +89,7 @@ function page() {
                 </div>
                 <div className='space-y-2'>
                     <Label htmlFor='category' className='text-ls'>
-                        Category
+                        Categoria
                     </Label>
                     <Select disabled>
                         <SelectTrigger className='w-full'>

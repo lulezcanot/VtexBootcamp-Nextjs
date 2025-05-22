@@ -125,16 +125,16 @@ function page() {
   return (
     <div className='py-[2.5rem]'>
         {shuffledQuestions[currentIndex] ? (
-            <div className='space-y-6'>
+            <div className='space-y-6 flex flex-col items-center justify-center'>
                 <div className='flex flex-col gap-6'>
                     <p className='py-3 px-6 border-2 text-xl font-bold self-end rounded-lg shadow-[0_.3rem_0_0_rgba(0,0,0,0.1)]'>
-                    Questions: <span>{currentIndex + 1}</span> /{""}
+                    Preguntas: <span>{currentIndex + 1}</span> /{""}
                     <span className='text-3xl'>{shuffledQuestions.length}</span>
                 </p>
                 <h1 className='mt-4 px-10 text-5xl font-bold text-center'>{shuffledQuestions[currentIndex].text}</h1>
                 </div>
 
-                <div className='pt-14 space-y-4'>
+                <div className='pt-14 space-y-4 max-w-[800px]'>
                     {shuffleOptions.map((option, index) => (
                         <button key={index}
                         className={`relative group py-3 w-full text-center border-2 text-lg font-semibold rounded-lg

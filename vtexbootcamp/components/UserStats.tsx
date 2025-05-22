@@ -33,14 +33,14 @@ function UserStats({ userStats }: any) {
       <div className="mt-4">
         <h1 className="font-bold text-2xl">Overview</h1>
         <p className="text-muted-foreground">
-          A summary of your recent activity and performance.
+          Un resumen de su actividad y rendimiento recientes.
         </p>
       </div>
 
       <div className="grid grid-cols-3 gap-6 font-semibold">
         <div className="py-4 px-4 flex flex-col gap-1 border-2 rounded-lg shadow-[0_.3rem_0_0_rgba(0,0,0,0.1)]">
           <h2 className="font-bold text-xl">{user?.firstName}</h2>
-          <p className="text-gray-400 font-semibold">Recent Attempt</p>
+          <p className="text-gray-400 font-semibold">Intento reciente</p>
           <p className="text-sm text-gray-400 font-semibold">
             {recentAttemptDate?.toLocaleDateString()}
           </p>

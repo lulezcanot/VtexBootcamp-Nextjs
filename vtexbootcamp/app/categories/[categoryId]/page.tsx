@@ -36,8 +36,8 @@ async function page({ params }: any) {
     });
 
   return(
-    <div>
-      <h1 className="mb-6 text-4xl font-bold">All Quizzes</h1>
+    <div className='py-8 mx-[15rem] xl:mx-[25rem]'>
+      <h1 className="mb-6 text-4xl font-bold">Quizzes</h1>
 
       {quizzes.length > 0 ? (
         <div className="mb-8 grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] gap-6">
@@ -47,7 +47,7 @@ async function page({ params }: any) {
         </div>
       ) : (
         <h1 className="text-2xl text-center mt-4">
-          No quizzes found for this Category
+          No se han encontrado quizzes para esta categoría
         </h1>
       )}
     </div>

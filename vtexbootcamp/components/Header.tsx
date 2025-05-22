@@ -19,7 +19,7 @@ function Header() {
             link: "/"
         },
         {
-            name: "My Stats",
+            name: "Stats",
             icon: chart,
             link: "/stats"
         }
@@ -29,8 +29,8 @@ function Header() {
     <header className='min-h-[8vh] px-[10rem] xl:px-[15rem] border-b-2 flex items-center'>
         <nav className='flex-1 flex items-center justify-between'>
             <Link href="/" className='flex items-center gap-2'>
-            <Image src={Logo} alt='logo' width={50} height={50} />
-            <h1 className='text-3xl font-bold text-blue-400'>Logoo</h1>
+            <Image src={Logo} alt='logo' className="h-8 w-8 text-purple-600"  />
+            <span className="text-xl font-semibold text-purple-600">VTEX Academy</span>
             </Link>
             <ul className='flex items-center gap-8'>
                 {menu.map((item, index)=>(
@@ -61,8 +61,9 @@ function Header() {
                    /> 
                 </SignedIn>
                 <SignedOut>
-                    <Button className='py-5 bg-blue-400 flex items-center gap-2 font-semibold text-lg rounded-lg
-                    hover:bg-blue-500/90'
+                    <Button className='bg-purple-600 text-white px-6 py-2 rounded-full font-medium 
+            hover:bg-purple-700 transition-colors duration-200 focus:outline-none focus:ring-2 
+            focus:ring-purple-500 focus:ring-offset-2'
                     onClick={()=> router.push("/sign-in")}
                     >
                         {login}
