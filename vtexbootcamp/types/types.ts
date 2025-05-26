@@ -31,7 +31,7 @@ interface IResponse {
 interface IOption {
   id: string;
   text: string;
-  isCorrect: boolean;
+  isCorret: boolean;
 }
 
 interface ICategoryStats {

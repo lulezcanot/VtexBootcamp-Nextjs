@@ -5,3 +5,5 @@ export const dots = <i className="fa-regular fa-comment-dots"></i>;
 export const play = <i className="fa-solid fa-play"></i>;
 export const next = <i className="fa-solid fa-forward"></i>;
 export const flag = <i className="fa-solid fa-flag"></i>;
+export const crosshairs = <i className="fa-solid fa-crosshairs"></i>;
+export const checkAbc = <i className="fa-solid fa-spell-check"></i>;
