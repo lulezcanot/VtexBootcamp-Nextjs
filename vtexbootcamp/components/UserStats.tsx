@@ -93,12 +93,11 @@ function UserStats({ userStats }: any) {
               <p className="mt-2 font-bold text-3xl">{totalCompleted}</p>
             </div>
           </div>
-          {/* grid-cold-2 */}
-          <div className="mt-2 grid gap-6">
-            {latestStats?.map((category: any) => (
-              <CategoryBarChart key={category.id} categoryData={category} />
-            ))}
-          </div>
+        </div>
+        <div className="mt-6 flex flex-wrap gap-6">
+          {latestStats?.map((category: any) => (
+            <CategoryBarChart key={category.id} categoryData={category} />
+          ))}
         </div>
         <div className="mt-4">
           <h1 className="font-bold text-2xl">Detailed Category Stats</h1>

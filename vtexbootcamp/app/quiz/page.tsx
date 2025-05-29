@@ -65,7 +65,7 @@ function page() {
         const response = {
             questionId: shuffledQuestions[currentIndex].id,
             optionId: option.id,
-            isCorrect: option.isCorrect,
+            isCorrect: option.isCorret,
         };
 
         setResponses((prev) => {
@@ -92,7 +92,7 @@ function page() {
 
             setActiveQuestion(null);
         } else {
-            router.push("/quiz/results")
+            router.push("/results")
         }
     };
 
