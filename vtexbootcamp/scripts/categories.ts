@@ -6,40 +6,20 @@ async function addCategories() {
 
   const categories = [
     {
-      name: "VTEX IO CLI",
+      name: "Básico",
       description:
-        "Instalación y uso de la CLI de VTEX IO para login, manejo de workspaces, linkeo y publicación de apps.",
+        "Vtex CLI, Vtex Loggin, Vtex Workspace...",
     },
     {
-      name: "Componentes Básicos",
+      name: "Intermedio",
       description:
-        "Uso de componentes nativos como Flex Layout, RichText, Store Image, Slider Layout, entre otros.",
+        "Pdp, Plp, Minicartv2, My Acount...",
     },
     {
-      name: "Estilos CSS Handles",
+      name: "Avanzado",
       description:
-        "Aplicación de estilos personalizados a través de CSS Handles en componentes de VTEX IO.",
-    },
-    {
-      name: "PLP",
-      description:
-        "Configuración y personalización de la página de listado de productos (Product List Page) en Store Framework.",
-    },
-    {
-      name: "PDP",
-      description:
-        "Desarrollo y personalización de la página de producto (Product Detail Page) utilizando bloques y props.",
-    },
-    {
-      name: "My Account Page",
-      description:
-        "Modificación y extensión de la página de cuenta del usuario, incluyendo secciones personalizadas.",
-    },
-    {
-      name: "Checkout",
-      description:
-        "Introducción a la personalización del checkout de VTEX: componentes, validaciones y comportamiento.",
-    },
+        "Checkout, Componentes Custom, Modales...",
+    }
   ];
 
   console.log("Adding Categories...");

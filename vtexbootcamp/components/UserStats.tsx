@@ -119,23 +119,21 @@ function UserStats({ userStats }: any) {
               </TableRow>
             </TableHeader>
             <TableBody>
-              <TableBody>
-                {userStats?.categoryStats.map((category: ICategoryStats) => (
-                  <TableRow key={category.id}>
-                    <TableCell className="font-semibold py-4">
-                      {category.category.name}
-                    </TableCell>
-                    <TableCell>{category.attempts}</TableCell>
-                    <TableCell>{category.completed}</TableCell>
-                    <TableCell>
-                      {category.averageScore !== null
-                        ? category.averageScore.toFixed(2)
-                        : "N/A"}
-                    </TableCell>
-                    <TableCell>{formatTime(category.lastAttempt)}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
+              {userStats?.categoryStats.map((category: ICategoryStats) => (
+                <TableRow key={category.id}>
+                  <TableCell className="font-semibold py-4">
+                    {category.category.name}
+                  </TableCell>
+                  <TableCell>{category.attempts}</TableCell>
+                  <TableCell>{category.completed}</TableCell>
+                  <TableCell>
+                    {category.averageScore !== null
+                      ? category.averageScore.toFixed(2)
+                      : "N/A"}
+                  </TableCell>
+                  <TableCell>{formatTime(category.lastAttempt)}</TableCell>
+                </TableRow>
+              ))}
             </TableBody>
           </Table>
         </div>

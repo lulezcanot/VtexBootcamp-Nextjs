@@ -13,7 +13,7 @@ async function seedQuestions() {
     const createdQuestion = await questionsPrisma.question.create({
       data: {
         text: question.text,
-        quizId: "68252fb94df741d8bddf3c5a",
+        quizId: "6837c57c310b0e5517df27b9",
         options: {
           create: question.options,
         },
