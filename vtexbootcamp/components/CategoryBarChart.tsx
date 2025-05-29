@@ -37,11 +37,11 @@ function CategoryBarChart({ categoryData }: Props) {
 
 const chartConfig = {
   attempts: {
-    label: "Attempts",
+    label: "Intentos",
     color: "hsl(var(--blue-400))"
   },
   completed: {
-    label: "Completed",
+    label: "Completados",
     color: "hsl(var(--green-400)",
   }
 } satisfies ChartConfig
@@ -50,7 +50,7 @@ const chartConfig = {
     <Card className="border-2 shadow-[0_.3rem_0_0_rgba(0,0,0,0.1)]">
       <CardHeader>
         <CardTitle>{categoryData.category?.name}</CardTitle>
-        <CardDescription>Attempts vs Completeions</CardDescription>
+        <CardDescription>Intentos vs Completados</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -89,7 +89,7 @@ const chartConfig = {
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-semibold text-muted-foreground">
-          Attempted on {formatTime(categoryData.lastAttempt)}
+          Intentado el {formatTime(categoryData.lastAttempt)}
         </div>
       </CardFooter>
     </Card>

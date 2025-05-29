@@ -150,7 +150,7 @@ function page() {
                 </div>
             </div>
         ):( 
-            <p className='text-lg'>No questions found for this quiz</p>
+            <p className='text-lg'>No se han encontrado preguntas para este cuestionario</p>
         )}
         <div className="w-full py-[4rem] fixed bottom-0 left-0 border-t-2 flex items-center justify-center">
             <Button 
@@ -163,7 +163,7 @@ function page() {
                     }else{
                         const sound = new Audio("/spunds/error.mp3");
                         sound.play();
-                        toast.error("Please select an option to continue");
+                        toast.error("Seleccione una opción para continuar");
                     }
                 } else {
                     if(activeQuestion?.id){
@@ -171,15 +171,15 @@ function page() {
                     }else{
                         const sound = new Audio("/spunds/error.mp3");
                         sound.play();
-                        toast.error("Please select an option to continue");
+                        toast.error("Seleccione una opción para continuar");
                     }
                 }
             }}
             >
                 {currentIndex < shuffledQuestions.length - 1 ? (
-                    <span className='flex items-center gap-2'>{next} Next</span>
+                    <span className='flex items-center gap-2'>{next} Siguiente</span>
                     ) : (
-                    <span className='flex items-center gap-2'>{flag} Finish</span>
+                    <span className='flex items-center gap-2'>{flag} Finalizar</span>
                     )}
             </Button>
         </div>

@@ -105,7 +105,7 @@ function page() {
                 </div>
                 <div className='space-y-2'>
                     <Label htmlFor='difficulty' className='text-lg'>
-                        Difficulty
+                        Dificultad
                     </Label>
 
                     <Select defaultValue='unspecified' onValueChange={(value)=> handleDifficultyChange(value)}>
@@ -129,7 +129,7 @@ function page() {
           className="px-10 py-6 font-bold text-white text-xl rounded-xl"
           onClick={startQuiz}
         >
-          <span className="flex items-center gap-2">{play} Start</span>
+          <span className="flex items-center gap-2">{play} Iniciar</span>
         </Button>
         </div>
     </div>

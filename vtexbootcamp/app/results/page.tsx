@@ -23,23 +23,23 @@ function page() {
     let message = "";
 
   if (scorePercentage < 25) {
-    message = "You need to try harder!";
+    message = "Tienes que esforzarte más!";
   } else if (scorePercentage >= 25 && scorePercentage < 50) {
-    message = "You're getting there! Keep practicing.";
+    message = "Lo estás consiguiendo. Sigue practicando.";
   } else if (scorePercentage >= 50 && scorePercentage < 75) {
-    message = "Good effort! You're above average.";
+    message = "¡Buen esfuerzo! Estás por encima de la media.";
   } else if (scorePercentage >= 75 && scorePercentage < 100) {
-    message = "Great job! You're so close to perfect!";
+    message = "¡Buen trabajo! ¡Estás tan cerca de la perfección!";
   } else if (scorePercentage === 100) {
-    message = "Outstanding! You got everything right!";
+    message = "¡Excelente! Lo has hecho todo bien.";
   }
 
 return (
     <div className="py-20 flex flex-col gap-4">
-      <h1 className="text-4xl font-bold text-center">Quiz Results</h1>
+      <h1 className="text-4xl font-bold text-center">Resultados del Quiz</h1>
 
       <p className="text-2xl text-center mt-4">
-        You scored <span className="font-bold">{correctAnswers}</span> out of{" "}
+        Has marcado <span className="font-bold">{correctAnswers}</span> de{" "}
         {""}
         <span className="font-bold text-3xl">{totalQuestions}</span> {""}
       </p>

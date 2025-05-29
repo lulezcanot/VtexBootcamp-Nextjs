@@ -42,7 +42,7 @@ function UserStats({ userStats }: any) {
   );
 
   const latestStats = userStats?.categoryStats
-    .slice(0, 2)
+
     .sort((a: any, b: any) => {
       return (
         new Date(b.lastAttempt).getTime() - new Date(a.lastAttempt).getTime()
@@ -63,7 +63,7 @@ function UserStats({ userStats }: any) {
         </div>
 
         <div className="mt-4">
-          <h1 className="font-bold text-2xl">Overview</h1>
+          <h1 className="font-bold text-2xl">Resumen general</h1>
           <p className="text-muted-foreground">
             Un resumen de su actividad y rendimiento recientes.
           </p>
@@ -81,7 +81,7 @@ function UserStats({ userStats }: any) {
           <div className="py-4 px-4 flex gap-2 border-2 rounded-lg shadow-[0_.3rem_0_0_rgba(0,0,0,0.1)]">
             <div className="text-2xl text-gray-300">{crosshairs}</div>
             <div>
-              <p className="font-bold">Total Attempts</p>
+              <p className="font-bold">Total de intentos</p>
               <p className="mt-2 font-bold text-3xl">{totalAttempts}</p>
             </div>
           </div>
@@ -89,20 +89,20 @@ function UserStats({ userStats }: any) {
           <div className="py-4 px-4 flex gap-2 border-2 rounded-lg shadow-[0_.3rem_0_0_rgba(0,0,0,0.1)]">
             <div className="text-2xl text-blue-400">{checkAbc}</div>
             <div>
-              <p className="font-bold">Total Completed</p>
+              <p className="font-bold">Total completado</p>
               <p className="mt-2 font-bold text-3xl">{totalCompleted}</p>
             </div>
           </div>
         </div>
-        <div className="mt-6 flex flex-wrap gap-6">
+        <div className="mt-6 flex flex-wrap gap-10">
           {latestStats?.map((category: any) => (
             <CategoryBarChart key={category.id} categoryData={category} />
           ))}
         </div>
         <div className="mt-4">
-          <h1 className="font-bold text-2xl">Detailed Category Stats</h1>
+          <h1 className="font-bold text-2xl">Detalles de las estadísticas por categoría</h1>
           <p className="text-muted-foreground">
-            Breakdown of performance by category
+            Resultados por Categoría
           </p>
         </div>
 
@@ -110,11 +110,11 @@ function UserStats({ userStats }: any) {
           <Table>
             <TableHeader className="text-base font-semibold">
               <TableRow>
-                <TableHead className="py-4">Category</TableHead>
-                <TableHead>Attempts</TableHead>
-                <TableHead>Completed</TableHead>
-                <TableHead>Average Score</TableHead>
-                <TableHead>Last Attempt</TableHead>
+                <TableHead className="py-4">Categoría</TableHead>
+                <TableHead>Intentos</TableHead>
+                <TableHead>Completado</TableHead>
+                <TableHead>Puntuación</TableHead>
+                <TableHead>Último intento</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
