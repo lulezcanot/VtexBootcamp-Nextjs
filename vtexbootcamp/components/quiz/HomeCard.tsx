@@ -18,7 +18,20 @@ function HomeCard({ category }: Props) {
       onClick={() => router.push(`/categories/${category.id}`)}
     >
       <div className="rounded-xl h-[9rem] py-1">
-
+        <Image
+          src={
+            category.image
+              ? category.image
+              : `/categories/image--${category.name
+                  .toLowerCase()
+                  .split(" ")
+                  .join("-")}.svg`
+          }
+          width={300}
+          height={200}
+          alt={category.name}
+          className="h-full rounded-xl"
+        />
       </div>
 
       <div className="py-2 px-6 flex flex-col gap-4">
