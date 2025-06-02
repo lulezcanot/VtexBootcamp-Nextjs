@@ -73,7 +73,7 @@ function page() {
 
   return (
     <div>
-        <div className="py-[6rem] w-[50%] fixed left-1/2 top-[45%] translate-x-[-50%] translate-y-[-50%] p-6 border-2 rounded-xl shadow-[0_.5rem_0_0_rgba(0,0,0,0.1)] mx-auto">
+        <div className="py-[6rem] w-[50%] mx-auto p-6 border-2 rounded-xl shadow-[0_.5rem_0_0_rgba(0,0,0,0.1)] mt-16">
             <h1 className='text-4xl font-bold mb-4'>Configuración del Quizz</h1>
             <div className='space-y-6'>
                 <div className='space-y-2'>
@@ -123,7 +123,7 @@ function page() {
             </div>
         </div>
 
-        <div className='w-full py-[4rem] flex items-center justify-center fixed bottom-0 left-0 bg-white border-t-2'>
+        <div className='w-full py-[4rem] flex items-center justify-center bg-white border-t-2 mt-8'>
         <Button
         variant={"blue"}
           className="px-10 py-6 font-bold text-white text-xl rounded-xl"
