@@ -41,11 +41,11 @@ export default function RootLayout({
       <ClerkProvider>
         <ContextProvider>
           <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+            className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
           >
             <Toaster position="top-center" />
             <Header />
-            <main className=" h-full">{children}</main>
+            <main className="flex-1">{children}</main>
             <Footer />
             
           </body>

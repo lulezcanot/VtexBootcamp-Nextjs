@@ -38,16 +38,6 @@ const Footer = () => {
                   Tutoriales
                 </a>
               </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Comunidad
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -63,16 +53,6 @@ const Footer = () => {
               <li>
                 <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Contacto
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Carreras
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Prensa
                 </a>
               </li>
             </ul>
@@ -110,7 +90,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 VTEX Academy. Todos los derechos reservados.
+              © 2025 VTEX BootCamp by Luis Lezcano Tirado.
             </p>
             
             {/* Social Media Icons */}

@@ -152,7 +152,7 @@ function page() {
         ):( 
             <p className='text-lg'>No se han encontrado preguntas para este cuestionario</p>
         )}
-        <div className="w-full py-[4rem] fixed bottom-0 left-0 border-t-2 flex items-center justify-center">
+        <div className="w-full py-[4rem] border-t-2 flex items-center justify-center mt-8">
             <Button 
             className='px-10 py-6 font-bold text-white text-xl rounded-xl'
             variant={"green"}
