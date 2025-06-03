@@ -43,6 +43,36 @@ export type Option = $Result.DefaultSelection<Prisma.$OptionPayload>
  * 
  */
 export type CategoryStat = $Result.DefaultSelection<Prisma.$CategoryStatPayload>
+/**
+ * Model LearningPath
+ * 
+ */
+export type LearningPath = $Result.DefaultSelection<Prisma.$LearningPathPayload>
+/**
+ * Model Module
+ * 
+ */
+export type Module = $Result.DefaultSelection<Prisma.$ModulePayload>
+/**
+ * Model Lesson
+ * 
+ */
+export type Lesson = $Result.DefaultSelection<Prisma.$LessonPayload>
+/**
+ * Model UserLearningProgress
+ * 
+ */
+export type UserLearningProgress = $Result.DefaultSelection<Prisma.$UserLearningProgressPayload>
+/**
+ * Model UserModuleProgress
+ * 
+ */
+export type UserModuleProgress = $Result.DefaultSelection<Prisma.$UserModuleProgressPayload>
+/**
+ * Model UserLessonProgress
+ * 
+ */
+export type UserLessonProgress = $Result.DefaultSelection<Prisma.$UserLessonProgressPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -195,6 +225,66 @@ export class PrismaClient<
     * ```
     */
   get categoryStat(): Prisma.CategoryStatDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.learningPath`: Exposes CRUD operations for the **LearningPath** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LearningPaths
+    * const learningPaths = await prisma.learningPath.findMany()
+    * ```
+    */
+  get learningPath(): Prisma.LearningPathDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.module`: Exposes CRUD operations for the **Module** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Modules
+    * const modules = await prisma.module.findMany()
+    * ```
+    */
+  get module(): Prisma.ModuleDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.lesson`: Exposes CRUD operations for the **Lesson** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Lessons
+    * const lessons = await prisma.lesson.findMany()
+    * ```
+    */
+  get lesson(): Prisma.LessonDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.userLearningProgress`: Exposes CRUD operations for the **UserLearningProgress** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UserLearningProgresses
+    * const userLearningProgresses = await prisma.userLearningProgress.findMany()
+    * ```
+    */
+  get userLearningProgress(): Prisma.UserLearningProgressDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.userModuleProgress`: Exposes CRUD operations for the **UserModuleProgress** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UserModuleProgresses
+    * const userModuleProgresses = await prisma.userModuleProgress.findMany()
+    * ```
+    */
+  get userModuleProgress(): Prisma.UserModuleProgressDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.userLessonProgress`: Exposes CRUD operations for the **UserLessonProgress** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UserLessonProgresses
+    * const userLessonProgresses = await prisma.userLessonProgress.findMany()
+    * ```
+    */
+  get userLessonProgress(): Prisma.UserLessonProgressDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -640,7 +730,13 @@ export namespace Prisma {
     Quiz: 'Quiz',
     Question: 'Question',
     Option: 'Option',
-    CategoryStat: 'CategoryStat'
+    CategoryStat: 'CategoryStat',
+    LearningPath: 'LearningPath',
+    Module: 'Module',
+    Lesson: 'Lesson',
+    UserLearningProgress: 'UserLearningProgress',
+    UserModuleProgress: 'UserModuleProgress',
+    UserLessonProgress: 'UserLessonProgress'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -659,7 +755,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "category" | "quiz" | "question" | "option" | "categoryStat"
+      modelProps: "user" | "category" | "quiz" | "question" | "option" | "categoryStat" | "learningPath" | "module" | "lesson" | "userLearningProgress" | "userModuleProgress" | "userLessonProgress"
       txIsolationLevel: never
     }
     model: {
@@ -1107,6 +1203,450 @@ export namespace Prisma {
           }
         }
       }
+      LearningPath: {
+        payload: Prisma.$LearningPathPayload<ExtArgs>
+        fields: Prisma.LearningPathFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LearningPathFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningPathPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LearningPathFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningPathPayload>
+          }
+          findFirst: {
+            args: Prisma.LearningPathFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningPathPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LearningPathFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningPathPayload>
+          }
+          findMany: {
+            args: Prisma.LearningPathFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningPathPayload>[]
+          }
+          create: {
+            args: Prisma.LearningPathCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningPathPayload>
+          }
+          createMany: {
+            args: Prisma.LearningPathCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.LearningPathDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningPathPayload>
+          }
+          update: {
+            args: Prisma.LearningPathUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningPathPayload>
+          }
+          deleteMany: {
+            args: Prisma.LearningPathDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LearningPathUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.LearningPathUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LearningPathPayload>
+          }
+          aggregate: {
+            args: Prisma.LearningPathAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLearningPath>
+          }
+          groupBy: {
+            args: Prisma.LearningPathGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LearningPathGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.LearningPathFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.LearningPathAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.LearningPathCountArgs<ExtArgs>
+            result: $Utils.Optional<LearningPathCountAggregateOutputType> | number
+          }
+        }
+      }
+      Module: {
+        payload: Prisma.$ModulePayload<ExtArgs>
+        fields: Prisma.ModuleFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ModuleFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModulePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ModuleFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModulePayload>
+          }
+          findFirst: {
+            args: Prisma.ModuleFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModulePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ModuleFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModulePayload>
+          }
+          findMany: {
+            args: Prisma.ModuleFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModulePayload>[]
+          }
+          create: {
+            args: Prisma.ModuleCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModulePayload>
+          }
+          createMany: {
+            args: Prisma.ModuleCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.ModuleDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModulePayload>
+          }
+          update: {
+            args: Prisma.ModuleUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModulePayload>
+          }
+          deleteMany: {
+            args: Prisma.ModuleDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ModuleUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ModuleUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModulePayload>
+          }
+          aggregate: {
+            args: Prisma.ModuleAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateModule>
+          }
+          groupBy: {
+            args: Prisma.ModuleGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ModuleGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.ModuleFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.ModuleAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.ModuleCountArgs<ExtArgs>
+            result: $Utils.Optional<ModuleCountAggregateOutputType> | number
+          }
+        }
+      }
+      Lesson: {
+        payload: Prisma.$LessonPayload<ExtArgs>
+        fields: Prisma.LessonFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LessonFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LessonPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LessonFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LessonPayload>
+          }
+          findFirst: {
+            args: Prisma.LessonFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LessonPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LessonFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LessonPayload>
+          }
+          findMany: {
+            args: Prisma.LessonFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LessonPayload>[]
+          }
+          create: {
+            args: Prisma.LessonCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LessonPayload>
+          }
+          createMany: {
+            args: Prisma.LessonCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.LessonDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LessonPayload>
+          }
+          update: {
+            args: Prisma.LessonUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LessonPayload>
+          }
+          deleteMany: {
+            args: Prisma.LessonDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LessonUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.LessonUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LessonPayload>
+          }
+          aggregate: {
+            args: Prisma.LessonAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLesson>
+          }
+          groupBy: {
+            args: Prisma.LessonGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LessonGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.LessonFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.LessonAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.LessonCountArgs<ExtArgs>
+            result: $Utils.Optional<LessonCountAggregateOutputType> | number
+          }
+        }
+      }
+      UserLearningProgress: {
+        payload: Prisma.$UserLearningProgressPayload<ExtArgs>
+        fields: Prisma.UserLearningProgressFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserLearningProgressFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLearningProgressPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserLearningProgressFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLearningProgressPayload>
+          }
+          findFirst: {
+            args: Prisma.UserLearningProgressFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLearningProgressPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserLearningProgressFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLearningProgressPayload>
+          }
+          findMany: {
+            args: Prisma.UserLearningProgressFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLearningProgressPayload>[]
+          }
+          create: {
+            args: Prisma.UserLearningProgressCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLearningProgressPayload>
+          }
+          createMany: {
+            args: Prisma.UserLearningProgressCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.UserLearningProgressDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLearningProgressPayload>
+          }
+          update: {
+            args: Prisma.UserLearningProgressUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLearningProgressPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserLearningProgressDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserLearningProgressUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.UserLearningProgressUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLearningProgressPayload>
+          }
+          aggregate: {
+            args: Prisma.UserLearningProgressAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUserLearningProgress>
+          }
+          groupBy: {
+            args: Prisma.UserLearningProgressGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserLearningProgressGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.UserLearningProgressFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.UserLearningProgressAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.UserLearningProgressCountArgs<ExtArgs>
+            result: $Utils.Optional<UserLearningProgressCountAggregateOutputType> | number
+          }
+        }
+      }
+      UserModuleProgress: {
+        payload: Prisma.$UserModuleProgressPayload<ExtArgs>
+        fields: Prisma.UserModuleProgressFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserModuleProgressFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserModuleProgressPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserModuleProgressFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserModuleProgressPayload>
+          }
+          findFirst: {
+            args: Prisma.UserModuleProgressFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserModuleProgressPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserModuleProgressFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserModuleProgressPayload>
+          }
+          findMany: {
+            args: Prisma.UserModuleProgressFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserModuleProgressPayload>[]
+          }
+          create: {
+            args: Prisma.UserModuleProgressCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserModuleProgressPayload>
+          }
+          createMany: {
+            args: Prisma.UserModuleProgressCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.UserModuleProgressDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserModuleProgressPayload>
+          }
+          update: {
+            args: Prisma.UserModuleProgressUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserModuleProgressPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserModuleProgressDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserModuleProgressUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.UserModuleProgressUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserModuleProgressPayload>
+          }
+          aggregate: {
+            args: Prisma.UserModuleProgressAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUserModuleProgress>
+          }
+          groupBy: {
+            args: Prisma.UserModuleProgressGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserModuleProgressGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.UserModuleProgressFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.UserModuleProgressAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.UserModuleProgressCountArgs<ExtArgs>
+            result: $Utils.Optional<UserModuleProgressCountAggregateOutputType> | number
+          }
+        }
+      }
+      UserLessonProgress: {
+        payload: Prisma.$UserLessonProgressPayload<ExtArgs>
+        fields: Prisma.UserLessonProgressFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserLessonProgressFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLessonProgressPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserLessonProgressFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLessonProgressPayload>
+          }
+          findFirst: {
+            args: Prisma.UserLessonProgressFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLessonProgressPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserLessonProgressFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLessonProgressPayload>
+          }
+          findMany: {
+            args: Prisma.UserLessonProgressFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLessonProgressPayload>[]
+          }
+          create: {
+            args: Prisma.UserLessonProgressCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLessonProgressPayload>
+          }
+          createMany: {
+            args: Prisma.UserLessonProgressCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.UserLessonProgressDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLessonProgressPayload>
+          }
+          update: {
+            args: Prisma.UserLessonProgressUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLessonProgressPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserLessonProgressDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserLessonProgressUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.UserLessonProgressUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserLessonProgressPayload>
+          }
+          aggregate: {
+            args: Prisma.UserLessonProgressAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUserLessonProgress>
+          }
+          groupBy: {
+            args: Prisma.UserLessonProgressGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserLessonProgressGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.UserLessonProgressFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.UserLessonProgressAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.UserLessonProgressCountArgs<ExtArgs>
+            result: $Utils.Optional<UserLessonProgressCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1184,6 +1724,12 @@ export namespace Prisma {
     question?: QuestionOmit
     option?: OptionOmit
     categoryStat?: CategoryStatOmit
+    learningPath?: LearningPathOmit
+    module?: ModuleOmit
+    lesson?: LessonOmit
+    userLearningProgress?: UserLearningProgressOmit
+    userModuleProgress?: UserModuleProgressOmit
+    userLessonProgress?: UserLessonProgressOmit
   }
 
   /* Types for Logging */
@@ -1279,10 +1825,16 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     categoryStats: number
+    learningProgress: number
+    moduleProgress: number
+    lessonProgress: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     categoryStats?: boolean | UserCountOutputTypeCountCategoryStatsArgs
+    learningProgress?: boolean | UserCountOutputTypeCountLearningProgressArgs
+    moduleProgress?: boolean | UserCountOutputTypeCountModuleProgressArgs
+    lessonProgress?: boolean | UserCountOutputTypeCountLessonProgressArgs
   }
 
   // Custom InputTypes
@@ -1301,6 +1853,27 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountCategoryStatsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CategoryStatWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountLearningProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserLearningProgressWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountModuleProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserModuleProgressWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountLessonProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserLessonProgressWhereInput
   }
 
 
@@ -1403,6 +1976,117 @@ export namespace Prisma {
    */
   export type QuestionCountOutputTypeCountOptionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: OptionWhereInput
+  }
+
+
+  /**
+   * Count Type LearningPathCountOutputType
+   */
+
+  export type LearningPathCountOutputType = {
+    modules: number
+    userProgress: number
+  }
+
+  export type LearningPathCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    modules?: boolean | LearningPathCountOutputTypeCountModulesArgs
+    userProgress?: boolean | LearningPathCountOutputTypeCountUserProgressArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * LearningPathCountOutputType without action
+   */
+  export type LearningPathCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningPathCountOutputType
+     */
+    select?: LearningPathCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * LearningPathCountOutputType without action
+   */
+  export type LearningPathCountOutputTypeCountModulesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModuleWhereInput
+  }
+
+  /**
+   * LearningPathCountOutputType without action
+   */
+  export type LearningPathCountOutputTypeCountUserProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserLearningProgressWhereInput
+  }
+
+
+  /**
+   * Count Type ModuleCountOutputType
+   */
+
+  export type ModuleCountOutputType = {
+    lessons: number
+    userProgress: number
+  }
+
+  export type ModuleCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    lessons?: boolean | ModuleCountOutputTypeCountLessonsArgs
+    userProgress?: boolean | ModuleCountOutputTypeCountUserProgressArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ModuleCountOutputType without action
+   */
+  export type ModuleCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModuleCountOutputType
+     */
+    select?: ModuleCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ModuleCountOutputType without action
+   */
+  export type ModuleCountOutputTypeCountLessonsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LessonWhereInput
+  }
+
+  /**
+   * ModuleCountOutputType without action
+   */
+  export type ModuleCountOutputTypeCountUserProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserModuleProgressWhereInput
+  }
+
+
+  /**
+   * Count Type LessonCountOutputType
+   */
+
+  export type LessonCountOutputType = {
+    userProgress: number
+  }
+
+  export type LessonCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    userProgress?: boolean | LessonCountOutputTypeCountUserProgressArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * LessonCountOutputType without action
+   */
+  export type LessonCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LessonCountOutputType
+     */
+    select?: LessonCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * LessonCountOutputType without action
+   */
+  export type LessonCountOutputTypeCountUserProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserLessonProgressWhereInput
   }
 
 
@@ -1559,6 +2243,9 @@ export namespace Prisma {
     clerkId?: boolean
     role?: boolean
     categoryStats?: boolean | User$categoryStatsArgs<ExtArgs>
+    learningProgress?: boolean | User$learningProgressArgs<ExtArgs>
+    moduleProgress?: boolean | User$moduleProgressArgs<ExtArgs>
+    lessonProgress?: boolean | User$lessonProgressArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1573,6 +2260,9 @@ export namespace Prisma {
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clerkId" | "role", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     categoryStats?: boolean | User$categoryStatsArgs<ExtArgs>
+    learningProgress?: boolean | User$learningProgressArgs<ExtArgs>
+    moduleProgress?: boolean | User$moduleProgressArgs<ExtArgs>
+    lessonProgress?: boolean | User$lessonProgressArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -1580,6 +2270,9 @@ export namespace Prisma {
     name: "User"
     objects: {
       categoryStats: Prisma.$CategoryStatPayload<ExtArgs>[]
+      learningProgress: Prisma.$UserLearningProgressPayload<ExtArgs>[]
+      moduleProgress: Prisma.$UserModuleProgressPayload<ExtArgs>[]
+      lessonProgress: Prisma.$UserLessonProgressPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1949,6 +2642,9 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     categoryStats<T extends User$categoryStatsArgs<ExtArgs> = {}>(args?: Subset<T, User$categoryStatsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CategoryStatPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    learningProgress<T extends User$learningProgressArgs<ExtArgs> = {}>(args?: Subset<T, User$learningProgressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserLearningProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    moduleProgress<T extends User$moduleProgressArgs<ExtArgs> = {}>(args?: Subset<T, User$moduleProgressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserModuleProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    lessonProgress<T extends User$lessonProgressArgs<ExtArgs> = {}>(args?: Subset<T, User$lessonProgressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserLessonProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2372,6 +3068,78 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: CategoryStatScalarFieldEnum | CategoryStatScalarFieldEnum[]
+  }
+
+  /**
+   * User.learningProgress
+   */
+  export type User$learningProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLearningProgress
+     */
+    select?: UserLearningProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLearningProgress
+     */
+    omit?: UserLearningProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLearningProgressInclude<ExtArgs> | null
+    where?: UserLearningProgressWhereInput
+    orderBy?: UserLearningProgressOrderByWithRelationInput | UserLearningProgressOrderByWithRelationInput[]
+    cursor?: UserLearningProgressWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserLearningProgressScalarFieldEnum | UserLearningProgressScalarFieldEnum[]
+  }
+
+  /**
+   * User.moduleProgress
+   */
+  export type User$moduleProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserModuleProgress
+     */
+    select?: UserModuleProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserModuleProgress
+     */
+    omit?: UserModuleProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserModuleProgressInclude<ExtArgs> | null
+    where?: UserModuleProgressWhereInput
+    orderBy?: UserModuleProgressOrderByWithRelationInput | UserModuleProgressOrderByWithRelationInput[]
+    cursor?: UserModuleProgressWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserModuleProgressScalarFieldEnum | UserModuleProgressScalarFieldEnum[]
+  }
+
+  /**
+   * User.lessonProgress
+   */
+  export type User$lessonProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLessonProgress
+     */
+    select?: UserLessonProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLessonProgress
+     */
+    omit?: UserLessonProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLessonProgressInclude<ExtArgs> | null
+    where?: UserLessonProgressWhereInput
+    orderBy?: UserLessonProgressOrderByWithRelationInput | UserLessonProgressOrderByWithRelationInput[]
+    cursor?: UserLessonProgressWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserLessonProgressScalarFieldEnum | UserLessonProgressScalarFieldEnum[]
   }
 
   /**
@@ -7438,6 +8206,6348 @@ export namespace Prisma {
 
 
   /**
+   * Model LearningPath
+   */
+
+  export type AggregateLearningPath = {
+    _count: LearningPathCountAggregateOutputType | null
+    _avg: LearningPathAvgAggregateOutputType | null
+    _sum: LearningPathSumAggregateOutputType | null
+    _min: LearningPathMinAggregateOutputType | null
+    _max: LearningPathMaxAggregateOutputType | null
+  }
+
+  export type LearningPathAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type LearningPathSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type LearningPathMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    title: string | null
+    description: string | null
+    image: string | null
+    order: number | null
+  }
+
+  export type LearningPathMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    title: string | null
+    description: string | null
+    image: string | null
+    order: number | null
+  }
+
+  export type LearningPathCountAggregateOutputType = {
+    id: number
+    name: number
+    title: number
+    description: number
+    image: number
+    order: number
+    _all: number
+  }
+
+
+  export type LearningPathAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type LearningPathSumAggregateInputType = {
+    order?: true
+  }
+
+  export type LearningPathMinAggregateInputType = {
+    id?: true
+    name?: true
+    title?: true
+    description?: true
+    image?: true
+    order?: true
+  }
+
+  export type LearningPathMaxAggregateInputType = {
+    id?: true
+    name?: true
+    title?: true
+    description?: true
+    image?: true
+    order?: true
+  }
+
+  export type LearningPathCountAggregateInputType = {
+    id?: true
+    name?: true
+    title?: true
+    description?: true
+    image?: true
+    order?: true
+    _all?: true
+  }
+
+  export type LearningPathAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LearningPath to aggregate.
+     */
+    where?: LearningPathWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearningPaths to fetch.
+     */
+    orderBy?: LearningPathOrderByWithRelationInput | LearningPathOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LearningPathWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearningPaths from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearningPaths.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LearningPaths
+    **/
+    _count?: true | LearningPathCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LearningPathAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LearningPathSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LearningPathMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LearningPathMaxAggregateInputType
+  }
+
+  export type GetLearningPathAggregateType<T extends LearningPathAggregateArgs> = {
+        [P in keyof T & keyof AggregateLearningPath]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLearningPath[P]>
+      : GetScalarType<T[P], AggregateLearningPath[P]>
+  }
+
+
+
+
+  export type LearningPathGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LearningPathWhereInput
+    orderBy?: LearningPathOrderByWithAggregationInput | LearningPathOrderByWithAggregationInput[]
+    by: LearningPathScalarFieldEnum[] | LearningPathScalarFieldEnum
+    having?: LearningPathScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LearningPathCountAggregateInputType | true
+    _avg?: LearningPathAvgAggregateInputType
+    _sum?: LearningPathSumAggregateInputType
+    _min?: LearningPathMinAggregateInputType
+    _max?: LearningPathMaxAggregateInputType
+  }
+
+  export type LearningPathGroupByOutputType = {
+    id: string
+    name: string
+    title: string
+    description: string
+    image: string | null
+    order: number
+    _count: LearningPathCountAggregateOutputType | null
+    _avg: LearningPathAvgAggregateOutputType | null
+    _sum: LearningPathSumAggregateOutputType | null
+    _min: LearningPathMinAggregateOutputType | null
+    _max: LearningPathMaxAggregateOutputType | null
+  }
+
+  type GetLearningPathGroupByPayload<T extends LearningPathGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LearningPathGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LearningPathGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LearningPathGroupByOutputType[P]>
+            : GetScalarType<T[P], LearningPathGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LearningPathSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    title?: boolean
+    description?: boolean
+    image?: boolean
+    order?: boolean
+    modules?: boolean | LearningPath$modulesArgs<ExtArgs>
+    userProgress?: boolean | LearningPath$userProgressArgs<ExtArgs>
+    _count?: boolean | LearningPathCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["learningPath"]>
+
+
+
+  export type LearningPathSelectScalar = {
+    id?: boolean
+    name?: boolean
+    title?: boolean
+    description?: boolean
+    image?: boolean
+    order?: boolean
+  }
+
+  export type LearningPathOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "title" | "description" | "image" | "order", ExtArgs["result"]["learningPath"]>
+  export type LearningPathInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    modules?: boolean | LearningPath$modulesArgs<ExtArgs>
+    userProgress?: boolean | LearningPath$userProgressArgs<ExtArgs>
+    _count?: boolean | LearningPathCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $LearningPathPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LearningPath"
+    objects: {
+      modules: Prisma.$ModulePayload<ExtArgs>[]
+      userProgress: Prisma.$UserLearningProgressPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      title: string
+      description: string
+      image: string | null
+      order: number
+    }, ExtArgs["result"]["learningPath"]>
+    composites: {}
+  }
+
+  type LearningPathGetPayload<S extends boolean | null | undefined | LearningPathDefaultArgs> = $Result.GetResult<Prisma.$LearningPathPayload, S>
+
+  type LearningPathCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LearningPathFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LearningPathCountAggregateInputType | true
+    }
+
+  export interface LearningPathDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LearningPath'], meta: { name: 'LearningPath' } }
+    /**
+     * Find zero or one LearningPath that matches the filter.
+     * @param {LearningPathFindUniqueArgs} args - Arguments to find a LearningPath
+     * @example
+     * // Get one LearningPath
+     * const learningPath = await prisma.learningPath.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LearningPathFindUniqueArgs>(args: SelectSubset<T, LearningPathFindUniqueArgs<ExtArgs>>): Prisma__LearningPathClient<$Result.GetResult<Prisma.$LearningPathPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LearningPath that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LearningPathFindUniqueOrThrowArgs} args - Arguments to find a LearningPath
+     * @example
+     * // Get one LearningPath
+     * const learningPath = await prisma.learningPath.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LearningPathFindUniqueOrThrowArgs>(args: SelectSubset<T, LearningPathFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LearningPathClient<$Result.GetResult<Prisma.$LearningPathPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LearningPath that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearningPathFindFirstArgs} args - Arguments to find a LearningPath
+     * @example
+     * // Get one LearningPath
+     * const learningPath = await prisma.learningPath.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LearningPathFindFirstArgs>(args?: SelectSubset<T, LearningPathFindFirstArgs<ExtArgs>>): Prisma__LearningPathClient<$Result.GetResult<Prisma.$LearningPathPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LearningPath that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearningPathFindFirstOrThrowArgs} args - Arguments to find a LearningPath
+     * @example
+     * // Get one LearningPath
+     * const learningPath = await prisma.learningPath.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LearningPathFindFirstOrThrowArgs>(args?: SelectSubset<T, LearningPathFindFirstOrThrowArgs<ExtArgs>>): Prisma__LearningPathClient<$Result.GetResult<Prisma.$LearningPathPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LearningPaths that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearningPathFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LearningPaths
+     * const learningPaths = await prisma.learningPath.findMany()
+     * 
+     * // Get first 10 LearningPaths
+     * const learningPaths = await prisma.learningPath.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const learningPathWithIdOnly = await prisma.learningPath.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LearningPathFindManyArgs>(args?: SelectSubset<T, LearningPathFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LearningPathPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LearningPath.
+     * @param {LearningPathCreateArgs} args - Arguments to create a LearningPath.
+     * @example
+     * // Create one LearningPath
+     * const LearningPath = await prisma.learningPath.create({
+     *   data: {
+     *     // ... data to create a LearningPath
+     *   }
+     * })
+     * 
+     */
+    create<T extends LearningPathCreateArgs>(args: SelectSubset<T, LearningPathCreateArgs<ExtArgs>>): Prisma__LearningPathClient<$Result.GetResult<Prisma.$LearningPathPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LearningPaths.
+     * @param {LearningPathCreateManyArgs} args - Arguments to create many LearningPaths.
+     * @example
+     * // Create many LearningPaths
+     * const learningPath = await prisma.learningPath.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LearningPathCreateManyArgs>(args?: SelectSubset<T, LearningPathCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a LearningPath.
+     * @param {LearningPathDeleteArgs} args - Arguments to delete one LearningPath.
+     * @example
+     * // Delete one LearningPath
+     * const LearningPath = await prisma.learningPath.delete({
+     *   where: {
+     *     // ... filter to delete one LearningPath
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LearningPathDeleteArgs>(args: SelectSubset<T, LearningPathDeleteArgs<ExtArgs>>): Prisma__LearningPathClient<$Result.GetResult<Prisma.$LearningPathPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LearningPath.
+     * @param {LearningPathUpdateArgs} args - Arguments to update one LearningPath.
+     * @example
+     * // Update one LearningPath
+     * const learningPath = await prisma.learningPath.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LearningPathUpdateArgs>(args: SelectSubset<T, LearningPathUpdateArgs<ExtArgs>>): Prisma__LearningPathClient<$Result.GetResult<Prisma.$LearningPathPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LearningPaths.
+     * @param {LearningPathDeleteManyArgs} args - Arguments to filter LearningPaths to delete.
+     * @example
+     * // Delete a few LearningPaths
+     * const { count } = await prisma.learningPath.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LearningPathDeleteManyArgs>(args?: SelectSubset<T, LearningPathDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LearningPaths.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearningPathUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LearningPaths
+     * const learningPath = await prisma.learningPath.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LearningPathUpdateManyArgs>(args: SelectSubset<T, LearningPathUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one LearningPath.
+     * @param {LearningPathUpsertArgs} args - Arguments to update or create a LearningPath.
+     * @example
+     * // Update or create a LearningPath
+     * const learningPath = await prisma.learningPath.upsert({
+     *   create: {
+     *     // ... data to create a LearningPath
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LearningPath we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LearningPathUpsertArgs>(args: SelectSubset<T, LearningPathUpsertArgs<ExtArgs>>): Prisma__LearningPathClient<$Result.GetResult<Prisma.$LearningPathPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LearningPaths that matches the filter.
+     * @param {LearningPathFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const learningPath = await prisma.learningPath.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: LearningPathFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a LearningPath.
+     * @param {LearningPathAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const learningPath = await prisma.learningPath.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: LearningPathAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of LearningPaths.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearningPathCountArgs} args - Arguments to filter LearningPaths to count.
+     * @example
+     * // Count the number of LearningPaths
+     * const count = await prisma.learningPath.count({
+     *   where: {
+     *     // ... the filter for the LearningPaths we want to count
+     *   }
+     * })
+    **/
+    count<T extends LearningPathCountArgs>(
+      args?: Subset<T, LearningPathCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LearningPathCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LearningPath.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearningPathAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LearningPathAggregateArgs>(args: Subset<T, LearningPathAggregateArgs>): Prisma.PrismaPromise<GetLearningPathAggregateType<T>>
+
+    /**
+     * Group by LearningPath.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearningPathGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LearningPathGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LearningPathGroupByArgs['orderBy'] }
+        : { orderBy?: LearningPathGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LearningPathGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLearningPathGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LearningPath model
+   */
+  readonly fields: LearningPathFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LearningPath.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LearningPathClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    modules<T extends LearningPath$modulesArgs<ExtArgs> = {}>(args?: Subset<T, LearningPath$modulesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    userProgress<T extends LearningPath$userProgressArgs<ExtArgs> = {}>(args?: Subset<T, LearningPath$userProgressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserLearningProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LearningPath model
+   */
+  interface LearningPathFieldRefs {
+    readonly id: FieldRef<"LearningPath", 'String'>
+    readonly name: FieldRef<"LearningPath", 'String'>
+    readonly title: FieldRef<"LearningPath", 'String'>
+    readonly description: FieldRef<"LearningPath", 'String'>
+    readonly image: FieldRef<"LearningPath", 'String'>
+    readonly order: FieldRef<"LearningPath", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LearningPath findUnique
+   */
+  export type LearningPathFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningPath
+     */
+    select?: LearningPathSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningPath
+     */
+    omit?: LearningPathOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningPathInclude<ExtArgs> | null
+    /**
+     * Filter, which LearningPath to fetch.
+     */
+    where: LearningPathWhereUniqueInput
+  }
+
+  /**
+   * LearningPath findUniqueOrThrow
+   */
+  export type LearningPathFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningPath
+     */
+    select?: LearningPathSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningPath
+     */
+    omit?: LearningPathOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningPathInclude<ExtArgs> | null
+    /**
+     * Filter, which LearningPath to fetch.
+     */
+    where: LearningPathWhereUniqueInput
+  }
+
+  /**
+   * LearningPath findFirst
+   */
+  export type LearningPathFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningPath
+     */
+    select?: LearningPathSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningPath
+     */
+    omit?: LearningPathOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningPathInclude<ExtArgs> | null
+    /**
+     * Filter, which LearningPath to fetch.
+     */
+    where?: LearningPathWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearningPaths to fetch.
+     */
+    orderBy?: LearningPathOrderByWithRelationInput | LearningPathOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LearningPaths.
+     */
+    cursor?: LearningPathWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearningPaths from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearningPaths.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LearningPaths.
+     */
+    distinct?: LearningPathScalarFieldEnum | LearningPathScalarFieldEnum[]
+  }
+
+  /**
+   * LearningPath findFirstOrThrow
+   */
+  export type LearningPathFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningPath
+     */
+    select?: LearningPathSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningPath
+     */
+    omit?: LearningPathOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningPathInclude<ExtArgs> | null
+    /**
+     * Filter, which LearningPath to fetch.
+     */
+    where?: LearningPathWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearningPaths to fetch.
+     */
+    orderBy?: LearningPathOrderByWithRelationInput | LearningPathOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LearningPaths.
+     */
+    cursor?: LearningPathWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearningPaths from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearningPaths.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LearningPaths.
+     */
+    distinct?: LearningPathScalarFieldEnum | LearningPathScalarFieldEnum[]
+  }
+
+  /**
+   * LearningPath findMany
+   */
+  export type LearningPathFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningPath
+     */
+    select?: LearningPathSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningPath
+     */
+    omit?: LearningPathOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningPathInclude<ExtArgs> | null
+    /**
+     * Filter, which LearningPaths to fetch.
+     */
+    where?: LearningPathWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearningPaths to fetch.
+     */
+    orderBy?: LearningPathOrderByWithRelationInput | LearningPathOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LearningPaths.
+     */
+    cursor?: LearningPathWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearningPaths from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearningPaths.
+     */
+    skip?: number
+    distinct?: LearningPathScalarFieldEnum | LearningPathScalarFieldEnum[]
+  }
+
+  /**
+   * LearningPath create
+   */
+  export type LearningPathCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningPath
+     */
+    select?: LearningPathSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningPath
+     */
+    omit?: LearningPathOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningPathInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LearningPath.
+     */
+    data: XOR<LearningPathCreateInput, LearningPathUncheckedCreateInput>
+  }
+
+  /**
+   * LearningPath createMany
+   */
+  export type LearningPathCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LearningPaths.
+     */
+    data: LearningPathCreateManyInput | LearningPathCreateManyInput[]
+  }
+
+  /**
+   * LearningPath update
+   */
+  export type LearningPathUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningPath
+     */
+    select?: LearningPathSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningPath
+     */
+    omit?: LearningPathOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningPathInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LearningPath.
+     */
+    data: XOR<LearningPathUpdateInput, LearningPathUncheckedUpdateInput>
+    /**
+     * Choose, which LearningPath to update.
+     */
+    where: LearningPathWhereUniqueInput
+  }
+
+  /**
+   * LearningPath updateMany
+   */
+  export type LearningPathUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LearningPaths.
+     */
+    data: XOR<LearningPathUpdateManyMutationInput, LearningPathUncheckedUpdateManyInput>
+    /**
+     * Filter which LearningPaths to update
+     */
+    where?: LearningPathWhereInput
+    /**
+     * Limit how many LearningPaths to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LearningPath upsert
+   */
+  export type LearningPathUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningPath
+     */
+    select?: LearningPathSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningPath
+     */
+    omit?: LearningPathOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningPathInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LearningPath to update in case it exists.
+     */
+    where: LearningPathWhereUniqueInput
+    /**
+     * In case the LearningPath found by the `where` argument doesn't exist, create a new LearningPath with this data.
+     */
+    create: XOR<LearningPathCreateInput, LearningPathUncheckedCreateInput>
+    /**
+     * In case the LearningPath was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LearningPathUpdateInput, LearningPathUncheckedUpdateInput>
+  }
+
+  /**
+   * LearningPath delete
+   */
+  export type LearningPathDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningPath
+     */
+    select?: LearningPathSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningPath
+     */
+    omit?: LearningPathOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningPathInclude<ExtArgs> | null
+    /**
+     * Filter which LearningPath to delete.
+     */
+    where: LearningPathWhereUniqueInput
+  }
+
+  /**
+   * LearningPath deleteMany
+   */
+  export type LearningPathDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LearningPaths to delete
+     */
+    where?: LearningPathWhereInput
+    /**
+     * Limit how many LearningPaths to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LearningPath findRaw
+   */
+  export type LearningPathFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * LearningPath aggregateRaw
+   */
+  export type LearningPathAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * LearningPath.modules
+   */
+  export type LearningPath$modulesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Module
+     */
+    select?: ModuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Module
+     */
+    omit?: ModuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuleInclude<ExtArgs> | null
+    where?: ModuleWhereInput
+    orderBy?: ModuleOrderByWithRelationInput | ModuleOrderByWithRelationInput[]
+    cursor?: ModuleWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ModuleScalarFieldEnum | ModuleScalarFieldEnum[]
+  }
+
+  /**
+   * LearningPath.userProgress
+   */
+  export type LearningPath$userProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLearningProgress
+     */
+    select?: UserLearningProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLearningProgress
+     */
+    omit?: UserLearningProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLearningProgressInclude<ExtArgs> | null
+    where?: UserLearningProgressWhereInput
+    orderBy?: UserLearningProgressOrderByWithRelationInput | UserLearningProgressOrderByWithRelationInput[]
+    cursor?: UserLearningProgressWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserLearningProgressScalarFieldEnum | UserLearningProgressScalarFieldEnum[]
+  }
+
+  /**
+   * LearningPath without action
+   */
+  export type LearningPathDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearningPath
+     */
+    select?: LearningPathSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearningPath
+     */
+    omit?: LearningPathOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearningPathInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Module
+   */
+
+  export type AggregateModule = {
+    _count: ModuleCountAggregateOutputType | null
+    _avg: ModuleAvgAggregateOutputType | null
+    _sum: ModuleSumAggregateOutputType | null
+    _min: ModuleMinAggregateOutputType | null
+    _max: ModuleMaxAggregateOutputType | null
+  }
+
+  export type ModuleAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type ModuleSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type ModuleMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    description: string | null
+    duration: string | null
+    order: number | null
+    learningPathId: string | null
+  }
+
+  export type ModuleMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    description: string | null
+    duration: string | null
+    order: number | null
+    learningPathId: string | null
+  }
+
+  export type ModuleCountAggregateOutputType = {
+    id: number
+    title: number
+    description: number
+    duration: number
+    order: number
+    learningPathId: number
+    _all: number
+  }
+
+
+  export type ModuleAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type ModuleSumAggregateInputType = {
+    order?: true
+  }
+
+  export type ModuleMinAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    duration?: true
+    order?: true
+    learningPathId?: true
+  }
+
+  export type ModuleMaxAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    duration?: true
+    order?: true
+    learningPathId?: true
+  }
+
+  export type ModuleCountAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    duration?: true
+    order?: true
+    learningPathId?: true
+    _all?: true
+  }
+
+  export type ModuleAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Module to aggregate.
+     */
+    where?: ModuleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Modules to fetch.
+     */
+    orderBy?: ModuleOrderByWithRelationInput | ModuleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ModuleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Modules from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Modules.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Modules
+    **/
+    _count?: true | ModuleCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ModuleAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ModuleSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ModuleMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ModuleMaxAggregateInputType
+  }
+
+  export type GetModuleAggregateType<T extends ModuleAggregateArgs> = {
+        [P in keyof T & keyof AggregateModule]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateModule[P]>
+      : GetScalarType<T[P], AggregateModule[P]>
+  }
+
+
+
+
+  export type ModuleGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModuleWhereInput
+    orderBy?: ModuleOrderByWithAggregationInput | ModuleOrderByWithAggregationInput[]
+    by: ModuleScalarFieldEnum[] | ModuleScalarFieldEnum
+    having?: ModuleScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ModuleCountAggregateInputType | true
+    _avg?: ModuleAvgAggregateInputType
+    _sum?: ModuleSumAggregateInputType
+    _min?: ModuleMinAggregateInputType
+    _max?: ModuleMaxAggregateInputType
+  }
+
+  export type ModuleGroupByOutputType = {
+    id: string
+    title: string
+    description: string
+    duration: string
+    order: number
+    learningPathId: string
+    _count: ModuleCountAggregateOutputType | null
+    _avg: ModuleAvgAggregateOutputType | null
+    _sum: ModuleSumAggregateOutputType | null
+    _min: ModuleMinAggregateOutputType | null
+    _max: ModuleMaxAggregateOutputType | null
+  }
+
+  type GetModuleGroupByPayload<T extends ModuleGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ModuleGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ModuleGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ModuleGroupByOutputType[P]>
+            : GetScalarType<T[P], ModuleGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ModuleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    duration?: boolean
+    order?: boolean
+    learningPathId?: boolean
+    learningPath?: boolean | LearningPathDefaultArgs<ExtArgs>
+    lessons?: boolean | Module$lessonsArgs<ExtArgs>
+    userProgress?: boolean | Module$userProgressArgs<ExtArgs>
+    _count?: boolean | ModuleCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["module"]>
+
+
+
+  export type ModuleSelectScalar = {
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    duration?: boolean
+    order?: boolean
+    learningPathId?: boolean
+  }
+
+  export type ModuleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "duration" | "order" | "learningPathId", ExtArgs["result"]["module"]>
+  export type ModuleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    learningPath?: boolean | LearningPathDefaultArgs<ExtArgs>
+    lessons?: boolean | Module$lessonsArgs<ExtArgs>
+    userProgress?: boolean | Module$userProgressArgs<ExtArgs>
+    _count?: boolean | ModuleCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $ModulePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Module"
+    objects: {
+      learningPath: Prisma.$LearningPathPayload<ExtArgs>
+      lessons: Prisma.$LessonPayload<ExtArgs>[]
+      userProgress: Prisma.$UserModuleProgressPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      description: string
+      duration: string
+      order: number
+      learningPathId: string
+    }, ExtArgs["result"]["module"]>
+    composites: {}
+  }
+
+  type ModuleGetPayload<S extends boolean | null | undefined | ModuleDefaultArgs> = $Result.GetResult<Prisma.$ModulePayload, S>
+
+  type ModuleCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ModuleFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ModuleCountAggregateInputType | true
+    }
+
+  export interface ModuleDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Module'], meta: { name: 'Module' } }
+    /**
+     * Find zero or one Module that matches the filter.
+     * @param {ModuleFindUniqueArgs} args - Arguments to find a Module
+     * @example
+     * // Get one Module
+     * const module = await prisma.module.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ModuleFindUniqueArgs>(args: SelectSubset<T, ModuleFindUniqueArgs<ExtArgs>>): Prisma__ModuleClient<$Result.GetResult<Prisma.$ModulePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Module that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ModuleFindUniqueOrThrowArgs} args - Arguments to find a Module
+     * @example
+     * // Get one Module
+     * const module = await prisma.module.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ModuleFindUniqueOrThrowArgs>(args: SelectSubset<T, ModuleFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ModuleClient<$Result.GetResult<Prisma.$ModulePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Module that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModuleFindFirstArgs} args - Arguments to find a Module
+     * @example
+     * // Get one Module
+     * const module = await prisma.module.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ModuleFindFirstArgs>(args?: SelectSubset<T, ModuleFindFirstArgs<ExtArgs>>): Prisma__ModuleClient<$Result.GetResult<Prisma.$ModulePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Module that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModuleFindFirstOrThrowArgs} args - Arguments to find a Module
+     * @example
+     * // Get one Module
+     * const module = await prisma.module.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ModuleFindFirstOrThrowArgs>(args?: SelectSubset<T, ModuleFindFirstOrThrowArgs<ExtArgs>>): Prisma__ModuleClient<$Result.GetResult<Prisma.$ModulePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Modules that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModuleFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Modules
+     * const modules = await prisma.module.findMany()
+     * 
+     * // Get first 10 Modules
+     * const modules = await prisma.module.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const moduleWithIdOnly = await prisma.module.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ModuleFindManyArgs>(args?: SelectSubset<T, ModuleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Module.
+     * @param {ModuleCreateArgs} args - Arguments to create a Module.
+     * @example
+     * // Create one Module
+     * const Module = await prisma.module.create({
+     *   data: {
+     *     // ... data to create a Module
+     *   }
+     * })
+     * 
+     */
+    create<T extends ModuleCreateArgs>(args: SelectSubset<T, ModuleCreateArgs<ExtArgs>>): Prisma__ModuleClient<$Result.GetResult<Prisma.$ModulePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Modules.
+     * @param {ModuleCreateManyArgs} args - Arguments to create many Modules.
+     * @example
+     * // Create many Modules
+     * const module = await prisma.module.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ModuleCreateManyArgs>(args?: SelectSubset<T, ModuleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Module.
+     * @param {ModuleDeleteArgs} args - Arguments to delete one Module.
+     * @example
+     * // Delete one Module
+     * const Module = await prisma.module.delete({
+     *   where: {
+     *     // ... filter to delete one Module
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ModuleDeleteArgs>(args: SelectSubset<T, ModuleDeleteArgs<ExtArgs>>): Prisma__ModuleClient<$Result.GetResult<Prisma.$ModulePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Module.
+     * @param {ModuleUpdateArgs} args - Arguments to update one Module.
+     * @example
+     * // Update one Module
+     * const module = await prisma.module.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ModuleUpdateArgs>(args: SelectSubset<T, ModuleUpdateArgs<ExtArgs>>): Prisma__ModuleClient<$Result.GetResult<Prisma.$ModulePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Modules.
+     * @param {ModuleDeleteManyArgs} args - Arguments to filter Modules to delete.
+     * @example
+     * // Delete a few Modules
+     * const { count } = await prisma.module.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ModuleDeleteManyArgs>(args?: SelectSubset<T, ModuleDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Modules.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModuleUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Modules
+     * const module = await prisma.module.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ModuleUpdateManyArgs>(args: SelectSubset<T, ModuleUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Module.
+     * @param {ModuleUpsertArgs} args - Arguments to update or create a Module.
+     * @example
+     * // Update or create a Module
+     * const module = await prisma.module.upsert({
+     *   create: {
+     *     // ... data to create a Module
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Module we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ModuleUpsertArgs>(args: SelectSubset<T, ModuleUpsertArgs<ExtArgs>>): Prisma__ModuleClient<$Result.GetResult<Prisma.$ModulePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Modules that matches the filter.
+     * @param {ModuleFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const module = await prisma.module.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: ModuleFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a Module.
+     * @param {ModuleAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const module = await prisma.module.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: ModuleAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of Modules.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModuleCountArgs} args - Arguments to filter Modules to count.
+     * @example
+     * // Count the number of Modules
+     * const count = await prisma.module.count({
+     *   where: {
+     *     // ... the filter for the Modules we want to count
+     *   }
+     * })
+    **/
+    count<T extends ModuleCountArgs>(
+      args?: Subset<T, ModuleCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ModuleCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Module.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModuleAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ModuleAggregateArgs>(args: Subset<T, ModuleAggregateArgs>): Prisma.PrismaPromise<GetModuleAggregateType<T>>
+
+    /**
+     * Group by Module.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModuleGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ModuleGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ModuleGroupByArgs['orderBy'] }
+        : { orderBy?: ModuleGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ModuleGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetModuleGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Module model
+   */
+  readonly fields: ModuleFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Module.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ModuleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    learningPath<T extends LearningPathDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LearningPathDefaultArgs<ExtArgs>>): Prisma__LearningPathClient<$Result.GetResult<Prisma.$LearningPathPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    lessons<T extends Module$lessonsArgs<ExtArgs> = {}>(args?: Subset<T, Module$lessonsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LessonPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    userProgress<T extends Module$userProgressArgs<ExtArgs> = {}>(args?: Subset<T, Module$userProgressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserModuleProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Module model
+   */
+  interface ModuleFieldRefs {
+    readonly id: FieldRef<"Module", 'String'>
+    readonly title: FieldRef<"Module", 'String'>
+    readonly description: FieldRef<"Module", 'String'>
+    readonly duration: FieldRef<"Module", 'String'>
+    readonly order: FieldRef<"Module", 'Int'>
+    readonly learningPathId: FieldRef<"Module", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Module findUnique
+   */
+  export type ModuleFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Module
+     */
+    select?: ModuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Module
+     */
+    omit?: ModuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuleInclude<ExtArgs> | null
+    /**
+     * Filter, which Module to fetch.
+     */
+    where: ModuleWhereUniqueInput
+  }
+
+  /**
+   * Module findUniqueOrThrow
+   */
+  export type ModuleFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Module
+     */
+    select?: ModuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Module
+     */
+    omit?: ModuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuleInclude<ExtArgs> | null
+    /**
+     * Filter, which Module to fetch.
+     */
+    where: ModuleWhereUniqueInput
+  }
+
+  /**
+   * Module findFirst
+   */
+  export type ModuleFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Module
+     */
+    select?: ModuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Module
+     */
+    omit?: ModuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuleInclude<ExtArgs> | null
+    /**
+     * Filter, which Module to fetch.
+     */
+    where?: ModuleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Modules to fetch.
+     */
+    orderBy?: ModuleOrderByWithRelationInput | ModuleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Modules.
+     */
+    cursor?: ModuleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Modules from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Modules.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Modules.
+     */
+    distinct?: ModuleScalarFieldEnum | ModuleScalarFieldEnum[]
+  }
+
+  /**
+   * Module findFirstOrThrow
+   */
+  export type ModuleFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Module
+     */
+    select?: ModuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Module
+     */
+    omit?: ModuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuleInclude<ExtArgs> | null
+    /**
+     * Filter, which Module to fetch.
+     */
+    where?: ModuleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Modules to fetch.
+     */
+    orderBy?: ModuleOrderByWithRelationInput | ModuleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Modules.
+     */
+    cursor?: ModuleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Modules from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Modules.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Modules.
+     */
+    distinct?: ModuleScalarFieldEnum | ModuleScalarFieldEnum[]
+  }
+
+  /**
+   * Module findMany
+   */
+  export type ModuleFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Module
+     */
+    select?: ModuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Module
+     */
+    omit?: ModuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuleInclude<ExtArgs> | null
+    /**
+     * Filter, which Modules to fetch.
+     */
+    where?: ModuleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Modules to fetch.
+     */
+    orderBy?: ModuleOrderByWithRelationInput | ModuleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Modules.
+     */
+    cursor?: ModuleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Modules from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Modules.
+     */
+    skip?: number
+    distinct?: ModuleScalarFieldEnum | ModuleScalarFieldEnum[]
+  }
+
+  /**
+   * Module create
+   */
+  export type ModuleCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Module
+     */
+    select?: ModuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Module
+     */
+    omit?: ModuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuleInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Module.
+     */
+    data: XOR<ModuleCreateInput, ModuleUncheckedCreateInput>
+  }
+
+  /**
+   * Module createMany
+   */
+  export type ModuleCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Modules.
+     */
+    data: ModuleCreateManyInput | ModuleCreateManyInput[]
+  }
+
+  /**
+   * Module update
+   */
+  export type ModuleUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Module
+     */
+    select?: ModuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Module
+     */
+    omit?: ModuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuleInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Module.
+     */
+    data: XOR<ModuleUpdateInput, ModuleUncheckedUpdateInput>
+    /**
+     * Choose, which Module to update.
+     */
+    where: ModuleWhereUniqueInput
+  }
+
+  /**
+   * Module updateMany
+   */
+  export type ModuleUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Modules.
+     */
+    data: XOR<ModuleUpdateManyMutationInput, ModuleUncheckedUpdateManyInput>
+    /**
+     * Filter which Modules to update
+     */
+    where?: ModuleWhereInput
+    /**
+     * Limit how many Modules to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Module upsert
+   */
+  export type ModuleUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Module
+     */
+    select?: ModuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Module
+     */
+    omit?: ModuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuleInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Module to update in case it exists.
+     */
+    where: ModuleWhereUniqueInput
+    /**
+     * In case the Module found by the `where` argument doesn't exist, create a new Module with this data.
+     */
+    create: XOR<ModuleCreateInput, ModuleUncheckedCreateInput>
+    /**
+     * In case the Module was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ModuleUpdateInput, ModuleUncheckedUpdateInput>
+  }
+
+  /**
+   * Module delete
+   */
+  export type ModuleDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Module
+     */
+    select?: ModuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Module
+     */
+    omit?: ModuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuleInclude<ExtArgs> | null
+    /**
+     * Filter which Module to delete.
+     */
+    where: ModuleWhereUniqueInput
+  }
+
+  /**
+   * Module deleteMany
+   */
+  export type ModuleDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Modules to delete
+     */
+    where?: ModuleWhereInput
+    /**
+     * Limit how many Modules to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Module findRaw
+   */
+  export type ModuleFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * Module aggregateRaw
+   */
+  export type ModuleAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * Module.lessons
+   */
+  export type Module$lessonsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lesson
+     */
+    select?: LessonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lesson
+     */
+    omit?: LessonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LessonInclude<ExtArgs> | null
+    where?: LessonWhereInput
+    orderBy?: LessonOrderByWithRelationInput | LessonOrderByWithRelationInput[]
+    cursor?: LessonWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LessonScalarFieldEnum | LessonScalarFieldEnum[]
+  }
+
+  /**
+   * Module.userProgress
+   */
+  export type Module$userProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserModuleProgress
+     */
+    select?: UserModuleProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserModuleProgress
+     */
+    omit?: UserModuleProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserModuleProgressInclude<ExtArgs> | null
+    where?: UserModuleProgressWhereInput
+    orderBy?: UserModuleProgressOrderByWithRelationInput | UserModuleProgressOrderByWithRelationInput[]
+    cursor?: UserModuleProgressWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserModuleProgressScalarFieldEnum | UserModuleProgressScalarFieldEnum[]
+  }
+
+  /**
+   * Module without action
+   */
+  export type ModuleDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Module
+     */
+    select?: ModuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Module
+     */
+    omit?: ModuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModuleInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Lesson
+   */
+
+  export type AggregateLesson = {
+    _count: LessonCountAggregateOutputType | null
+    _avg: LessonAvgAggregateOutputType | null
+    _sum: LessonSumAggregateOutputType | null
+    _min: LessonMinAggregateOutputType | null
+    _max: LessonMaxAggregateOutputType | null
+  }
+
+  export type LessonAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type LessonSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type LessonMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    content: string | null
+    videoUrl: string | null
+    codeExample: string | null
+    resources: string | null
+    duration: string | null
+    order: number | null
+    moduleId: string | null
+  }
+
+  export type LessonMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    content: string | null
+    videoUrl: string | null
+    codeExample: string | null
+    resources: string | null
+    duration: string | null
+    order: number | null
+    moduleId: string | null
+  }
+
+  export type LessonCountAggregateOutputType = {
+    id: number
+    title: number
+    content: number
+    videoUrl: number
+    codeExample: number
+    resources: number
+    duration: number
+    order: number
+    moduleId: number
+    _all: number
+  }
+
+
+  export type LessonAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type LessonSumAggregateInputType = {
+    order?: true
+  }
+
+  export type LessonMinAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    videoUrl?: true
+    codeExample?: true
+    resources?: true
+    duration?: true
+    order?: true
+    moduleId?: true
+  }
+
+  export type LessonMaxAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    videoUrl?: true
+    codeExample?: true
+    resources?: true
+    duration?: true
+    order?: true
+    moduleId?: true
+  }
+
+  export type LessonCountAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    videoUrl?: true
+    codeExample?: true
+    resources?: true
+    duration?: true
+    order?: true
+    moduleId?: true
+    _all?: true
+  }
+
+  export type LessonAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Lesson to aggregate.
+     */
+    where?: LessonWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Lessons to fetch.
+     */
+    orderBy?: LessonOrderByWithRelationInput | LessonOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LessonWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Lessons from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Lessons.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Lessons
+    **/
+    _count?: true | LessonCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LessonAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LessonSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LessonMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LessonMaxAggregateInputType
+  }
+
+  export type GetLessonAggregateType<T extends LessonAggregateArgs> = {
+        [P in keyof T & keyof AggregateLesson]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLesson[P]>
+      : GetScalarType<T[P], AggregateLesson[P]>
+  }
+
+
+
+
+  export type LessonGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LessonWhereInput
+    orderBy?: LessonOrderByWithAggregationInput | LessonOrderByWithAggregationInput[]
+    by: LessonScalarFieldEnum[] | LessonScalarFieldEnum
+    having?: LessonScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LessonCountAggregateInputType | true
+    _avg?: LessonAvgAggregateInputType
+    _sum?: LessonSumAggregateInputType
+    _min?: LessonMinAggregateInputType
+    _max?: LessonMaxAggregateInputType
+  }
+
+  export type LessonGroupByOutputType = {
+    id: string
+    title: string
+    content: string
+    videoUrl: string | null
+    codeExample: string | null
+    resources: string | null
+    duration: string
+    order: number
+    moduleId: string
+    _count: LessonCountAggregateOutputType | null
+    _avg: LessonAvgAggregateOutputType | null
+    _sum: LessonSumAggregateOutputType | null
+    _min: LessonMinAggregateOutputType | null
+    _max: LessonMaxAggregateOutputType | null
+  }
+
+  type GetLessonGroupByPayload<T extends LessonGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LessonGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LessonGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LessonGroupByOutputType[P]>
+            : GetScalarType<T[P], LessonGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LessonSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    videoUrl?: boolean
+    codeExample?: boolean
+    resources?: boolean
+    duration?: boolean
+    order?: boolean
+    moduleId?: boolean
+    module?: boolean | ModuleDefaultArgs<ExtArgs>
+    userProgress?: boolean | Lesson$userProgressArgs<ExtArgs>
+    _count?: boolean | LessonCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["lesson"]>
+
+
+
+  export type LessonSelectScalar = {
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    videoUrl?: boolean
+    codeExample?: boolean
+    resources?: boolean
+    duration?: boolean
+    order?: boolean
+    moduleId?: boolean
+  }
+
+  export type LessonOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "videoUrl" | "codeExample" | "resources" | "duration" | "order" | "moduleId", ExtArgs["result"]["lesson"]>
+  export type LessonInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    module?: boolean | ModuleDefaultArgs<ExtArgs>
+    userProgress?: boolean | Lesson$userProgressArgs<ExtArgs>
+    _count?: boolean | LessonCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $LessonPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Lesson"
+    objects: {
+      module: Prisma.$ModulePayload<ExtArgs>
+      userProgress: Prisma.$UserLessonProgressPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      content: string
+      videoUrl: string | null
+      codeExample: string | null
+      resources: string | null
+      duration: string
+      order: number
+      moduleId: string
+    }, ExtArgs["result"]["lesson"]>
+    composites: {}
+  }
+
+  type LessonGetPayload<S extends boolean | null | undefined | LessonDefaultArgs> = $Result.GetResult<Prisma.$LessonPayload, S>
+
+  type LessonCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LessonFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LessonCountAggregateInputType | true
+    }
+
+  export interface LessonDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Lesson'], meta: { name: 'Lesson' } }
+    /**
+     * Find zero or one Lesson that matches the filter.
+     * @param {LessonFindUniqueArgs} args - Arguments to find a Lesson
+     * @example
+     * // Get one Lesson
+     * const lesson = await prisma.lesson.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LessonFindUniqueArgs>(args: SelectSubset<T, LessonFindUniqueArgs<ExtArgs>>): Prisma__LessonClient<$Result.GetResult<Prisma.$LessonPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Lesson that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LessonFindUniqueOrThrowArgs} args - Arguments to find a Lesson
+     * @example
+     * // Get one Lesson
+     * const lesson = await prisma.lesson.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LessonFindUniqueOrThrowArgs>(args: SelectSubset<T, LessonFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LessonClient<$Result.GetResult<Prisma.$LessonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Lesson that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LessonFindFirstArgs} args - Arguments to find a Lesson
+     * @example
+     * // Get one Lesson
+     * const lesson = await prisma.lesson.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LessonFindFirstArgs>(args?: SelectSubset<T, LessonFindFirstArgs<ExtArgs>>): Prisma__LessonClient<$Result.GetResult<Prisma.$LessonPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Lesson that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LessonFindFirstOrThrowArgs} args - Arguments to find a Lesson
+     * @example
+     * // Get one Lesson
+     * const lesson = await prisma.lesson.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LessonFindFirstOrThrowArgs>(args?: SelectSubset<T, LessonFindFirstOrThrowArgs<ExtArgs>>): Prisma__LessonClient<$Result.GetResult<Prisma.$LessonPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Lessons that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LessonFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Lessons
+     * const lessons = await prisma.lesson.findMany()
+     * 
+     * // Get first 10 Lessons
+     * const lessons = await prisma.lesson.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const lessonWithIdOnly = await prisma.lesson.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LessonFindManyArgs>(args?: SelectSubset<T, LessonFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LessonPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Lesson.
+     * @param {LessonCreateArgs} args - Arguments to create a Lesson.
+     * @example
+     * // Create one Lesson
+     * const Lesson = await prisma.lesson.create({
+     *   data: {
+     *     // ... data to create a Lesson
+     *   }
+     * })
+     * 
+     */
+    create<T extends LessonCreateArgs>(args: SelectSubset<T, LessonCreateArgs<ExtArgs>>): Prisma__LessonClient<$Result.GetResult<Prisma.$LessonPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Lessons.
+     * @param {LessonCreateManyArgs} args - Arguments to create many Lessons.
+     * @example
+     * // Create many Lessons
+     * const lesson = await prisma.lesson.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LessonCreateManyArgs>(args?: SelectSubset<T, LessonCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Lesson.
+     * @param {LessonDeleteArgs} args - Arguments to delete one Lesson.
+     * @example
+     * // Delete one Lesson
+     * const Lesson = await prisma.lesson.delete({
+     *   where: {
+     *     // ... filter to delete one Lesson
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LessonDeleteArgs>(args: SelectSubset<T, LessonDeleteArgs<ExtArgs>>): Prisma__LessonClient<$Result.GetResult<Prisma.$LessonPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Lesson.
+     * @param {LessonUpdateArgs} args - Arguments to update one Lesson.
+     * @example
+     * // Update one Lesson
+     * const lesson = await prisma.lesson.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LessonUpdateArgs>(args: SelectSubset<T, LessonUpdateArgs<ExtArgs>>): Prisma__LessonClient<$Result.GetResult<Prisma.$LessonPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Lessons.
+     * @param {LessonDeleteManyArgs} args - Arguments to filter Lessons to delete.
+     * @example
+     * // Delete a few Lessons
+     * const { count } = await prisma.lesson.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LessonDeleteManyArgs>(args?: SelectSubset<T, LessonDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Lessons.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LessonUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Lessons
+     * const lesson = await prisma.lesson.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LessonUpdateManyArgs>(args: SelectSubset<T, LessonUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Lesson.
+     * @param {LessonUpsertArgs} args - Arguments to update or create a Lesson.
+     * @example
+     * // Update or create a Lesson
+     * const lesson = await prisma.lesson.upsert({
+     *   create: {
+     *     // ... data to create a Lesson
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Lesson we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LessonUpsertArgs>(args: SelectSubset<T, LessonUpsertArgs<ExtArgs>>): Prisma__LessonClient<$Result.GetResult<Prisma.$LessonPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Lessons that matches the filter.
+     * @param {LessonFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const lesson = await prisma.lesson.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: LessonFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a Lesson.
+     * @param {LessonAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const lesson = await prisma.lesson.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: LessonAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of Lessons.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LessonCountArgs} args - Arguments to filter Lessons to count.
+     * @example
+     * // Count the number of Lessons
+     * const count = await prisma.lesson.count({
+     *   where: {
+     *     // ... the filter for the Lessons we want to count
+     *   }
+     * })
+    **/
+    count<T extends LessonCountArgs>(
+      args?: Subset<T, LessonCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LessonCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Lesson.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LessonAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LessonAggregateArgs>(args: Subset<T, LessonAggregateArgs>): Prisma.PrismaPromise<GetLessonAggregateType<T>>
+
+    /**
+     * Group by Lesson.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LessonGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LessonGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LessonGroupByArgs['orderBy'] }
+        : { orderBy?: LessonGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LessonGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLessonGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Lesson model
+   */
+  readonly fields: LessonFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Lesson.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LessonClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    module<T extends ModuleDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ModuleDefaultArgs<ExtArgs>>): Prisma__ModuleClient<$Result.GetResult<Prisma.$ModulePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    userProgress<T extends Lesson$userProgressArgs<ExtArgs> = {}>(args?: Subset<T, Lesson$userProgressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserLessonProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Lesson model
+   */
+  interface LessonFieldRefs {
+    readonly id: FieldRef<"Lesson", 'String'>
+    readonly title: FieldRef<"Lesson", 'String'>
+    readonly content: FieldRef<"Lesson", 'String'>
+    readonly videoUrl: FieldRef<"Lesson", 'String'>
+    readonly codeExample: FieldRef<"Lesson", 'String'>
+    readonly resources: FieldRef<"Lesson", 'String'>
+    readonly duration: FieldRef<"Lesson", 'String'>
+    readonly order: FieldRef<"Lesson", 'Int'>
+    readonly moduleId: FieldRef<"Lesson", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Lesson findUnique
+   */
+  export type LessonFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lesson
+     */
+    select?: LessonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lesson
+     */
+    omit?: LessonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LessonInclude<ExtArgs> | null
+    /**
+     * Filter, which Lesson to fetch.
+     */
+    where: LessonWhereUniqueInput
+  }
+
+  /**
+   * Lesson findUniqueOrThrow
+   */
+  export type LessonFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lesson
+     */
+    select?: LessonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lesson
+     */
+    omit?: LessonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LessonInclude<ExtArgs> | null
+    /**
+     * Filter, which Lesson to fetch.
+     */
+    where: LessonWhereUniqueInput
+  }
+
+  /**
+   * Lesson findFirst
+   */
+  export type LessonFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lesson
+     */
+    select?: LessonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lesson
+     */
+    omit?: LessonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LessonInclude<ExtArgs> | null
+    /**
+     * Filter, which Lesson to fetch.
+     */
+    where?: LessonWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Lessons to fetch.
+     */
+    orderBy?: LessonOrderByWithRelationInput | LessonOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Lessons.
+     */
+    cursor?: LessonWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Lessons from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Lessons.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Lessons.
+     */
+    distinct?: LessonScalarFieldEnum | LessonScalarFieldEnum[]
+  }
+
+  /**
+   * Lesson findFirstOrThrow
+   */
+  export type LessonFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lesson
+     */
+    select?: LessonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lesson
+     */
+    omit?: LessonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LessonInclude<ExtArgs> | null
+    /**
+     * Filter, which Lesson to fetch.
+     */
+    where?: LessonWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Lessons to fetch.
+     */
+    orderBy?: LessonOrderByWithRelationInput | LessonOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Lessons.
+     */
+    cursor?: LessonWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Lessons from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Lessons.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Lessons.
+     */
+    distinct?: LessonScalarFieldEnum | LessonScalarFieldEnum[]
+  }
+
+  /**
+   * Lesson findMany
+   */
+  export type LessonFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lesson
+     */
+    select?: LessonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lesson
+     */
+    omit?: LessonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LessonInclude<ExtArgs> | null
+    /**
+     * Filter, which Lessons to fetch.
+     */
+    where?: LessonWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Lessons to fetch.
+     */
+    orderBy?: LessonOrderByWithRelationInput | LessonOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Lessons.
+     */
+    cursor?: LessonWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Lessons from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Lessons.
+     */
+    skip?: number
+    distinct?: LessonScalarFieldEnum | LessonScalarFieldEnum[]
+  }
+
+  /**
+   * Lesson create
+   */
+  export type LessonCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lesson
+     */
+    select?: LessonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lesson
+     */
+    omit?: LessonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LessonInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Lesson.
+     */
+    data: XOR<LessonCreateInput, LessonUncheckedCreateInput>
+  }
+
+  /**
+   * Lesson createMany
+   */
+  export type LessonCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Lessons.
+     */
+    data: LessonCreateManyInput | LessonCreateManyInput[]
+  }
+
+  /**
+   * Lesson update
+   */
+  export type LessonUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lesson
+     */
+    select?: LessonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lesson
+     */
+    omit?: LessonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LessonInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Lesson.
+     */
+    data: XOR<LessonUpdateInput, LessonUncheckedUpdateInput>
+    /**
+     * Choose, which Lesson to update.
+     */
+    where: LessonWhereUniqueInput
+  }
+
+  /**
+   * Lesson updateMany
+   */
+  export type LessonUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Lessons.
+     */
+    data: XOR<LessonUpdateManyMutationInput, LessonUncheckedUpdateManyInput>
+    /**
+     * Filter which Lessons to update
+     */
+    where?: LessonWhereInput
+    /**
+     * Limit how many Lessons to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Lesson upsert
+   */
+  export type LessonUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lesson
+     */
+    select?: LessonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lesson
+     */
+    omit?: LessonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LessonInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Lesson to update in case it exists.
+     */
+    where: LessonWhereUniqueInput
+    /**
+     * In case the Lesson found by the `where` argument doesn't exist, create a new Lesson with this data.
+     */
+    create: XOR<LessonCreateInput, LessonUncheckedCreateInput>
+    /**
+     * In case the Lesson was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LessonUpdateInput, LessonUncheckedUpdateInput>
+  }
+
+  /**
+   * Lesson delete
+   */
+  export type LessonDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lesson
+     */
+    select?: LessonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lesson
+     */
+    omit?: LessonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LessonInclude<ExtArgs> | null
+    /**
+     * Filter which Lesson to delete.
+     */
+    where: LessonWhereUniqueInput
+  }
+
+  /**
+   * Lesson deleteMany
+   */
+  export type LessonDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Lessons to delete
+     */
+    where?: LessonWhereInput
+    /**
+     * Limit how many Lessons to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Lesson findRaw
+   */
+  export type LessonFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * Lesson aggregateRaw
+   */
+  export type LessonAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * Lesson.userProgress
+   */
+  export type Lesson$userProgressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLessonProgress
+     */
+    select?: UserLessonProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLessonProgress
+     */
+    omit?: UserLessonProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLessonProgressInclude<ExtArgs> | null
+    where?: UserLessonProgressWhereInput
+    orderBy?: UserLessonProgressOrderByWithRelationInput | UserLessonProgressOrderByWithRelationInput[]
+    cursor?: UserLessonProgressWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserLessonProgressScalarFieldEnum | UserLessonProgressScalarFieldEnum[]
+  }
+
+  /**
+   * Lesson without action
+   */
+  export type LessonDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lesson
+     */
+    select?: LessonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lesson
+     */
+    omit?: LessonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LessonInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model UserLearningProgress
+   */
+
+  export type AggregateUserLearningProgress = {
+    _count: UserLearningProgressCountAggregateOutputType | null
+    _avg: UserLearningProgressAvgAggregateOutputType | null
+    _sum: UserLearningProgressSumAggregateOutputType | null
+    _min: UserLearningProgressMinAggregateOutputType | null
+    _max: UserLearningProgressMaxAggregateOutputType | null
+  }
+
+  export type UserLearningProgressAvgAggregateOutputType = {
+    progressPercent: number | null
+  }
+
+  export type UserLearningProgressSumAggregateOutputType = {
+    progressPercent: number | null
+  }
+
+  export type UserLearningProgressMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    learningPathId: string | null
+    startedAt: Date | null
+    lastAccessedAt: Date | null
+    completedAt: Date | null
+    progressPercent: number | null
+  }
+
+  export type UserLearningProgressMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    learningPathId: string | null
+    startedAt: Date | null
+    lastAccessedAt: Date | null
+    completedAt: Date | null
+    progressPercent: number | null
+  }
+
+  export type UserLearningProgressCountAggregateOutputType = {
+    id: number
+    userId: number
+    learningPathId: number
+    startedAt: number
+    lastAccessedAt: number
+    completedAt: number
+    progressPercent: number
+    _all: number
+  }
+
+
+  export type UserLearningProgressAvgAggregateInputType = {
+    progressPercent?: true
+  }
+
+  export type UserLearningProgressSumAggregateInputType = {
+    progressPercent?: true
+  }
+
+  export type UserLearningProgressMinAggregateInputType = {
+    id?: true
+    userId?: true
+    learningPathId?: true
+    startedAt?: true
+    lastAccessedAt?: true
+    completedAt?: true
+    progressPercent?: true
+  }
+
+  export type UserLearningProgressMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    learningPathId?: true
+    startedAt?: true
+    lastAccessedAt?: true
+    completedAt?: true
+    progressPercent?: true
+  }
+
+  export type UserLearningProgressCountAggregateInputType = {
+    id?: true
+    userId?: true
+    learningPathId?: true
+    startedAt?: true
+    lastAccessedAt?: true
+    completedAt?: true
+    progressPercent?: true
+    _all?: true
+  }
+
+  export type UserLearningProgressAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserLearningProgress to aggregate.
+     */
+    where?: UserLearningProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserLearningProgresses to fetch.
+     */
+    orderBy?: UserLearningProgressOrderByWithRelationInput | UserLearningProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserLearningProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserLearningProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserLearningProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UserLearningProgresses
+    **/
+    _count?: true | UserLearningProgressCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: UserLearningProgressAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UserLearningProgressSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserLearningProgressMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserLearningProgressMaxAggregateInputType
+  }
+
+  export type GetUserLearningProgressAggregateType<T extends UserLearningProgressAggregateArgs> = {
+        [P in keyof T & keyof AggregateUserLearningProgress]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUserLearningProgress[P]>
+      : GetScalarType<T[P], AggregateUserLearningProgress[P]>
+  }
+
+
+
+
+  export type UserLearningProgressGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserLearningProgressWhereInput
+    orderBy?: UserLearningProgressOrderByWithAggregationInput | UserLearningProgressOrderByWithAggregationInput[]
+    by: UserLearningProgressScalarFieldEnum[] | UserLearningProgressScalarFieldEnum
+    having?: UserLearningProgressScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserLearningProgressCountAggregateInputType | true
+    _avg?: UserLearningProgressAvgAggregateInputType
+    _sum?: UserLearningProgressSumAggregateInputType
+    _min?: UserLearningProgressMinAggregateInputType
+    _max?: UserLearningProgressMaxAggregateInputType
+  }
+
+  export type UserLearningProgressGroupByOutputType = {
+    id: string
+    userId: string
+    learningPathId: string
+    startedAt: Date
+    lastAccessedAt: Date
+    completedAt: Date | null
+    progressPercent: number
+    _count: UserLearningProgressCountAggregateOutputType | null
+    _avg: UserLearningProgressAvgAggregateOutputType | null
+    _sum: UserLearningProgressSumAggregateOutputType | null
+    _min: UserLearningProgressMinAggregateOutputType | null
+    _max: UserLearningProgressMaxAggregateOutputType | null
+  }
+
+  type GetUserLearningProgressGroupByPayload<T extends UserLearningProgressGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserLearningProgressGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserLearningProgressGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserLearningProgressGroupByOutputType[P]>
+            : GetScalarType<T[P], UserLearningProgressGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserLearningProgressSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    learningPathId?: boolean
+    startedAt?: boolean
+    lastAccessedAt?: boolean
+    completedAt?: boolean
+    progressPercent?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    learningPath?: boolean | LearningPathDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userLearningProgress"]>
+
+
+
+  export type UserLearningProgressSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    learningPathId?: boolean
+    startedAt?: boolean
+    lastAccessedAt?: boolean
+    completedAt?: boolean
+    progressPercent?: boolean
+  }
+
+  export type UserLearningProgressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "learningPathId" | "startedAt" | "lastAccessedAt" | "completedAt" | "progressPercent", ExtArgs["result"]["userLearningProgress"]>
+  export type UserLearningProgressInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    learningPath?: boolean | LearningPathDefaultArgs<ExtArgs>
+  }
+
+  export type $UserLearningProgressPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UserLearningProgress"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      learningPath: Prisma.$LearningPathPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      learningPathId: string
+      startedAt: Date
+      lastAccessedAt: Date
+      completedAt: Date | null
+      progressPercent: number
+    }, ExtArgs["result"]["userLearningProgress"]>
+    composites: {}
+  }
+
+  type UserLearningProgressGetPayload<S extends boolean | null | undefined | UserLearningProgressDefaultArgs> = $Result.GetResult<Prisma.$UserLearningProgressPayload, S>
+
+  type UserLearningProgressCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UserLearningProgressFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UserLearningProgressCountAggregateInputType | true
+    }
+
+  export interface UserLearningProgressDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UserLearningProgress'], meta: { name: 'UserLearningProgress' } }
+    /**
+     * Find zero or one UserLearningProgress that matches the filter.
+     * @param {UserLearningProgressFindUniqueArgs} args - Arguments to find a UserLearningProgress
+     * @example
+     * // Get one UserLearningProgress
+     * const userLearningProgress = await prisma.userLearningProgress.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UserLearningProgressFindUniqueArgs>(args: SelectSubset<T, UserLearningProgressFindUniqueArgs<ExtArgs>>): Prisma__UserLearningProgressClient<$Result.GetResult<Prisma.$UserLearningProgressPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one UserLearningProgress that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {UserLearningProgressFindUniqueOrThrowArgs} args - Arguments to find a UserLearningProgress
+     * @example
+     * // Get one UserLearningProgress
+     * const userLearningProgress = await prisma.userLearningProgress.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UserLearningProgressFindUniqueOrThrowArgs>(args: SelectSubset<T, UserLearningProgressFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserLearningProgressClient<$Result.GetResult<Prisma.$UserLearningProgressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UserLearningProgress that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLearningProgressFindFirstArgs} args - Arguments to find a UserLearningProgress
+     * @example
+     * // Get one UserLearningProgress
+     * const userLearningProgress = await prisma.userLearningProgress.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UserLearningProgressFindFirstArgs>(args?: SelectSubset<T, UserLearningProgressFindFirstArgs<ExtArgs>>): Prisma__UserLearningProgressClient<$Result.GetResult<Prisma.$UserLearningProgressPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UserLearningProgress that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLearningProgressFindFirstOrThrowArgs} args - Arguments to find a UserLearningProgress
+     * @example
+     * // Get one UserLearningProgress
+     * const userLearningProgress = await prisma.userLearningProgress.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UserLearningProgressFindFirstOrThrowArgs>(args?: SelectSubset<T, UserLearningProgressFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserLearningProgressClient<$Result.GetResult<Prisma.$UserLearningProgressPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more UserLearningProgresses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLearningProgressFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UserLearningProgresses
+     * const userLearningProgresses = await prisma.userLearningProgress.findMany()
+     * 
+     * // Get first 10 UserLearningProgresses
+     * const userLearningProgresses = await prisma.userLearningProgress.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const userLearningProgressWithIdOnly = await prisma.userLearningProgress.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UserLearningProgressFindManyArgs>(args?: SelectSubset<T, UserLearningProgressFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserLearningProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a UserLearningProgress.
+     * @param {UserLearningProgressCreateArgs} args - Arguments to create a UserLearningProgress.
+     * @example
+     * // Create one UserLearningProgress
+     * const UserLearningProgress = await prisma.userLearningProgress.create({
+     *   data: {
+     *     // ... data to create a UserLearningProgress
+     *   }
+     * })
+     * 
+     */
+    create<T extends UserLearningProgressCreateArgs>(args: SelectSubset<T, UserLearningProgressCreateArgs<ExtArgs>>): Prisma__UserLearningProgressClient<$Result.GetResult<Prisma.$UserLearningProgressPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many UserLearningProgresses.
+     * @param {UserLearningProgressCreateManyArgs} args - Arguments to create many UserLearningProgresses.
+     * @example
+     * // Create many UserLearningProgresses
+     * const userLearningProgress = await prisma.userLearningProgress.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UserLearningProgressCreateManyArgs>(args?: SelectSubset<T, UserLearningProgressCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a UserLearningProgress.
+     * @param {UserLearningProgressDeleteArgs} args - Arguments to delete one UserLearningProgress.
+     * @example
+     * // Delete one UserLearningProgress
+     * const UserLearningProgress = await prisma.userLearningProgress.delete({
+     *   where: {
+     *     // ... filter to delete one UserLearningProgress
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UserLearningProgressDeleteArgs>(args: SelectSubset<T, UserLearningProgressDeleteArgs<ExtArgs>>): Prisma__UserLearningProgressClient<$Result.GetResult<Prisma.$UserLearningProgressPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one UserLearningProgress.
+     * @param {UserLearningProgressUpdateArgs} args - Arguments to update one UserLearningProgress.
+     * @example
+     * // Update one UserLearningProgress
+     * const userLearningProgress = await prisma.userLearningProgress.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UserLearningProgressUpdateArgs>(args: SelectSubset<T, UserLearningProgressUpdateArgs<ExtArgs>>): Prisma__UserLearningProgressClient<$Result.GetResult<Prisma.$UserLearningProgressPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more UserLearningProgresses.
+     * @param {UserLearningProgressDeleteManyArgs} args - Arguments to filter UserLearningProgresses to delete.
+     * @example
+     * // Delete a few UserLearningProgresses
+     * const { count } = await prisma.userLearningProgress.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UserLearningProgressDeleteManyArgs>(args?: SelectSubset<T, UserLearningProgressDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserLearningProgresses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLearningProgressUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UserLearningProgresses
+     * const userLearningProgress = await prisma.userLearningProgress.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UserLearningProgressUpdateManyArgs>(args: SelectSubset<T, UserLearningProgressUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one UserLearningProgress.
+     * @param {UserLearningProgressUpsertArgs} args - Arguments to update or create a UserLearningProgress.
+     * @example
+     * // Update or create a UserLearningProgress
+     * const userLearningProgress = await prisma.userLearningProgress.upsert({
+     *   create: {
+     *     // ... data to create a UserLearningProgress
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UserLearningProgress we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UserLearningProgressUpsertArgs>(args: SelectSubset<T, UserLearningProgressUpsertArgs<ExtArgs>>): Prisma__UserLearningProgressClient<$Result.GetResult<Prisma.$UserLearningProgressPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more UserLearningProgresses that matches the filter.
+     * @param {UserLearningProgressFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const userLearningProgress = await prisma.userLearningProgress.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: UserLearningProgressFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a UserLearningProgress.
+     * @param {UserLearningProgressAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const userLearningProgress = await prisma.userLearningProgress.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: UserLearningProgressAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of UserLearningProgresses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLearningProgressCountArgs} args - Arguments to filter UserLearningProgresses to count.
+     * @example
+     * // Count the number of UserLearningProgresses
+     * const count = await prisma.userLearningProgress.count({
+     *   where: {
+     *     // ... the filter for the UserLearningProgresses we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserLearningProgressCountArgs>(
+      args?: Subset<T, UserLearningProgressCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserLearningProgressCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UserLearningProgress.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLearningProgressAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserLearningProgressAggregateArgs>(args: Subset<T, UserLearningProgressAggregateArgs>): Prisma.PrismaPromise<GetUserLearningProgressAggregateType<T>>
+
+    /**
+     * Group by UserLearningProgress.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLearningProgressGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserLearningProgressGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserLearningProgressGroupByArgs['orderBy'] }
+        : { orderBy?: UserLearningProgressGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserLearningProgressGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserLearningProgressGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UserLearningProgress model
+   */
+  readonly fields: UserLearningProgressFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UserLearningProgress.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserLearningProgressClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    learningPath<T extends LearningPathDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LearningPathDefaultArgs<ExtArgs>>): Prisma__LearningPathClient<$Result.GetResult<Prisma.$LearningPathPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the UserLearningProgress model
+   */
+  interface UserLearningProgressFieldRefs {
+    readonly id: FieldRef<"UserLearningProgress", 'String'>
+    readonly userId: FieldRef<"UserLearningProgress", 'String'>
+    readonly learningPathId: FieldRef<"UserLearningProgress", 'String'>
+    readonly startedAt: FieldRef<"UserLearningProgress", 'DateTime'>
+    readonly lastAccessedAt: FieldRef<"UserLearningProgress", 'DateTime'>
+    readonly completedAt: FieldRef<"UserLearningProgress", 'DateTime'>
+    readonly progressPercent: FieldRef<"UserLearningProgress", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * UserLearningProgress findUnique
+   */
+  export type UserLearningProgressFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLearningProgress
+     */
+    select?: UserLearningProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLearningProgress
+     */
+    omit?: UserLearningProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLearningProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserLearningProgress to fetch.
+     */
+    where: UserLearningProgressWhereUniqueInput
+  }
+
+  /**
+   * UserLearningProgress findUniqueOrThrow
+   */
+  export type UserLearningProgressFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLearningProgress
+     */
+    select?: UserLearningProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLearningProgress
+     */
+    omit?: UserLearningProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLearningProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserLearningProgress to fetch.
+     */
+    where: UserLearningProgressWhereUniqueInput
+  }
+
+  /**
+   * UserLearningProgress findFirst
+   */
+  export type UserLearningProgressFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLearningProgress
+     */
+    select?: UserLearningProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLearningProgress
+     */
+    omit?: UserLearningProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLearningProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserLearningProgress to fetch.
+     */
+    where?: UserLearningProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserLearningProgresses to fetch.
+     */
+    orderBy?: UserLearningProgressOrderByWithRelationInput | UserLearningProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserLearningProgresses.
+     */
+    cursor?: UserLearningProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserLearningProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserLearningProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserLearningProgresses.
+     */
+    distinct?: UserLearningProgressScalarFieldEnum | UserLearningProgressScalarFieldEnum[]
+  }
+
+  /**
+   * UserLearningProgress findFirstOrThrow
+   */
+  export type UserLearningProgressFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLearningProgress
+     */
+    select?: UserLearningProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLearningProgress
+     */
+    omit?: UserLearningProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLearningProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserLearningProgress to fetch.
+     */
+    where?: UserLearningProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserLearningProgresses to fetch.
+     */
+    orderBy?: UserLearningProgressOrderByWithRelationInput | UserLearningProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserLearningProgresses.
+     */
+    cursor?: UserLearningProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserLearningProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserLearningProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserLearningProgresses.
+     */
+    distinct?: UserLearningProgressScalarFieldEnum | UserLearningProgressScalarFieldEnum[]
+  }
+
+  /**
+   * UserLearningProgress findMany
+   */
+  export type UserLearningProgressFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLearningProgress
+     */
+    select?: UserLearningProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLearningProgress
+     */
+    omit?: UserLearningProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLearningProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserLearningProgresses to fetch.
+     */
+    where?: UserLearningProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserLearningProgresses to fetch.
+     */
+    orderBy?: UserLearningProgressOrderByWithRelationInput | UserLearningProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UserLearningProgresses.
+     */
+    cursor?: UserLearningProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserLearningProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserLearningProgresses.
+     */
+    skip?: number
+    distinct?: UserLearningProgressScalarFieldEnum | UserLearningProgressScalarFieldEnum[]
+  }
+
+  /**
+   * UserLearningProgress create
+   */
+  export type UserLearningProgressCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLearningProgress
+     */
+    select?: UserLearningProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLearningProgress
+     */
+    omit?: UserLearningProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLearningProgressInclude<ExtArgs> | null
+    /**
+     * The data needed to create a UserLearningProgress.
+     */
+    data: XOR<UserLearningProgressCreateInput, UserLearningProgressUncheckedCreateInput>
+  }
+
+  /**
+   * UserLearningProgress createMany
+   */
+  export type UserLearningProgressCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UserLearningProgresses.
+     */
+    data: UserLearningProgressCreateManyInput | UserLearningProgressCreateManyInput[]
+  }
+
+  /**
+   * UserLearningProgress update
+   */
+  export type UserLearningProgressUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLearningProgress
+     */
+    select?: UserLearningProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLearningProgress
+     */
+    omit?: UserLearningProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLearningProgressInclude<ExtArgs> | null
+    /**
+     * The data needed to update a UserLearningProgress.
+     */
+    data: XOR<UserLearningProgressUpdateInput, UserLearningProgressUncheckedUpdateInput>
+    /**
+     * Choose, which UserLearningProgress to update.
+     */
+    where: UserLearningProgressWhereUniqueInput
+  }
+
+  /**
+   * UserLearningProgress updateMany
+   */
+  export type UserLearningProgressUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UserLearningProgresses.
+     */
+    data: XOR<UserLearningProgressUpdateManyMutationInput, UserLearningProgressUncheckedUpdateManyInput>
+    /**
+     * Filter which UserLearningProgresses to update
+     */
+    where?: UserLearningProgressWhereInput
+    /**
+     * Limit how many UserLearningProgresses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * UserLearningProgress upsert
+   */
+  export type UserLearningProgressUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLearningProgress
+     */
+    select?: UserLearningProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLearningProgress
+     */
+    omit?: UserLearningProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLearningProgressInclude<ExtArgs> | null
+    /**
+     * The filter to search for the UserLearningProgress to update in case it exists.
+     */
+    where: UserLearningProgressWhereUniqueInput
+    /**
+     * In case the UserLearningProgress found by the `where` argument doesn't exist, create a new UserLearningProgress with this data.
+     */
+    create: XOR<UserLearningProgressCreateInput, UserLearningProgressUncheckedCreateInput>
+    /**
+     * In case the UserLearningProgress was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserLearningProgressUpdateInput, UserLearningProgressUncheckedUpdateInput>
+  }
+
+  /**
+   * UserLearningProgress delete
+   */
+  export type UserLearningProgressDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLearningProgress
+     */
+    select?: UserLearningProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLearningProgress
+     */
+    omit?: UserLearningProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLearningProgressInclude<ExtArgs> | null
+    /**
+     * Filter which UserLearningProgress to delete.
+     */
+    where: UserLearningProgressWhereUniqueInput
+  }
+
+  /**
+   * UserLearningProgress deleteMany
+   */
+  export type UserLearningProgressDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserLearningProgresses to delete
+     */
+    where?: UserLearningProgressWhereInput
+    /**
+     * Limit how many UserLearningProgresses to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * UserLearningProgress findRaw
+   */
+  export type UserLearningProgressFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * UserLearningProgress aggregateRaw
+   */
+  export type UserLearningProgressAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * UserLearningProgress without action
+   */
+  export type UserLearningProgressDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLearningProgress
+     */
+    select?: UserLearningProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLearningProgress
+     */
+    omit?: UserLearningProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLearningProgressInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model UserModuleProgress
+   */
+
+  export type AggregateUserModuleProgress = {
+    _count: UserModuleProgressCountAggregateOutputType | null
+    _avg: UserModuleProgressAvgAggregateOutputType | null
+    _sum: UserModuleProgressSumAggregateOutputType | null
+    _min: UserModuleProgressMinAggregateOutputType | null
+    _max: UserModuleProgressMaxAggregateOutputType | null
+  }
+
+  export type UserModuleProgressAvgAggregateOutputType = {
+    progressPercent: number | null
+  }
+
+  export type UserModuleProgressSumAggregateOutputType = {
+    progressPercent: number | null
+  }
+
+  export type UserModuleProgressMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    moduleId: string | null
+    startedAt: Date | null
+    completedAt: Date | null
+    progressPercent: number | null
+  }
+
+  export type UserModuleProgressMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    moduleId: string | null
+    startedAt: Date | null
+    completedAt: Date | null
+    progressPercent: number | null
+  }
+
+  export type UserModuleProgressCountAggregateOutputType = {
+    id: number
+    userId: number
+    moduleId: number
+    startedAt: number
+    completedAt: number
+    progressPercent: number
+    _all: number
+  }
+
+
+  export type UserModuleProgressAvgAggregateInputType = {
+    progressPercent?: true
+  }
+
+  export type UserModuleProgressSumAggregateInputType = {
+    progressPercent?: true
+  }
+
+  export type UserModuleProgressMinAggregateInputType = {
+    id?: true
+    userId?: true
+    moduleId?: true
+    startedAt?: true
+    completedAt?: true
+    progressPercent?: true
+  }
+
+  export type UserModuleProgressMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    moduleId?: true
+    startedAt?: true
+    completedAt?: true
+    progressPercent?: true
+  }
+
+  export type UserModuleProgressCountAggregateInputType = {
+    id?: true
+    userId?: true
+    moduleId?: true
+    startedAt?: true
+    completedAt?: true
+    progressPercent?: true
+    _all?: true
+  }
+
+  export type UserModuleProgressAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserModuleProgress to aggregate.
+     */
+    where?: UserModuleProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserModuleProgresses to fetch.
+     */
+    orderBy?: UserModuleProgressOrderByWithRelationInput | UserModuleProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserModuleProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserModuleProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserModuleProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UserModuleProgresses
+    **/
+    _count?: true | UserModuleProgressCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: UserModuleProgressAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UserModuleProgressSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserModuleProgressMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserModuleProgressMaxAggregateInputType
+  }
+
+  export type GetUserModuleProgressAggregateType<T extends UserModuleProgressAggregateArgs> = {
+        [P in keyof T & keyof AggregateUserModuleProgress]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUserModuleProgress[P]>
+      : GetScalarType<T[P], AggregateUserModuleProgress[P]>
+  }
+
+
+
+
+  export type UserModuleProgressGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserModuleProgressWhereInput
+    orderBy?: UserModuleProgressOrderByWithAggregationInput | UserModuleProgressOrderByWithAggregationInput[]
+    by: UserModuleProgressScalarFieldEnum[] | UserModuleProgressScalarFieldEnum
+    having?: UserModuleProgressScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserModuleProgressCountAggregateInputType | true
+    _avg?: UserModuleProgressAvgAggregateInputType
+    _sum?: UserModuleProgressSumAggregateInputType
+    _min?: UserModuleProgressMinAggregateInputType
+    _max?: UserModuleProgressMaxAggregateInputType
+  }
+
+  export type UserModuleProgressGroupByOutputType = {
+    id: string
+    userId: string
+    moduleId: string
+    startedAt: Date
+    completedAt: Date | null
+    progressPercent: number
+    _count: UserModuleProgressCountAggregateOutputType | null
+    _avg: UserModuleProgressAvgAggregateOutputType | null
+    _sum: UserModuleProgressSumAggregateOutputType | null
+    _min: UserModuleProgressMinAggregateOutputType | null
+    _max: UserModuleProgressMaxAggregateOutputType | null
+  }
+
+  type GetUserModuleProgressGroupByPayload<T extends UserModuleProgressGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserModuleProgressGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserModuleProgressGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserModuleProgressGroupByOutputType[P]>
+            : GetScalarType<T[P], UserModuleProgressGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserModuleProgressSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    moduleId?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    progressPercent?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    module?: boolean | ModuleDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userModuleProgress"]>
+
+
+
+  export type UserModuleProgressSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    moduleId?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    progressPercent?: boolean
+  }
+
+  export type UserModuleProgressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "moduleId" | "startedAt" | "completedAt" | "progressPercent", ExtArgs["result"]["userModuleProgress"]>
+  export type UserModuleProgressInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    module?: boolean | ModuleDefaultArgs<ExtArgs>
+  }
+
+  export type $UserModuleProgressPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UserModuleProgress"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      module: Prisma.$ModulePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      moduleId: string
+      startedAt: Date
+      completedAt: Date | null
+      progressPercent: number
+    }, ExtArgs["result"]["userModuleProgress"]>
+    composites: {}
+  }
+
+  type UserModuleProgressGetPayload<S extends boolean | null | undefined | UserModuleProgressDefaultArgs> = $Result.GetResult<Prisma.$UserModuleProgressPayload, S>
+
+  type UserModuleProgressCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UserModuleProgressFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UserModuleProgressCountAggregateInputType | true
+    }
+
+  export interface UserModuleProgressDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UserModuleProgress'], meta: { name: 'UserModuleProgress' } }
+    /**
+     * Find zero or one UserModuleProgress that matches the filter.
+     * @param {UserModuleProgressFindUniqueArgs} args - Arguments to find a UserModuleProgress
+     * @example
+     * // Get one UserModuleProgress
+     * const userModuleProgress = await prisma.userModuleProgress.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UserModuleProgressFindUniqueArgs>(args: SelectSubset<T, UserModuleProgressFindUniqueArgs<ExtArgs>>): Prisma__UserModuleProgressClient<$Result.GetResult<Prisma.$UserModuleProgressPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one UserModuleProgress that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {UserModuleProgressFindUniqueOrThrowArgs} args - Arguments to find a UserModuleProgress
+     * @example
+     * // Get one UserModuleProgress
+     * const userModuleProgress = await prisma.userModuleProgress.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UserModuleProgressFindUniqueOrThrowArgs>(args: SelectSubset<T, UserModuleProgressFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserModuleProgressClient<$Result.GetResult<Prisma.$UserModuleProgressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UserModuleProgress that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserModuleProgressFindFirstArgs} args - Arguments to find a UserModuleProgress
+     * @example
+     * // Get one UserModuleProgress
+     * const userModuleProgress = await prisma.userModuleProgress.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UserModuleProgressFindFirstArgs>(args?: SelectSubset<T, UserModuleProgressFindFirstArgs<ExtArgs>>): Prisma__UserModuleProgressClient<$Result.GetResult<Prisma.$UserModuleProgressPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UserModuleProgress that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserModuleProgressFindFirstOrThrowArgs} args - Arguments to find a UserModuleProgress
+     * @example
+     * // Get one UserModuleProgress
+     * const userModuleProgress = await prisma.userModuleProgress.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UserModuleProgressFindFirstOrThrowArgs>(args?: SelectSubset<T, UserModuleProgressFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserModuleProgressClient<$Result.GetResult<Prisma.$UserModuleProgressPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more UserModuleProgresses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserModuleProgressFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UserModuleProgresses
+     * const userModuleProgresses = await prisma.userModuleProgress.findMany()
+     * 
+     * // Get first 10 UserModuleProgresses
+     * const userModuleProgresses = await prisma.userModuleProgress.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const userModuleProgressWithIdOnly = await prisma.userModuleProgress.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UserModuleProgressFindManyArgs>(args?: SelectSubset<T, UserModuleProgressFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserModuleProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a UserModuleProgress.
+     * @param {UserModuleProgressCreateArgs} args - Arguments to create a UserModuleProgress.
+     * @example
+     * // Create one UserModuleProgress
+     * const UserModuleProgress = await prisma.userModuleProgress.create({
+     *   data: {
+     *     // ... data to create a UserModuleProgress
+     *   }
+     * })
+     * 
+     */
+    create<T extends UserModuleProgressCreateArgs>(args: SelectSubset<T, UserModuleProgressCreateArgs<ExtArgs>>): Prisma__UserModuleProgressClient<$Result.GetResult<Prisma.$UserModuleProgressPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many UserModuleProgresses.
+     * @param {UserModuleProgressCreateManyArgs} args - Arguments to create many UserModuleProgresses.
+     * @example
+     * // Create many UserModuleProgresses
+     * const userModuleProgress = await prisma.userModuleProgress.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UserModuleProgressCreateManyArgs>(args?: SelectSubset<T, UserModuleProgressCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a UserModuleProgress.
+     * @param {UserModuleProgressDeleteArgs} args - Arguments to delete one UserModuleProgress.
+     * @example
+     * // Delete one UserModuleProgress
+     * const UserModuleProgress = await prisma.userModuleProgress.delete({
+     *   where: {
+     *     // ... filter to delete one UserModuleProgress
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UserModuleProgressDeleteArgs>(args: SelectSubset<T, UserModuleProgressDeleteArgs<ExtArgs>>): Prisma__UserModuleProgressClient<$Result.GetResult<Prisma.$UserModuleProgressPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one UserModuleProgress.
+     * @param {UserModuleProgressUpdateArgs} args - Arguments to update one UserModuleProgress.
+     * @example
+     * // Update one UserModuleProgress
+     * const userModuleProgress = await prisma.userModuleProgress.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UserModuleProgressUpdateArgs>(args: SelectSubset<T, UserModuleProgressUpdateArgs<ExtArgs>>): Prisma__UserModuleProgressClient<$Result.GetResult<Prisma.$UserModuleProgressPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more UserModuleProgresses.
+     * @param {UserModuleProgressDeleteManyArgs} args - Arguments to filter UserModuleProgresses to delete.
+     * @example
+     * // Delete a few UserModuleProgresses
+     * const { count } = await prisma.userModuleProgress.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UserModuleProgressDeleteManyArgs>(args?: SelectSubset<T, UserModuleProgressDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserModuleProgresses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserModuleProgressUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UserModuleProgresses
+     * const userModuleProgress = await prisma.userModuleProgress.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UserModuleProgressUpdateManyArgs>(args: SelectSubset<T, UserModuleProgressUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one UserModuleProgress.
+     * @param {UserModuleProgressUpsertArgs} args - Arguments to update or create a UserModuleProgress.
+     * @example
+     * // Update or create a UserModuleProgress
+     * const userModuleProgress = await prisma.userModuleProgress.upsert({
+     *   create: {
+     *     // ... data to create a UserModuleProgress
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UserModuleProgress we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UserModuleProgressUpsertArgs>(args: SelectSubset<T, UserModuleProgressUpsertArgs<ExtArgs>>): Prisma__UserModuleProgressClient<$Result.GetResult<Prisma.$UserModuleProgressPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more UserModuleProgresses that matches the filter.
+     * @param {UserModuleProgressFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const userModuleProgress = await prisma.userModuleProgress.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: UserModuleProgressFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a UserModuleProgress.
+     * @param {UserModuleProgressAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const userModuleProgress = await prisma.userModuleProgress.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: UserModuleProgressAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of UserModuleProgresses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserModuleProgressCountArgs} args - Arguments to filter UserModuleProgresses to count.
+     * @example
+     * // Count the number of UserModuleProgresses
+     * const count = await prisma.userModuleProgress.count({
+     *   where: {
+     *     // ... the filter for the UserModuleProgresses we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserModuleProgressCountArgs>(
+      args?: Subset<T, UserModuleProgressCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserModuleProgressCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UserModuleProgress.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserModuleProgressAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserModuleProgressAggregateArgs>(args: Subset<T, UserModuleProgressAggregateArgs>): Prisma.PrismaPromise<GetUserModuleProgressAggregateType<T>>
+
+    /**
+     * Group by UserModuleProgress.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserModuleProgressGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserModuleProgressGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserModuleProgressGroupByArgs['orderBy'] }
+        : { orderBy?: UserModuleProgressGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserModuleProgressGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserModuleProgressGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UserModuleProgress model
+   */
+  readonly fields: UserModuleProgressFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UserModuleProgress.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserModuleProgressClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    module<T extends ModuleDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ModuleDefaultArgs<ExtArgs>>): Prisma__ModuleClient<$Result.GetResult<Prisma.$ModulePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the UserModuleProgress model
+   */
+  interface UserModuleProgressFieldRefs {
+    readonly id: FieldRef<"UserModuleProgress", 'String'>
+    readonly userId: FieldRef<"UserModuleProgress", 'String'>
+    readonly moduleId: FieldRef<"UserModuleProgress", 'String'>
+    readonly startedAt: FieldRef<"UserModuleProgress", 'DateTime'>
+    readonly completedAt: FieldRef<"UserModuleProgress", 'DateTime'>
+    readonly progressPercent: FieldRef<"UserModuleProgress", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * UserModuleProgress findUnique
+   */
+  export type UserModuleProgressFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserModuleProgress
+     */
+    select?: UserModuleProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserModuleProgress
+     */
+    omit?: UserModuleProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserModuleProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserModuleProgress to fetch.
+     */
+    where: UserModuleProgressWhereUniqueInput
+  }
+
+  /**
+   * UserModuleProgress findUniqueOrThrow
+   */
+  export type UserModuleProgressFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserModuleProgress
+     */
+    select?: UserModuleProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserModuleProgress
+     */
+    omit?: UserModuleProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserModuleProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserModuleProgress to fetch.
+     */
+    where: UserModuleProgressWhereUniqueInput
+  }
+
+  /**
+   * UserModuleProgress findFirst
+   */
+  export type UserModuleProgressFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserModuleProgress
+     */
+    select?: UserModuleProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserModuleProgress
+     */
+    omit?: UserModuleProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserModuleProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserModuleProgress to fetch.
+     */
+    where?: UserModuleProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserModuleProgresses to fetch.
+     */
+    orderBy?: UserModuleProgressOrderByWithRelationInput | UserModuleProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserModuleProgresses.
+     */
+    cursor?: UserModuleProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserModuleProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserModuleProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserModuleProgresses.
+     */
+    distinct?: UserModuleProgressScalarFieldEnum | UserModuleProgressScalarFieldEnum[]
+  }
+
+  /**
+   * UserModuleProgress findFirstOrThrow
+   */
+  export type UserModuleProgressFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserModuleProgress
+     */
+    select?: UserModuleProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserModuleProgress
+     */
+    omit?: UserModuleProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserModuleProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserModuleProgress to fetch.
+     */
+    where?: UserModuleProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserModuleProgresses to fetch.
+     */
+    orderBy?: UserModuleProgressOrderByWithRelationInput | UserModuleProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserModuleProgresses.
+     */
+    cursor?: UserModuleProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserModuleProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserModuleProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserModuleProgresses.
+     */
+    distinct?: UserModuleProgressScalarFieldEnum | UserModuleProgressScalarFieldEnum[]
+  }
+
+  /**
+   * UserModuleProgress findMany
+   */
+  export type UserModuleProgressFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserModuleProgress
+     */
+    select?: UserModuleProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserModuleProgress
+     */
+    omit?: UserModuleProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserModuleProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserModuleProgresses to fetch.
+     */
+    where?: UserModuleProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserModuleProgresses to fetch.
+     */
+    orderBy?: UserModuleProgressOrderByWithRelationInput | UserModuleProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UserModuleProgresses.
+     */
+    cursor?: UserModuleProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserModuleProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserModuleProgresses.
+     */
+    skip?: number
+    distinct?: UserModuleProgressScalarFieldEnum | UserModuleProgressScalarFieldEnum[]
+  }
+
+  /**
+   * UserModuleProgress create
+   */
+  export type UserModuleProgressCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserModuleProgress
+     */
+    select?: UserModuleProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserModuleProgress
+     */
+    omit?: UserModuleProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserModuleProgressInclude<ExtArgs> | null
+    /**
+     * The data needed to create a UserModuleProgress.
+     */
+    data: XOR<UserModuleProgressCreateInput, UserModuleProgressUncheckedCreateInput>
+  }
+
+  /**
+   * UserModuleProgress createMany
+   */
+  export type UserModuleProgressCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UserModuleProgresses.
+     */
+    data: UserModuleProgressCreateManyInput | UserModuleProgressCreateManyInput[]
+  }
+
+  /**
+   * UserModuleProgress update
+   */
+  export type UserModuleProgressUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserModuleProgress
+     */
+    select?: UserModuleProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserModuleProgress
+     */
+    omit?: UserModuleProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserModuleProgressInclude<ExtArgs> | null
+    /**
+     * The data needed to update a UserModuleProgress.
+     */
+    data: XOR<UserModuleProgressUpdateInput, UserModuleProgressUncheckedUpdateInput>
+    /**
+     * Choose, which UserModuleProgress to update.
+     */
+    where: UserModuleProgressWhereUniqueInput
+  }
+
+  /**
+   * UserModuleProgress updateMany
+   */
+  export type UserModuleProgressUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UserModuleProgresses.
+     */
+    data: XOR<UserModuleProgressUpdateManyMutationInput, UserModuleProgressUncheckedUpdateManyInput>
+    /**
+     * Filter which UserModuleProgresses to update
+     */
+    where?: UserModuleProgressWhereInput
+    /**
+     * Limit how many UserModuleProgresses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * UserModuleProgress upsert
+   */
+  export type UserModuleProgressUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserModuleProgress
+     */
+    select?: UserModuleProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserModuleProgress
+     */
+    omit?: UserModuleProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserModuleProgressInclude<ExtArgs> | null
+    /**
+     * The filter to search for the UserModuleProgress to update in case it exists.
+     */
+    where: UserModuleProgressWhereUniqueInput
+    /**
+     * In case the UserModuleProgress found by the `where` argument doesn't exist, create a new UserModuleProgress with this data.
+     */
+    create: XOR<UserModuleProgressCreateInput, UserModuleProgressUncheckedCreateInput>
+    /**
+     * In case the UserModuleProgress was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserModuleProgressUpdateInput, UserModuleProgressUncheckedUpdateInput>
+  }
+
+  /**
+   * UserModuleProgress delete
+   */
+  export type UserModuleProgressDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserModuleProgress
+     */
+    select?: UserModuleProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserModuleProgress
+     */
+    omit?: UserModuleProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserModuleProgressInclude<ExtArgs> | null
+    /**
+     * Filter which UserModuleProgress to delete.
+     */
+    where: UserModuleProgressWhereUniqueInput
+  }
+
+  /**
+   * UserModuleProgress deleteMany
+   */
+  export type UserModuleProgressDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserModuleProgresses to delete
+     */
+    where?: UserModuleProgressWhereInput
+    /**
+     * Limit how many UserModuleProgresses to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * UserModuleProgress findRaw
+   */
+  export type UserModuleProgressFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * UserModuleProgress aggregateRaw
+   */
+  export type UserModuleProgressAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * UserModuleProgress without action
+   */
+  export type UserModuleProgressDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserModuleProgress
+     */
+    select?: UserModuleProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserModuleProgress
+     */
+    omit?: UserModuleProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserModuleProgressInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model UserLessonProgress
+   */
+
+  export type AggregateUserLessonProgress = {
+    _count: UserLessonProgressCountAggregateOutputType | null
+    _avg: UserLessonProgressAvgAggregateOutputType | null
+    _sum: UserLessonProgressSumAggregateOutputType | null
+    _min: UserLessonProgressMinAggregateOutputType | null
+    _max: UserLessonProgressMaxAggregateOutputType | null
+  }
+
+  export type UserLessonProgressAvgAggregateOutputType = {
+    timeSpent: number | null
+  }
+
+  export type UserLessonProgressSumAggregateOutputType = {
+    timeSpent: number | null
+  }
+
+  export type UserLessonProgressMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    lessonId: string | null
+    startedAt: Date | null
+    completedAt: Date | null
+    timeSpent: number | null
+  }
+
+  export type UserLessonProgressMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    lessonId: string | null
+    startedAt: Date | null
+    completedAt: Date | null
+    timeSpent: number | null
+  }
+
+  export type UserLessonProgressCountAggregateOutputType = {
+    id: number
+    userId: number
+    lessonId: number
+    startedAt: number
+    completedAt: number
+    timeSpent: number
+    _all: number
+  }
+
+
+  export type UserLessonProgressAvgAggregateInputType = {
+    timeSpent?: true
+  }
+
+  export type UserLessonProgressSumAggregateInputType = {
+    timeSpent?: true
+  }
+
+  export type UserLessonProgressMinAggregateInputType = {
+    id?: true
+    userId?: true
+    lessonId?: true
+    startedAt?: true
+    completedAt?: true
+    timeSpent?: true
+  }
+
+  export type UserLessonProgressMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    lessonId?: true
+    startedAt?: true
+    completedAt?: true
+    timeSpent?: true
+  }
+
+  export type UserLessonProgressCountAggregateInputType = {
+    id?: true
+    userId?: true
+    lessonId?: true
+    startedAt?: true
+    completedAt?: true
+    timeSpent?: true
+    _all?: true
+  }
+
+  export type UserLessonProgressAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserLessonProgress to aggregate.
+     */
+    where?: UserLessonProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserLessonProgresses to fetch.
+     */
+    orderBy?: UserLessonProgressOrderByWithRelationInput | UserLessonProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserLessonProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserLessonProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserLessonProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UserLessonProgresses
+    **/
+    _count?: true | UserLessonProgressCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: UserLessonProgressAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UserLessonProgressSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserLessonProgressMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserLessonProgressMaxAggregateInputType
+  }
+
+  export type GetUserLessonProgressAggregateType<T extends UserLessonProgressAggregateArgs> = {
+        [P in keyof T & keyof AggregateUserLessonProgress]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUserLessonProgress[P]>
+      : GetScalarType<T[P], AggregateUserLessonProgress[P]>
+  }
+
+
+
+
+  export type UserLessonProgressGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserLessonProgressWhereInput
+    orderBy?: UserLessonProgressOrderByWithAggregationInput | UserLessonProgressOrderByWithAggregationInput[]
+    by: UserLessonProgressScalarFieldEnum[] | UserLessonProgressScalarFieldEnum
+    having?: UserLessonProgressScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserLessonProgressCountAggregateInputType | true
+    _avg?: UserLessonProgressAvgAggregateInputType
+    _sum?: UserLessonProgressSumAggregateInputType
+    _min?: UserLessonProgressMinAggregateInputType
+    _max?: UserLessonProgressMaxAggregateInputType
+  }
+
+  export type UserLessonProgressGroupByOutputType = {
+    id: string
+    userId: string
+    lessonId: string
+    startedAt: Date
+    completedAt: Date | null
+    timeSpent: number
+    _count: UserLessonProgressCountAggregateOutputType | null
+    _avg: UserLessonProgressAvgAggregateOutputType | null
+    _sum: UserLessonProgressSumAggregateOutputType | null
+    _min: UserLessonProgressMinAggregateOutputType | null
+    _max: UserLessonProgressMaxAggregateOutputType | null
+  }
+
+  type GetUserLessonProgressGroupByPayload<T extends UserLessonProgressGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserLessonProgressGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserLessonProgressGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserLessonProgressGroupByOutputType[P]>
+            : GetScalarType<T[P], UserLessonProgressGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserLessonProgressSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    lessonId?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    timeSpent?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    lesson?: boolean | LessonDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userLessonProgress"]>
+
+
+
+  export type UserLessonProgressSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    lessonId?: boolean
+    startedAt?: boolean
+    completedAt?: boolean
+    timeSpent?: boolean
+  }
+
+  export type UserLessonProgressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "lessonId" | "startedAt" | "completedAt" | "timeSpent", ExtArgs["result"]["userLessonProgress"]>
+  export type UserLessonProgressInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    lesson?: boolean | LessonDefaultArgs<ExtArgs>
+  }
+
+  export type $UserLessonProgressPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UserLessonProgress"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      lesson: Prisma.$LessonPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      lessonId: string
+      startedAt: Date
+      completedAt: Date | null
+      timeSpent: number
+    }, ExtArgs["result"]["userLessonProgress"]>
+    composites: {}
+  }
+
+  type UserLessonProgressGetPayload<S extends boolean | null | undefined | UserLessonProgressDefaultArgs> = $Result.GetResult<Prisma.$UserLessonProgressPayload, S>
+
+  type UserLessonProgressCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UserLessonProgressFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UserLessonProgressCountAggregateInputType | true
+    }
+
+  export interface UserLessonProgressDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UserLessonProgress'], meta: { name: 'UserLessonProgress' } }
+    /**
+     * Find zero or one UserLessonProgress that matches the filter.
+     * @param {UserLessonProgressFindUniqueArgs} args - Arguments to find a UserLessonProgress
+     * @example
+     * // Get one UserLessonProgress
+     * const userLessonProgress = await prisma.userLessonProgress.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UserLessonProgressFindUniqueArgs>(args: SelectSubset<T, UserLessonProgressFindUniqueArgs<ExtArgs>>): Prisma__UserLessonProgressClient<$Result.GetResult<Prisma.$UserLessonProgressPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one UserLessonProgress that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {UserLessonProgressFindUniqueOrThrowArgs} args - Arguments to find a UserLessonProgress
+     * @example
+     * // Get one UserLessonProgress
+     * const userLessonProgress = await prisma.userLessonProgress.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UserLessonProgressFindUniqueOrThrowArgs>(args: SelectSubset<T, UserLessonProgressFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserLessonProgressClient<$Result.GetResult<Prisma.$UserLessonProgressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UserLessonProgress that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLessonProgressFindFirstArgs} args - Arguments to find a UserLessonProgress
+     * @example
+     * // Get one UserLessonProgress
+     * const userLessonProgress = await prisma.userLessonProgress.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UserLessonProgressFindFirstArgs>(args?: SelectSubset<T, UserLessonProgressFindFirstArgs<ExtArgs>>): Prisma__UserLessonProgressClient<$Result.GetResult<Prisma.$UserLessonProgressPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UserLessonProgress that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLessonProgressFindFirstOrThrowArgs} args - Arguments to find a UserLessonProgress
+     * @example
+     * // Get one UserLessonProgress
+     * const userLessonProgress = await prisma.userLessonProgress.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UserLessonProgressFindFirstOrThrowArgs>(args?: SelectSubset<T, UserLessonProgressFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserLessonProgressClient<$Result.GetResult<Prisma.$UserLessonProgressPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more UserLessonProgresses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLessonProgressFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UserLessonProgresses
+     * const userLessonProgresses = await prisma.userLessonProgress.findMany()
+     * 
+     * // Get first 10 UserLessonProgresses
+     * const userLessonProgresses = await prisma.userLessonProgress.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const userLessonProgressWithIdOnly = await prisma.userLessonProgress.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UserLessonProgressFindManyArgs>(args?: SelectSubset<T, UserLessonProgressFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserLessonProgressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a UserLessonProgress.
+     * @param {UserLessonProgressCreateArgs} args - Arguments to create a UserLessonProgress.
+     * @example
+     * // Create one UserLessonProgress
+     * const UserLessonProgress = await prisma.userLessonProgress.create({
+     *   data: {
+     *     // ... data to create a UserLessonProgress
+     *   }
+     * })
+     * 
+     */
+    create<T extends UserLessonProgressCreateArgs>(args: SelectSubset<T, UserLessonProgressCreateArgs<ExtArgs>>): Prisma__UserLessonProgressClient<$Result.GetResult<Prisma.$UserLessonProgressPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many UserLessonProgresses.
+     * @param {UserLessonProgressCreateManyArgs} args - Arguments to create many UserLessonProgresses.
+     * @example
+     * // Create many UserLessonProgresses
+     * const userLessonProgress = await prisma.userLessonProgress.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UserLessonProgressCreateManyArgs>(args?: SelectSubset<T, UserLessonProgressCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a UserLessonProgress.
+     * @param {UserLessonProgressDeleteArgs} args - Arguments to delete one UserLessonProgress.
+     * @example
+     * // Delete one UserLessonProgress
+     * const UserLessonProgress = await prisma.userLessonProgress.delete({
+     *   where: {
+     *     // ... filter to delete one UserLessonProgress
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UserLessonProgressDeleteArgs>(args: SelectSubset<T, UserLessonProgressDeleteArgs<ExtArgs>>): Prisma__UserLessonProgressClient<$Result.GetResult<Prisma.$UserLessonProgressPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one UserLessonProgress.
+     * @param {UserLessonProgressUpdateArgs} args - Arguments to update one UserLessonProgress.
+     * @example
+     * // Update one UserLessonProgress
+     * const userLessonProgress = await prisma.userLessonProgress.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UserLessonProgressUpdateArgs>(args: SelectSubset<T, UserLessonProgressUpdateArgs<ExtArgs>>): Prisma__UserLessonProgressClient<$Result.GetResult<Prisma.$UserLessonProgressPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more UserLessonProgresses.
+     * @param {UserLessonProgressDeleteManyArgs} args - Arguments to filter UserLessonProgresses to delete.
+     * @example
+     * // Delete a few UserLessonProgresses
+     * const { count } = await prisma.userLessonProgress.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UserLessonProgressDeleteManyArgs>(args?: SelectSubset<T, UserLessonProgressDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserLessonProgresses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLessonProgressUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UserLessonProgresses
+     * const userLessonProgress = await prisma.userLessonProgress.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UserLessonProgressUpdateManyArgs>(args: SelectSubset<T, UserLessonProgressUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one UserLessonProgress.
+     * @param {UserLessonProgressUpsertArgs} args - Arguments to update or create a UserLessonProgress.
+     * @example
+     * // Update or create a UserLessonProgress
+     * const userLessonProgress = await prisma.userLessonProgress.upsert({
+     *   create: {
+     *     // ... data to create a UserLessonProgress
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UserLessonProgress we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UserLessonProgressUpsertArgs>(args: SelectSubset<T, UserLessonProgressUpsertArgs<ExtArgs>>): Prisma__UserLessonProgressClient<$Result.GetResult<Prisma.$UserLessonProgressPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more UserLessonProgresses that matches the filter.
+     * @param {UserLessonProgressFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const userLessonProgress = await prisma.userLessonProgress.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: UserLessonProgressFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a UserLessonProgress.
+     * @param {UserLessonProgressAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const userLessonProgress = await prisma.userLessonProgress.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: UserLessonProgressAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of UserLessonProgresses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLessonProgressCountArgs} args - Arguments to filter UserLessonProgresses to count.
+     * @example
+     * // Count the number of UserLessonProgresses
+     * const count = await prisma.userLessonProgress.count({
+     *   where: {
+     *     // ... the filter for the UserLessonProgresses we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserLessonProgressCountArgs>(
+      args?: Subset<T, UserLessonProgressCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserLessonProgressCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UserLessonProgress.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLessonProgressAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserLessonProgressAggregateArgs>(args: Subset<T, UserLessonProgressAggregateArgs>): Prisma.PrismaPromise<GetUserLessonProgressAggregateType<T>>
+
+    /**
+     * Group by UserLessonProgress.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLessonProgressGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserLessonProgressGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserLessonProgressGroupByArgs['orderBy'] }
+        : { orderBy?: UserLessonProgressGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserLessonProgressGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserLessonProgressGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UserLessonProgress model
+   */
+  readonly fields: UserLessonProgressFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UserLessonProgress.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserLessonProgressClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    lesson<T extends LessonDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LessonDefaultArgs<ExtArgs>>): Prisma__LessonClient<$Result.GetResult<Prisma.$LessonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the UserLessonProgress model
+   */
+  interface UserLessonProgressFieldRefs {
+    readonly id: FieldRef<"UserLessonProgress", 'String'>
+    readonly userId: FieldRef<"UserLessonProgress", 'String'>
+    readonly lessonId: FieldRef<"UserLessonProgress", 'String'>
+    readonly startedAt: FieldRef<"UserLessonProgress", 'DateTime'>
+    readonly completedAt: FieldRef<"UserLessonProgress", 'DateTime'>
+    readonly timeSpent: FieldRef<"UserLessonProgress", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * UserLessonProgress findUnique
+   */
+  export type UserLessonProgressFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLessonProgress
+     */
+    select?: UserLessonProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLessonProgress
+     */
+    omit?: UserLessonProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLessonProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserLessonProgress to fetch.
+     */
+    where: UserLessonProgressWhereUniqueInput
+  }
+
+  /**
+   * UserLessonProgress findUniqueOrThrow
+   */
+  export type UserLessonProgressFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLessonProgress
+     */
+    select?: UserLessonProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLessonProgress
+     */
+    omit?: UserLessonProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLessonProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserLessonProgress to fetch.
+     */
+    where: UserLessonProgressWhereUniqueInput
+  }
+
+  /**
+   * UserLessonProgress findFirst
+   */
+  export type UserLessonProgressFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLessonProgress
+     */
+    select?: UserLessonProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLessonProgress
+     */
+    omit?: UserLessonProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLessonProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserLessonProgress to fetch.
+     */
+    where?: UserLessonProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserLessonProgresses to fetch.
+     */
+    orderBy?: UserLessonProgressOrderByWithRelationInput | UserLessonProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserLessonProgresses.
+     */
+    cursor?: UserLessonProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserLessonProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserLessonProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserLessonProgresses.
+     */
+    distinct?: UserLessonProgressScalarFieldEnum | UserLessonProgressScalarFieldEnum[]
+  }
+
+  /**
+   * UserLessonProgress findFirstOrThrow
+   */
+  export type UserLessonProgressFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLessonProgress
+     */
+    select?: UserLessonProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLessonProgress
+     */
+    omit?: UserLessonProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLessonProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserLessonProgress to fetch.
+     */
+    where?: UserLessonProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserLessonProgresses to fetch.
+     */
+    orderBy?: UserLessonProgressOrderByWithRelationInput | UserLessonProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserLessonProgresses.
+     */
+    cursor?: UserLessonProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserLessonProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserLessonProgresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserLessonProgresses.
+     */
+    distinct?: UserLessonProgressScalarFieldEnum | UserLessonProgressScalarFieldEnum[]
+  }
+
+  /**
+   * UserLessonProgress findMany
+   */
+  export type UserLessonProgressFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLessonProgress
+     */
+    select?: UserLessonProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLessonProgress
+     */
+    omit?: UserLessonProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLessonProgressInclude<ExtArgs> | null
+    /**
+     * Filter, which UserLessonProgresses to fetch.
+     */
+    where?: UserLessonProgressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserLessonProgresses to fetch.
+     */
+    orderBy?: UserLessonProgressOrderByWithRelationInput | UserLessonProgressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UserLessonProgresses.
+     */
+    cursor?: UserLessonProgressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserLessonProgresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserLessonProgresses.
+     */
+    skip?: number
+    distinct?: UserLessonProgressScalarFieldEnum | UserLessonProgressScalarFieldEnum[]
+  }
+
+  /**
+   * UserLessonProgress create
+   */
+  export type UserLessonProgressCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLessonProgress
+     */
+    select?: UserLessonProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLessonProgress
+     */
+    omit?: UserLessonProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLessonProgressInclude<ExtArgs> | null
+    /**
+     * The data needed to create a UserLessonProgress.
+     */
+    data: XOR<UserLessonProgressCreateInput, UserLessonProgressUncheckedCreateInput>
+  }
+
+  /**
+   * UserLessonProgress createMany
+   */
+  export type UserLessonProgressCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UserLessonProgresses.
+     */
+    data: UserLessonProgressCreateManyInput | UserLessonProgressCreateManyInput[]
+  }
+
+  /**
+   * UserLessonProgress update
+   */
+  export type UserLessonProgressUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLessonProgress
+     */
+    select?: UserLessonProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLessonProgress
+     */
+    omit?: UserLessonProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLessonProgressInclude<ExtArgs> | null
+    /**
+     * The data needed to update a UserLessonProgress.
+     */
+    data: XOR<UserLessonProgressUpdateInput, UserLessonProgressUncheckedUpdateInput>
+    /**
+     * Choose, which UserLessonProgress to update.
+     */
+    where: UserLessonProgressWhereUniqueInput
+  }
+
+  /**
+   * UserLessonProgress updateMany
+   */
+  export type UserLessonProgressUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UserLessonProgresses.
+     */
+    data: XOR<UserLessonProgressUpdateManyMutationInput, UserLessonProgressUncheckedUpdateManyInput>
+    /**
+     * Filter which UserLessonProgresses to update
+     */
+    where?: UserLessonProgressWhereInput
+    /**
+     * Limit how many UserLessonProgresses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * UserLessonProgress upsert
+   */
+  export type UserLessonProgressUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLessonProgress
+     */
+    select?: UserLessonProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLessonProgress
+     */
+    omit?: UserLessonProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLessonProgressInclude<ExtArgs> | null
+    /**
+     * The filter to search for the UserLessonProgress to update in case it exists.
+     */
+    where: UserLessonProgressWhereUniqueInput
+    /**
+     * In case the UserLessonProgress found by the `where` argument doesn't exist, create a new UserLessonProgress with this data.
+     */
+    create: XOR<UserLessonProgressCreateInput, UserLessonProgressUncheckedCreateInput>
+    /**
+     * In case the UserLessonProgress was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserLessonProgressUpdateInput, UserLessonProgressUncheckedUpdateInput>
+  }
+
+  /**
+   * UserLessonProgress delete
+   */
+  export type UserLessonProgressDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLessonProgress
+     */
+    select?: UserLessonProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLessonProgress
+     */
+    omit?: UserLessonProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLessonProgressInclude<ExtArgs> | null
+    /**
+     * Filter which UserLessonProgress to delete.
+     */
+    where: UserLessonProgressWhereUniqueInput
+  }
+
+  /**
+   * UserLessonProgress deleteMany
+   */
+  export type UserLessonProgressDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserLessonProgresses to delete
+     */
+    where?: UserLessonProgressWhereInput
+    /**
+     * Limit how many UserLessonProgresses to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * UserLessonProgress findRaw
+   */
+  export type UserLessonProgressFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * UserLessonProgress aggregateRaw
+   */
+  export type UserLessonProgressAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * UserLessonProgress without action
+   */
+  export type UserLessonProgressDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLessonProgress
+     */
+    select?: UserLessonProgressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UserLessonProgress
+     */
+    omit?: UserLessonProgressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserLessonProgressInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -7502,6 +14612,82 @@ export namespace Prisma {
   };
 
   export type CategoryStatScalarFieldEnum = (typeof CategoryStatScalarFieldEnum)[keyof typeof CategoryStatScalarFieldEnum]
+
+
+  export const LearningPathScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    title: 'title',
+    description: 'description',
+    image: 'image',
+    order: 'order'
+  };
+
+  export type LearningPathScalarFieldEnum = (typeof LearningPathScalarFieldEnum)[keyof typeof LearningPathScalarFieldEnum]
+
+
+  export const ModuleScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    description: 'description',
+    duration: 'duration',
+    order: 'order',
+    learningPathId: 'learningPathId'
+  };
+
+  export type ModuleScalarFieldEnum = (typeof ModuleScalarFieldEnum)[keyof typeof ModuleScalarFieldEnum]
+
+
+  export const LessonScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    content: 'content',
+    videoUrl: 'videoUrl',
+    codeExample: 'codeExample',
+    resources: 'resources',
+    duration: 'duration',
+    order: 'order',
+    moduleId: 'moduleId'
+  };
+
+  export type LessonScalarFieldEnum = (typeof LessonScalarFieldEnum)[keyof typeof LessonScalarFieldEnum]
+
+
+  export const UserLearningProgressScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    learningPathId: 'learningPathId',
+    startedAt: 'startedAt',
+    lastAccessedAt: 'lastAccessedAt',
+    completedAt: 'completedAt',
+    progressPercent: 'progressPercent'
+  };
+
+  export type UserLearningProgressScalarFieldEnum = (typeof UserLearningProgressScalarFieldEnum)[keyof typeof UserLearningProgressScalarFieldEnum]
+
+
+  export const UserModuleProgressScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    moduleId: 'moduleId',
+    startedAt: 'startedAt',
+    completedAt: 'completedAt',
+    progressPercent: 'progressPercent'
+  };
+
+  export type UserModuleProgressScalarFieldEnum = (typeof UserModuleProgressScalarFieldEnum)[keyof typeof UserModuleProgressScalarFieldEnum]
+
+
+  export const UserLessonProgressScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    lessonId: 'lessonId',
+    startedAt: 'startedAt',
+    completedAt: 'completedAt',
+    timeSpent: 'timeSpent'
+  };
+
+  export type UserLessonProgressScalarFieldEnum = (typeof UserLessonProgressScalarFieldEnum)[keyof typeof UserLessonProgressScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -7599,6 +14785,9 @@ export namespace Prisma {
     clerkId?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
     categoryStats?: CategoryStatListRelationFilter
+    learningProgress?: UserLearningProgressListRelationFilter
+    moduleProgress?: UserModuleProgressListRelationFilter
+    lessonProgress?: UserLessonProgressListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -7606,6 +14795,9 @@ export namespace Prisma {
     clerkId?: SortOrder
     role?: SortOrder
     categoryStats?: CategoryStatOrderByRelationAggregateInput
+    learningProgress?: UserLearningProgressOrderByRelationAggregateInput
+    moduleProgress?: UserModuleProgressOrderByRelationAggregateInput
+    lessonProgress?: UserLessonProgressOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -7616,6 +14808,9 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     role?: StringFilter<"User"> | string
     categoryStats?: CategoryStatListRelationFilter
+    learningProgress?: UserLearningProgressListRelationFilter
+    moduleProgress?: UserModuleProgressListRelationFilter
+    lessonProgress?: UserLessonProgressListRelationFilter
   }, "id" | "clerkId">
 
   export type UserOrderByWithAggregationInput = {
@@ -7921,11 +15116,430 @@ export namespace Prisma {
     lastAttempt?: DateTimeNullableWithAggregatesFilter<"CategoryStat"> | Date | string | null
   }
 
+  export type LearningPathWhereInput = {
+    AND?: LearningPathWhereInput | LearningPathWhereInput[]
+    OR?: LearningPathWhereInput[]
+    NOT?: LearningPathWhereInput | LearningPathWhereInput[]
+    id?: StringFilter<"LearningPath"> | string
+    name?: StringFilter<"LearningPath"> | string
+    title?: StringFilter<"LearningPath"> | string
+    description?: StringFilter<"LearningPath"> | string
+    image?: StringNullableFilter<"LearningPath"> | string | null
+    order?: IntFilter<"LearningPath"> | number
+    modules?: ModuleListRelationFilter
+    userProgress?: UserLearningProgressListRelationFilter
+  }
+
+  export type LearningPathOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    image?: SortOrder
+    order?: SortOrder
+    modules?: ModuleOrderByRelationAggregateInput
+    userProgress?: UserLearningProgressOrderByRelationAggregateInput
+  }
+
+  export type LearningPathWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LearningPathWhereInput | LearningPathWhereInput[]
+    OR?: LearningPathWhereInput[]
+    NOT?: LearningPathWhereInput | LearningPathWhereInput[]
+    name?: StringFilter<"LearningPath"> | string
+    title?: StringFilter<"LearningPath"> | string
+    description?: StringFilter<"LearningPath"> | string
+    image?: StringNullableFilter<"LearningPath"> | string | null
+    order?: IntFilter<"LearningPath"> | number
+    modules?: ModuleListRelationFilter
+    userProgress?: UserLearningProgressListRelationFilter
+  }, "id">
+
+  export type LearningPathOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    image?: SortOrder
+    order?: SortOrder
+    _count?: LearningPathCountOrderByAggregateInput
+    _avg?: LearningPathAvgOrderByAggregateInput
+    _max?: LearningPathMaxOrderByAggregateInput
+    _min?: LearningPathMinOrderByAggregateInput
+    _sum?: LearningPathSumOrderByAggregateInput
+  }
+
+  export type LearningPathScalarWhereWithAggregatesInput = {
+    AND?: LearningPathScalarWhereWithAggregatesInput | LearningPathScalarWhereWithAggregatesInput[]
+    OR?: LearningPathScalarWhereWithAggregatesInput[]
+    NOT?: LearningPathScalarWhereWithAggregatesInput | LearningPathScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"LearningPath"> | string
+    name?: StringWithAggregatesFilter<"LearningPath"> | string
+    title?: StringWithAggregatesFilter<"LearningPath"> | string
+    description?: StringWithAggregatesFilter<"LearningPath"> | string
+    image?: StringNullableWithAggregatesFilter<"LearningPath"> | string | null
+    order?: IntWithAggregatesFilter<"LearningPath"> | number
+  }
+
+  export type ModuleWhereInput = {
+    AND?: ModuleWhereInput | ModuleWhereInput[]
+    OR?: ModuleWhereInput[]
+    NOT?: ModuleWhereInput | ModuleWhereInput[]
+    id?: StringFilter<"Module"> | string
+    title?: StringFilter<"Module"> | string
+    description?: StringFilter<"Module"> | string
+    duration?: StringFilter<"Module"> | string
+    order?: IntFilter<"Module"> | number
+    learningPathId?: StringFilter<"Module"> | string
+    learningPath?: XOR<LearningPathScalarRelationFilter, LearningPathWhereInput>
+    lessons?: LessonListRelationFilter
+    userProgress?: UserModuleProgressListRelationFilter
+  }
+
+  export type ModuleOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    duration?: SortOrder
+    order?: SortOrder
+    learningPathId?: SortOrder
+    learningPath?: LearningPathOrderByWithRelationInput
+    lessons?: LessonOrderByRelationAggregateInput
+    userProgress?: UserModuleProgressOrderByRelationAggregateInput
+  }
+
+  export type ModuleWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ModuleWhereInput | ModuleWhereInput[]
+    OR?: ModuleWhereInput[]
+    NOT?: ModuleWhereInput | ModuleWhereInput[]
+    title?: StringFilter<"Module"> | string
+    description?: StringFilter<"Module"> | string
+    duration?: StringFilter<"Module"> | string
+    order?: IntFilter<"Module"> | number
+    learningPathId?: StringFilter<"Module"> | string
+    learningPath?: XOR<LearningPathScalarRelationFilter, LearningPathWhereInput>
+    lessons?: LessonListRelationFilter
+    userProgress?: UserModuleProgressListRelationFilter
+  }, "id">
+
+  export type ModuleOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    duration?: SortOrder
+    order?: SortOrder
+    learningPathId?: SortOrder
+    _count?: ModuleCountOrderByAggregateInput
+    _avg?: ModuleAvgOrderByAggregateInput
+    _max?: ModuleMaxOrderByAggregateInput
+    _min?: ModuleMinOrderByAggregateInput
+    _sum?: ModuleSumOrderByAggregateInput
+  }
+
+  export type ModuleScalarWhereWithAggregatesInput = {
+    AND?: ModuleScalarWhereWithAggregatesInput | ModuleScalarWhereWithAggregatesInput[]
+    OR?: ModuleScalarWhereWithAggregatesInput[]
+    NOT?: ModuleScalarWhereWithAggregatesInput | ModuleScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Module"> | string
+    title?: StringWithAggregatesFilter<"Module"> | string
+    description?: StringWithAggregatesFilter<"Module"> | string
+    duration?: StringWithAggregatesFilter<"Module"> | string
+    order?: IntWithAggregatesFilter<"Module"> | number
+    learningPathId?: StringWithAggregatesFilter<"Module"> | string
+  }
+
+  export type LessonWhereInput = {
+    AND?: LessonWhereInput | LessonWhereInput[]
+    OR?: LessonWhereInput[]
+    NOT?: LessonWhereInput | LessonWhereInput[]
+    id?: StringFilter<"Lesson"> | string
+    title?: StringFilter<"Lesson"> | string
+    content?: StringFilter<"Lesson"> | string
+    videoUrl?: StringNullableFilter<"Lesson"> | string | null
+    codeExample?: StringNullableFilter<"Lesson"> | string | null
+    resources?: StringNullableFilter<"Lesson"> | string | null
+    duration?: StringFilter<"Lesson"> | string
+    order?: IntFilter<"Lesson"> | number
+    moduleId?: StringFilter<"Lesson"> | string
+    module?: XOR<ModuleScalarRelationFilter, ModuleWhereInput>
+    userProgress?: UserLessonProgressListRelationFilter
+  }
+
+  export type LessonOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    videoUrl?: SortOrder
+    codeExample?: SortOrder
+    resources?: SortOrder
+    duration?: SortOrder
+    order?: SortOrder
+    moduleId?: SortOrder
+    module?: ModuleOrderByWithRelationInput
+    userProgress?: UserLessonProgressOrderByRelationAggregateInput
+  }
+
+  export type LessonWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LessonWhereInput | LessonWhereInput[]
+    OR?: LessonWhereInput[]
+    NOT?: LessonWhereInput | LessonWhereInput[]
+    title?: StringFilter<"Lesson"> | string
+    content?: StringFilter<"Lesson"> | string
+    videoUrl?: StringNullableFilter<"Lesson"> | string | null
+    codeExample?: StringNullableFilter<"Lesson"> | string | null
+    resources?: StringNullableFilter<"Lesson"> | string | null
+    duration?: StringFilter<"Lesson"> | string
+    order?: IntFilter<"Lesson"> | number
+    moduleId?: StringFilter<"Lesson"> | string
+    module?: XOR<ModuleScalarRelationFilter, ModuleWhereInput>
+    userProgress?: UserLessonProgressListRelationFilter
+  }, "id">
+
+  export type LessonOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    videoUrl?: SortOrder
+    codeExample?: SortOrder
+    resources?: SortOrder
+    duration?: SortOrder
+    order?: SortOrder
+    moduleId?: SortOrder
+    _count?: LessonCountOrderByAggregateInput
+    _avg?: LessonAvgOrderByAggregateInput
+    _max?: LessonMaxOrderByAggregateInput
+    _min?: LessonMinOrderByAggregateInput
+    _sum?: LessonSumOrderByAggregateInput
+  }
+
+  export type LessonScalarWhereWithAggregatesInput = {
+    AND?: LessonScalarWhereWithAggregatesInput | LessonScalarWhereWithAggregatesInput[]
+    OR?: LessonScalarWhereWithAggregatesInput[]
+    NOT?: LessonScalarWhereWithAggregatesInput | LessonScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Lesson"> | string
+    title?: StringWithAggregatesFilter<"Lesson"> | string
+    content?: StringWithAggregatesFilter<"Lesson"> | string
+    videoUrl?: StringNullableWithAggregatesFilter<"Lesson"> | string | null
+    codeExample?: StringNullableWithAggregatesFilter<"Lesson"> | string | null
+    resources?: StringNullableWithAggregatesFilter<"Lesson"> | string | null
+    duration?: StringWithAggregatesFilter<"Lesson"> | string
+    order?: IntWithAggregatesFilter<"Lesson"> | number
+    moduleId?: StringWithAggregatesFilter<"Lesson"> | string
+  }
+
+  export type UserLearningProgressWhereInput = {
+    AND?: UserLearningProgressWhereInput | UserLearningProgressWhereInput[]
+    OR?: UserLearningProgressWhereInput[]
+    NOT?: UserLearningProgressWhereInput | UserLearningProgressWhereInput[]
+    id?: StringFilter<"UserLearningProgress"> | string
+    userId?: StringFilter<"UserLearningProgress"> | string
+    learningPathId?: StringFilter<"UserLearningProgress"> | string
+    startedAt?: DateTimeFilter<"UserLearningProgress"> | Date | string
+    lastAccessedAt?: DateTimeFilter<"UserLearningProgress"> | Date | string
+    completedAt?: DateTimeNullableFilter<"UserLearningProgress"> | Date | string | null
+    progressPercent?: IntFilter<"UserLearningProgress"> | number
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    learningPath?: XOR<LearningPathScalarRelationFilter, LearningPathWhereInput>
+  }
+
+  export type UserLearningProgressOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    learningPathId?: SortOrder
+    startedAt?: SortOrder
+    lastAccessedAt?: SortOrder
+    completedAt?: SortOrder
+    progressPercent?: SortOrder
+    user?: UserOrderByWithRelationInput
+    learningPath?: LearningPathOrderByWithRelationInput
+  }
+
+  export type UserLearningProgressWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_learningPathId?: UserLearningProgressUserIdLearningPathIdCompoundUniqueInput
+    AND?: UserLearningProgressWhereInput | UserLearningProgressWhereInput[]
+    OR?: UserLearningProgressWhereInput[]
+    NOT?: UserLearningProgressWhereInput | UserLearningProgressWhereInput[]
+    userId?: StringFilter<"UserLearningProgress"> | string
+    learningPathId?: StringFilter<"UserLearningProgress"> | string
+    startedAt?: DateTimeFilter<"UserLearningProgress"> | Date | string
+    lastAccessedAt?: DateTimeFilter<"UserLearningProgress"> | Date | string
+    completedAt?: DateTimeNullableFilter<"UserLearningProgress"> | Date | string | null
+    progressPercent?: IntFilter<"UserLearningProgress"> | number
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    learningPath?: XOR<LearningPathScalarRelationFilter, LearningPathWhereInput>
+  }, "id" | "userId_learningPathId">
+
+  export type UserLearningProgressOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    learningPathId?: SortOrder
+    startedAt?: SortOrder
+    lastAccessedAt?: SortOrder
+    completedAt?: SortOrder
+    progressPercent?: SortOrder
+    _count?: UserLearningProgressCountOrderByAggregateInput
+    _avg?: UserLearningProgressAvgOrderByAggregateInput
+    _max?: UserLearningProgressMaxOrderByAggregateInput
+    _min?: UserLearningProgressMinOrderByAggregateInput
+    _sum?: UserLearningProgressSumOrderByAggregateInput
+  }
+
+  export type UserLearningProgressScalarWhereWithAggregatesInput = {
+    AND?: UserLearningProgressScalarWhereWithAggregatesInput | UserLearningProgressScalarWhereWithAggregatesInput[]
+    OR?: UserLearningProgressScalarWhereWithAggregatesInput[]
+    NOT?: UserLearningProgressScalarWhereWithAggregatesInput | UserLearningProgressScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"UserLearningProgress"> | string
+    userId?: StringWithAggregatesFilter<"UserLearningProgress"> | string
+    learningPathId?: StringWithAggregatesFilter<"UserLearningProgress"> | string
+    startedAt?: DateTimeWithAggregatesFilter<"UserLearningProgress"> | Date | string
+    lastAccessedAt?: DateTimeWithAggregatesFilter<"UserLearningProgress"> | Date | string
+    completedAt?: DateTimeNullableWithAggregatesFilter<"UserLearningProgress"> | Date | string | null
+    progressPercent?: IntWithAggregatesFilter<"UserLearningProgress"> | number
+  }
+
+  export type UserModuleProgressWhereInput = {
+    AND?: UserModuleProgressWhereInput | UserModuleProgressWhereInput[]
+    OR?: UserModuleProgressWhereInput[]
+    NOT?: UserModuleProgressWhereInput | UserModuleProgressWhereInput[]
+    id?: StringFilter<"UserModuleProgress"> | string
+    userId?: StringFilter<"UserModuleProgress"> | string
+    moduleId?: StringFilter<"UserModuleProgress"> | string
+    startedAt?: DateTimeFilter<"UserModuleProgress"> | Date | string
+    completedAt?: DateTimeNullableFilter<"UserModuleProgress"> | Date | string | null
+    progressPercent?: IntFilter<"UserModuleProgress"> | number
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    module?: XOR<ModuleScalarRelationFilter, ModuleWhereInput>
+  }
+
+  export type UserModuleProgressOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    moduleId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    progressPercent?: SortOrder
+    user?: UserOrderByWithRelationInput
+    module?: ModuleOrderByWithRelationInput
+  }
+
+  export type UserModuleProgressWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_moduleId?: UserModuleProgressUserIdModuleIdCompoundUniqueInput
+    AND?: UserModuleProgressWhereInput | UserModuleProgressWhereInput[]
+    OR?: UserModuleProgressWhereInput[]
+    NOT?: UserModuleProgressWhereInput | UserModuleProgressWhereInput[]
+    userId?: StringFilter<"UserModuleProgress"> | string
+    moduleId?: StringFilter<"UserModuleProgress"> | string
+    startedAt?: DateTimeFilter<"UserModuleProgress"> | Date | string
+    completedAt?: DateTimeNullableFilter<"UserModuleProgress"> | Date | string | null
+    progressPercent?: IntFilter<"UserModuleProgress"> | number
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    module?: XOR<ModuleScalarRelationFilter, ModuleWhereInput>
+  }, "id" | "userId_moduleId">
+
+  export type UserModuleProgressOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    moduleId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    progressPercent?: SortOrder
+    _count?: UserModuleProgressCountOrderByAggregateInput
+    _avg?: UserModuleProgressAvgOrderByAggregateInput
+    _max?: UserModuleProgressMaxOrderByAggregateInput
+    _min?: UserModuleProgressMinOrderByAggregateInput
+    _sum?: UserModuleProgressSumOrderByAggregateInput
+  }
+
+  export type UserModuleProgressScalarWhereWithAggregatesInput = {
+    AND?: UserModuleProgressScalarWhereWithAggregatesInput | UserModuleProgressScalarWhereWithAggregatesInput[]
+    OR?: UserModuleProgressScalarWhereWithAggregatesInput[]
+    NOT?: UserModuleProgressScalarWhereWithAggregatesInput | UserModuleProgressScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"UserModuleProgress"> | string
+    userId?: StringWithAggregatesFilter<"UserModuleProgress"> | string
+    moduleId?: StringWithAggregatesFilter<"UserModuleProgress"> | string
+    startedAt?: DateTimeWithAggregatesFilter<"UserModuleProgress"> | Date | string
+    completedAt?: DateTimeNullableWithAggregatesFilter<"UserModuleProgress"> | Date | string | null
+    progressPercent?: IntWithAggregatesFilter<"UserModuleProgress"> | number
+  }
+
+  export type UserLessonProgressWhereInput = {
+    AND?: UserLessonProgressWhereInput | UserLessonProgressWhereInput[]
+    OR?: UserLessonProgressWhereInput[]
+    NOT?: UserLessonProgressWhereInput | UserLessonProgressWhereInput[]
+    id?: StringFilter<"UserLessonProgress"> | string
+    userId?: StringFilter<"UserLessonProgress"> | string
+    lessonId?: StringFilter<"UserLessonProgress"> | string
+    startedAt?: DateTimeFilter<"UserLessonProgress"> | Date | string
+    completedAt?: DateTimeNullableFilter<"UserLessonProgress"> | Date | string | null
+    timeSpent?: IntFilter<"UserLessonProgress"> | number
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    lesson?: XOR<LessonScalarRelationFilter, LessonWhereInput>
+  }
+
+  export type UserLessonProgressOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    lessonId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    timeSpent?: SortOrder
+    user?: UserOrderByWithRelationInput
+    lesson?: LessonOrderByWithRelationInput
+  }
+
+  export type UserLessonProgressWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_lessonId?: UserLessonProgressUserIdLessonIdCompoundUniqueInput
+    AND?: UserLessonProgressWhereInput | UserLessonProgressWhereInput[]
+    OR?: UserLessonProgressWhereInput[]
+    NOT?: UserLessonProgressWhereInput | UserLessonProgressWhereInput[]
+    userId?: StringFilter<"UserLessonProgress"> | string
+    lessonId?: StringFilter<"UserLessonProgress"> | string
+    startedAt?: DateTimeFilter<"UserLessonProgress"> | Date | string
+    completedAt?: DateTimeNullableFilter<"UserLessonProgress"> | Date | string | null
+    timeSpent?: IntFilter<"UserLessonProgress"> | number
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    lesson?: XOR<LessonScalarRelationFilter, LessonWhereInput>
+  }, "id" | "userId_lessonId">
+
+  export type UserLessonProgressOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    lessonId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    timeSpent?: SortOrder
+    _count?: UserLessonProgressCountOrderByAggregateInput
+    _avg?: UserLessonProgressAvgOrderByAggregateInput
+    _max?: UserLessonProgressMaxOrderByAggregateInput
+    _min?: UserLessonProgressMinOrderByAggregateInput
+    _sum?: UserLessonProgressSumOrderByAggregateInput
+  }
+
+  export type UserLessonProgressScalarWhereWithAggregatesInput = {
+    AND?: UserLessonProgressScalarWhereWithAggregatesInput | UserLessonProgressScalarWhereWithAggregatesInput[]
+    OR?: UserLessonProgressScalarWhereWithAggregatesInput[]
+    NOT?: UserLessonProgressScalarWhereWithAggregatesInput | UserLessonProgressScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"UserLessonProgress"> | string
+    userId?: StringWithAggregatesFilter<"UserLessonProgress"> | string
+    lessonId?: StringWithAggregatesFilter<"UserLessonProgress"> | string
+    startedAt?: DateTimeWithAggregatesFilter<"UserLessonProgress"> | Date | string
+    completedAt?: DateTimeNullableWithAggregatesFilter<"UserLessonProgress"> | Date | string | null
+    timeSpent?: IntWithAggregatesFilter<"UserLessonProgress"> | number
+  }
+
   export type UserCreateInput = {
     id?: string
     clerkId: string
     role?: string
     categoryStats?: CategoryStatCreateNestedManyWithoutUserInput
+    learningProgress?: UserLearningProgressCreateNestedManyWithoutUserInput
+    moduleProgress?: UserModuleProgressCreateNestedManyWithoutUserInput
+    lessonProgress?: UserLessonProgressCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -7933,18 +15547,27 @@ export namespace Prisma {
     clerkId: string
     role?: string
     categoryStats?: CategoryStatUncheckedCreateNestedManyWithoutUserInput
+    learningProgress?: UserLearningProgressUncheckedCreateNestedManyWithoutUserInput
+    moduleProgress?: UserModuleProgressUncheckedCreateNestedManyWithoutUserInput
+    lessonProgress?: UserLessonProgressUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
     clerkId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     categoryStats?: CategoryStatUpdateManyWithoutUserNestedInput
+    learningProgress?: UserLearningProgressUpdateManyWithoutUserNestedInput
+    moduleProgress?: UserModuleProgressUpdateManyWithoutUserNestedInput
+    lessonProgress?: UserLessonProgressUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
     clerkId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     categoryStats?: CategoryStatUncheckedUpdateManyWithoutUserNestedInput
+    learningProgress?: UserLearningProgressUncheckedUpdateManyWithoutUserNestedInput
+    moduleProgress?: UserModuleProgressUncheckedUpdateManyWithoutUserNestedInput
+    lessonProgress?: UserLessonProgressUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -8227,6 +15850,400 @@ export namespace Prisma {
     lastAttempt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type LearningPathCreateInput = {
+    id?: string
+    name: string
+    title: string
+    description: string
+    image?: string | null
+    order: number
+    modules?: ModuleCreateNestedManyWithoutLearningPathInput
+    userProgress?: UserLearningProgressCreateNestedManyWithoutLearningPathInput
+  }
+
+  export type LearningPathUncheckedCreateInput = {
+    id?: string
+    name: string
+    title: string
+    description: string
+    image?: string | null
+    order: number
+    modules?: ModuleUncheckedCreateNestedManyWithoutLearningPathInput
+    userProgress?: UserLearningProgressUncheckedCreateNestedManyWithoutLearningPathInput
+  }
+
+  export type LearningPathUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    modules?: ModuleUpdateManyWithoutLearningPathNestedInput
+    userProgress?: UserLearningProgressUpdateManyWithoutLearningPathNestedInput
+  }
+
+  export type LearningPathUncheckedUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    modules?: ModuleUncheckedUpdateManyWithoutLearningPathNestedInput
+    userProgress?: UserLearningProgressUncheckedUpdateManyWithoutLearningPathNestedInput
+  }
+
+  export type LearningPathCreateManyInput = {
+    id?: string
+    name: string
+    title: string
+    description: string
+    image?: string | null
+    order: number
+  }
+
+  export type LearningPathUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LearningPathUncheckedUpdateManyInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ModuleCreateInput = {
+    id?: string
+    title: string
+    description: string
+    duration: string
+    order: number
+    learningPath: LearningPathCreateNestedOneWithoutModulesInput
+    lessons?: LessonCreateNestedManyWithoutModuleInput
+    userProgress?: UserModuleProgressCreateNestedManyWithoutModuleInput
+  }
+
+  export type ModuleUncheckedCreateInput = {
+    id?: string
+    title: string
+    description: string
+    duration: string
+    order: number
+    learningPathId: string
+    lessons?: LessonUncheckedCreateNestedManyWithoutModuleInput
+    userProgress?: UserModuleProgressUncheckedCreateNestedManyWithoutModuleInput
+  }
+
+  export type ModuleUpdateInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    learningPath?: LearningPathUpdateOneRequiredWithoutModulesNestedInput
+    lessons?: LessonUpdateManyWithoutModuleNestedInput
+    userProgress?: UserModuleProgressUpdateManyWithoutModuleNestedInput
+  }
+
+  export type ModuleUncheckedUpdateInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    learningPathId?: StringFieldUpdateOperationsInput | string
+    lessons?: LessonUncheckedUpdateManyWithoutModuleNestedInput
+    userProgress?: UserModuleProgressUncheckedUpdateManyWithoutModuleNestedInput
+  }
+
+  export type ModuleCreateManyInput = {
+    id?: string
+    title: string
+    description: string
+    duration: string
+    order: number
+    learningPathId: string
+  }
+
+  export type ModuleUpdateManyMutationInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ModuleUncheckedUpdateManyInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    learningPathId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LessonCreateInput = {
+    id?: string
+    title: string
+    content: string
+    videoUrl?: string | null
+    codeExample?: string | null
+    resources?: string | null
+    duration: string
+    order: number
+    module: ModuleCreateNestedOneWithoutLessonsInput
+    userProgress?: UserLessonProgressCreateNestedManyWithoutLessonInput
+  }
+
+  export type LessonUncheckedCreateInput = {
+    id?: string
+    title: string
+    content: string
+    videoUrl?: string | null
+    codeExample?: string | null
+    resources?: string | null
+    duration: string
+    order: number
+    moduleId: string
+    userProgress?: UserLessonProgressUncheckedCreateNestedManyWithoutLessonInput
+  }
+
+  export type LessonUpdateInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    codeExample?: NullableStringFieldUpdateOperationsInput | string | null
+    resources?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    module?: ModuleUpdateOneRequiredWithoutLessonsNestedInput
+    userProgress?: UserLessonProgressUpdateManyWithoutLessonNestedInput
+  }
+
+  export type LessonUncheckedUpdateInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    codeExample?: NullableStringFieldUpdateOperationsInput | string | null
+    resources?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    moduleId?: StringFieldUpdateOperationsInput | string
+    userProgress?: UserLessonProgressUncheckedUpdateManyWithoutLessonNestedInput
+  }
+
+  export type LessonCreateManyInput = {
+    id?: string
+    title: string
+    content: string
+    videoUrl?: string | null
+    codeExample?: string | null
+    resources?: string | null
+    duration: string
+    order: number
+    moduleId: string
+  }
+
+  export type LessonUpdateManyMutationInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    codeExample?: NullableStringFieldUpdateOperationsInput | string | null
+    resources?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LessonUncheckedUpdateManyInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    codeExample?: NullableStringFieldUpdateOperationsInput | string | null
+    resources?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    moduleId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserLearningProgressCreateInput = {
+    id?: string
+    startedAt?: Date | string
+    lastAccessedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+    user: UserCreateNestedOneWithoutLearningProgressInput
+    learningPath: LearningPathCreateNestedOneWithoutUserProgressInput
+  }
+
+  export type UserLearningProgressUncheckedCreateInput = {
+    id?: string
+    userId: string
+    learningPathId: string
+    startedAt?: Date | string
+    lastAccessedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+  }
+
+  export type UserLearningProgressUpdateInput = {
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastAccessedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+    user?: UserUpdateOneRequiredWithoutLearningProgressNestedInput
+    learningPath?: LearningPathUpdateOneRequiredWithoutUserProgressNestedInput
+  }
+
+  export type UserLearningProgressUncheckedUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    learningPathId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastAccessedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserLearningProgressCreateManyInput = {
+    id?: string
+    userId: string
+    learningPathId: string
+    startedAt?: Date | string
+    lastAccessedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+  }
+
+  export type UserLearningProgressUpdateManyMutationInput = {
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastAccessedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserLearningProgressUncheckedUpdateManyInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    learningPathId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastAccessedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserModuleProgressCreateInput = {
+    id?: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+    user: UserCreateNestedOneWithoutModuleProgressInput
+    module: ModuleCreateNestedOneWithoutUserProgressInput
+  }
+
+  export type UserModuleProgressUncheckedCreateInput = {
+    id?: string
+    userId: string
+    moduleId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+  }
+
+  export type UserModuleProgressUpdateInput = {
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+    user?: UserUpdateOneRequiredWithoutModuleProgressNestedInput
+    module?: ModuleUpdateOneRequiredWithoutUserProgressNestedInput
+  }
+
+  export type UserModuleProgressUncheckedUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    moduleId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserModuleProgressCreateManyInput = {
+    id?: string
+    userId: string
+    moduleId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+  }
+
+  export type UserModuleProgressUpdateManyMutationInput = {
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserModuleProgressUncheckedUpdateManyInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    moduleId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserLessonProgressCreateInput = {
+    id?: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    timeSpent?: number
+    user: UserCreateNestedOneWithoutLessonProgressInput
+    lesson: LessonCreateNestedOneWithoutUserProgressInput
+  }
+
+  export type UserLessonProgressUncheckedCreateInput = {
+    id?: string
+    userId: string
+    lessonId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    timeSpent?: number
+  }
+
+  export type UserLessonProgressUpdateInput = {
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeSpent?: IntFieldUpdateOperationsInput | number
+    user?: UserUpdateOneRequiredWithoutLessonProgressNestedInput
+    lesson?: LessonUpdateOneRequiredWithoutUserProgressNestedInput
+  }
+
+  export type UserLessonProgressUncheckedUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    lessonId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeSpent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserLessonProgressCreateManyInput = {
+    id?: string
+    userId: string
+    lessonId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    timeSpent?: number
+  }
+
+  export type UserLessonProgressUpdateManyMutationInput = {
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeSpent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserLessonProgressUncheckedUpdateManyInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    lessonId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeSpent?: IntFieldUpdateOperationsInput | number
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -8248,7 +16265,37 @@ export namespace Prisma {
     none?: CategoryStatWhereInput
   }
 
+  export type UserLearningProgressListRelationFilter = {
+    every?: UserLearningProgressWhereInput
+    some?: UserLearningProgressWhereInput
+    none?: UserLearningProgressWhereInput
+  }
+
+  export type UserModuleProgressListRelationFilter = {
+    every?: UserModuleProgressWhereInput
+    some?: UserModuleProgressWhereInput
+    none?: UserModuleProgressWhereInput
+  }
+
+  export type UserLessonProgressListRelationFilter = {
+    every?: UserLessonProgressWhereInput
+    some?: UserLessonProgressWhereInput
+    none?: UserLessonProgressWhereInput
+  }
+
   export type CategoryStatOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserLearningProgressOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserModuleProgressOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserLessonProgressOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -8603,6 +16650,303 @@ export namespace Prisma {
     isSet?: boolean
   }
 
+  export type ModuleListRelationFilter = {
+    every?: ModuleWhereInput
+    some?: ModuleWhereInput
+    none?: ModuleWhereInput
+  }
+
+  export type ModuleOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LearningPathCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    image?: SortOrder
+    order?: SortOrder
+  }
+
+  export type LearningPathAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type LearningPathMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    image?: SortOrder
+    order?: SortOrder
+  }
+
+  export type LearningPathMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    image?: SortOrder
+    order?: SortOrder
+  }
+
+  export type LearningPathSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type LearningPathScalarRelationFilter = {
+    is?: LearningPathWhereInput
+    isNot?: LearningPathWhereInput
+  }
+
+  export type LessonListRelationFilter = {
+    every?: LessonWhereInput
+    some?: LessonWhereInput
+    none?: LessonWhereInput
+  }
+
+  export type LessonOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ModuleCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    duration?: SortOrder
+    order?: SortOrder
+    learningPathId?: SortOrder
+  }
+
+  export type ModuleAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type ModuleMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    duration?: SortOrder
+    order?: SortOrder
+    learningPathId?: SortOrder
+  }
+
+  export type ModuleMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    duration?: SortOrder
+    order?: SortOrder
+    learningPathId?: SortOrder
+  }
+
+  export type ModuleSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type ModuleScalarRelationFilter = {
+    is?: ModuleWhereInput
+    isNot?: ModuleWhereInput
+  }
+
+  export type LessonCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    videoUrl?: SortOrder
+    codeExample?: SortOrder
+    resources?: SortOrder
+    duration?: SortOrder
+    order?: SortOrder
+    moduleId?: SortOrder
+  }
+
+  export type LessonAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type LessonMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    videoUrl?: SortOrder
+    codeExample?: SortOrder
+    resources?: SortOrder
+    duration?: SortOrder
+    order?: SortOrder
+    moduleId?: SortOrder
+  }
+
+  export type LessonMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    videoUrl?: SortOrder
+    codeExample?: SortOrder
+    resources?: SortOrder
+    duration?: SortOrder
+    order?: SortOrder
+    moduleId?: SortOrder
+  }
+
+  export type LessonSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type UserLearningProgressUserIdLearningPathIdCompoundUniqueInput = {
+    userId: string
+    learningPathId: string
+  }
+
+  export type UserLearningProgressCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    learningPathId?: SortOrder
+    startedAt?: SortOrder
+    lastAccessedAt?: SortOrder
+    completedAt?: SortOrder
+    progressPercent?: SortOrder
+  }
+
+  export type UserLearningProgressAvgOrderByAggregateInput = {
+    progressPercent?: SortOrder
+  }
+
+  export type UserLearningProgressMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    learningPathId?: SortOrder
+    startedAt?: SortOrder
+    lastAccessedAt?: SortOrder
+    completedAt?: SortOrder
+    progressPercent?: SortOrder
+  }
+
+  export type UserLearningProgressMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    learningPathId?: SortOrder
+    startedAt?: SortOrder
+    lastAccessedAt?: SortOrder
+    completedAt?: SortOrder
+    progressPercent?: SortOrder
+  }
+
+  export type UserLearningProgressSumOrderByAggregateInput = {
+    progressPercent?: SortOrder
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type UserModuleProgressUserIdModuleIdCompoundUniqueInput = {
+    userId: string
+    moduleId: string
+  }
+
+  export type UserModuleProgressCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    moduleId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    progressPercent?: SortOrder
+  }
+
+  export type UserModuleProgressAvgOrderByAggregateInput = {
+    progressPercent?: SortOrder
+  }
+
+  export type UserModuleProgressMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    moduleId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    progressPercent?: SortOrder
+  }
+
+  export type UserModuleProgressMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    moduleId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    progressPercent?: SortOrder
+  }
+
+  export type UserModuleProgressSumOrderByAggregateInput = {
+    progressPercent?: SortOrder
+  }
+
+  export type LessonScalarRelationFilter = {
+    is?: LessonWhereInput
+    isNot?: LessonWhereInput
+  }
+
+  export type UserLessonProgressUserIdLessonIdCompoundUniqueInput = {
+    userId: string
+    lessonId: string
+  }
+
+  export type UserLessonProgressCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    lessonId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    timeSpent?: SortOrder
+  }
+
+  export type UserLessonProgressAvgOrderByAggregateInput = {
+    timeSpent?: SortOrder
+  }
+
+  export type UserLessonProgressMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    lessonId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    timeSpent?: SortOrder
+  }
+
+  export type UserLessonProgressMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    lessonId?: SortOrder
+    startedAt?: SortOrder
+    completedAt?: SortOrder
+    timeSpent?: SortOrder
+  }
+
+  export type UserLessonProgressSumOrderByAggregateInput = {
+    timeSpent?: SortOrder
+  }
+
   export type CategoryStatCreateNestedManyWithoutUserInput = {
     create?: XOR<CategoryStatCreateWithoutUserInput, CategoryStatUncheckedCreateWithoutUserInput> | CategoryStatCreateWithoutUserInput[] | CategoryStatUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CategoryStatCreateOrConnectWithoutUserInput | CategoryStatCreateOrConnectWithoutUserInput[]
@@ -8610,11 +16954,53 @@ export namespace Prisma {
     connect?: CategoryStatWhereUniqueInput | CategoryStatWhereUniqueInput[]
   }
 
+  export type UserLearningProgressCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserLearningProgressCreateWithoutUserInput, UserLearningProgressUncheckedCreateWithoutUserInput> | UserLearningProgressCreateWithoutUserInput[] | UserLearningProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserLearningProgressCreateOrConnectWithoutUserInput | UserLearningProgressCreateOrConnectWithoutUserInput[]
+    createMany?: UserLearningProgressCreateManyUserInputEnvelope
+    connect?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+  }
+
+  export type UserModuleProgressCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserModuleProgressCreateWithoutUserInput, UserModuleProgressUncheckedCreateWithoutUserInput> | UserModuleProgressCreateWithoutUserInput[] | UserModuleProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserModuleProgressCreateOrConnectWithoutUserInput | UserModuleProgressCreateOrConnectWithoutUserInput[]
+    createMany?: UserModuleProgressCreateManyUserInputEnvelope
+    connect?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+  }
+
+  export type UserLessonProgressCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserLessonProgressCreateWithoutUserInput, UserLessonProgressUncheckedCreateWithoutUserInput> | UserLessonProgressCreateWithoutUserInput[] | UserLessonProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserLessonProgressCreateOrConnectWithoutUserInput | UserLessonProgressCreateOrConnectWithoutUserInput[]
+    createMany?: UserLessonProgressCreateManyUserInputEnvelope
+    connect?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+  }
+
   export type CategoryStatUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<CategoryStatCreateWithoutUserInput, CategoryStatUncheckedCreateWithoutUserInput> | CategoryStatCreateWithoutUserInput[] | CategoryStatUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CategoryStatCreateOrConnectWithoutUserInput | CategoryStatCreateOrConnectWithoutUserInput[]
     createMany?: CategoryStatCreateManyUserInputEnvelope
     connect?: CategoryStatWhereUniqueInput | CategoryStatWhereUniqueInput[]
+  }
+
+  export type UserLearningProgressUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserLearningProgressCreateWithoutUserInput, UserLearningProgressUncheckedCreateWithoutUserInput> | UserLearningProgressCreateWithoutUserInput[] | UserLearningProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserLearningProgressCreateOrConnectWithoutUserInput | UserLearningProgressCreateOrConnectWithoutUserInput[]
+    createMany?: UserLearningProgressCreateManyUserInputEnvelope
+    connect?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+  }
+
+  export type UserModuleProgressUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserModuleProgressCreateWithoutUserInput, UserModuleProgressUncheckedCreateWithoutUserInput> | UserModuleProgressCreateWithoutUserInput[] | UserModuleProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserModuleProgressCreateOrConnectWithoutUserInput | UserModuleProgressCreateOrConnectWithoutUserInput[]
+    createMany?: UserModuleProgressCreateManyUserInputEnvelope
+    connect?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+  }
+
+  export type UserLessonProgressUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserLessonProgressCreateWithoutUserInput, UserLessonProgressUncheckedCreateWithoutUserInput> | UserLessonProgressCreateWithoutUserInput[] | UserLessonProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserLessonProgressCreateOrConnectWithoutUserInput | UserLessonProgressCreateOrConnectWithoutUserInput[]
+    createMany?: UserLessonProgressCreateManyUserInputEnvelope
+    connect?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -8635,6 +17021,48 @@ export namespace Prisma {
     deleteMany?: CategoryStatScalarWhereInput | CategoryStatScalarWhereInput[]
   }
 
+  export type UserLearningProgressUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserLearningProgressCreateWithoutUserInput, UserLearningProgressUncheckedCreateWithoutUserInput> | UserLearningProgressCreateWithoutUserInput[] | UserLearningProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserLearningProgressCreateOrConnectWithoutUserInput | UserLearningProgressCreateOrConnectWithoutUserInput[]
+    upsert?: UserLearningProgressUpsertWithWhereUniqueWithoutUserInput | UserLearningProgressUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserLearningProgressCreateManyUserInputEnvelope
+    set?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    disconnect?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    delete?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    connect?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    update?: UserLearningProgressUpdateWithWhereUniqueWithoutUserInput | UserLearningProgressUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserLearningProgressUpdateManyWithWhereWithoutUserInput | UserLearningProgressUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserLearningProgressScalarWhereInput | UserLearningProgressScalarWhereInput[]
+  }
+
+  export type UserModuleProgressUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserModuleProgressCreateWithoutUserInput, UserModuleProgressUncheckedCreateWithoutUserInput> | UserModuleProgressCreateWithoutUserInput[] | UserModuleProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserModuleProgressCreateOrConnectWithoutUserInput | UserModuleProgressCreateOrConnectWithoutUserInput[]
+    upsert?: UserModuleProgressUpsertWithWhereUniqueWithoutUserInput | UserModuleProgressUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserModuleProgressCreateManyUserInputEnvelope
+    set?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    disconnect?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    delete?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    connect?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    update?: UserModuleProgressUpdateWithWhereUniqueWithoutUserInput | UserModuleProgressUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserModuleProgressUpdateManyWithWhereWithoutUserInput | UserModuleProgressUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserModuleProgressScalarWhereInput | UserModuleProgressScalarWhereInput[]
+  }
+
+  export type UserLessonProgressUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserLessonProgressCreateWithoutUserInput, UserLessonProgressUncheckedCreateWithoutUserInput> | UserLessonProgressCreateWithoutUserInput[] | UserLessonProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserLessonProgressCreateOrConnectWithoutUserInput | UserLessonProgressCreateOrConnectWithoutUserInput[]
+    upsert?: UserLessonProgressUpsertWithWhereUniqueWithoutUserInput | UserLessonProgressUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserLessonProgressCreateManyUserInputEnvelope
+    set?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    disconnect?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    delete?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    connect?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    update?: UserLessonProgressUpdateWithWhereUniqueWithoutUserInput | UserLessonProgressUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserLessonProgressUpdateManyWithWhereWithoutUserInput | UserLessonProgressUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserLessonProgressScalarWhereInput | UserLessonProgressScalarWhereInput[]
+  }
+
   export type CategoryStatUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<CategoryStatCreateWithoutUserInput, CategoryStatUncheckedCreateWithoutUserInput> | CategoryStatCreateWithoutUserInput[] | CategoryStatUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CategoryStatCreateOrConnectWithoutUserInput | CategoryStatCreateOrConnectWithoutUserInput[]
@@ -8647,6 +17075,48 @@ export namespace Prisma {
     update?: CategoryStatUpdateWithWhereUniqueWithoutUserInput | CategoryStatUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: CategoryStatUpdateManyWithWhereWithoutUserInput | CategoryStatUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: CategoryStatScalarWhereInput | CategoryStatScalarWhereInput[]
+  }
+
+  export type UserLearningProgressUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserLearningProgressCreateWithoutUserInput, UserLearningProgressUncheckedCreateWithoutUserInput> | UserLearningProgressCreateWithoutUserInput[] | UserLearningProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserLearningProgressCreateOrConnectWithoutUserInput | UserLearningProgressCreateOrConnectWithoutUserInput[]
+    upsert?: UserLearningProgressUpsertWithWhereUniqueWithoutUserInput | UserLearningProgressUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserLearningProgressCreateManyUserInputEnvelope
+    set?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    disconnect?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    delete?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    connect?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    update?: UserLearningProgressUpdateWithWhereUniqueWithoutUserInput | UserLearningProgressUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserLearningProgressUpdateManyWithWhereWithoutUserInput | UserLearningProgressUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserLearningProgressScalarWhereInput | UserLearningProgressScalarWhereInput[]
+  }
+
+  export type UserModuleProgressUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserModuleProgressCreateWithoutUserInput, UserModuleProgressUncheckedCreateWithoutUserInput> | UserModuleProgressCreateWithoutUserInput[] | UserModuleProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserModuleProgressCreateOrConnectWithoutUserInput | UserModuleProgressCreateOrConnectWithoutUserInput[]
+    upsert?: UserModuleProgressUpsertWithWhereUniqueWithoutUserInput | UserModuleProgressUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserModuleProgressCreateManyUserInputEnvelope
+    set?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    disconnect?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    delete?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    connect?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    update?: UserModuleProgressUpdateWithWhereUniqueWithoutUserInput | UserModuleProgressUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserModuleProgressUpdateManyWithWhereWithoutUserInput | UserModuleProgressUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserModuleProgressScalarWhereInput | UserModuleProgressScalarWhereInput[]
+  }
+
+  export type UserLessonProgressUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserLessonProgressCreateWithoutUserInput, UserLessonProgressUncheckedCreateWithoutUserInput> | UserLessonProgressCreateWithoutUserInput[] | UserLessonProgressUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserLessonProgressCreateOrConnectWithoutUserInput | UserLessonProgressCreateOrConnectWithoutUserInput[]
+    upsert?: UserLessonProgressUpsertWithWhereUniqueWithoutUserInput | UserLessonProgressUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserLessonProgressCreateManyUserInputEnvelope
+    set?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    disconnect?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    delete?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    connect?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    update?: UserLessonProgressUpdateWithWhereUniqueWithoutUserInput | UserLessonProgressUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserLessonProgressUpdateManyWithWhereWithoutUserInput | UserLessonProgressUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserLessonProgressScalarWhereInput | UserLessonProgressScalarWhereInput[]
   }
 
   export type QuizCreateNestedManyWithoutCategoryInput = {
@@ -8918,6 +17388,332 @@ export namespace Prisma {
     update?: XOR<XOR<CategoryUpdateToOneWithWhereWithoutCategoryStatsInput, CategoryUpdateWithoutCategoryStatsInput>, CategoryUncheckedUpdateWithoutCategoryStatsInput>
   }
 
+  export type ModuleCreateNestedManyWithoutLearningPathInput = {
+    create?: XOR<ModuleCreateWithoutLearningPathInput, ModuleUncheckedCreateWithoutLearningPathInput> | ModuleCreateWithoutLearningPathInput[] | ModuleUncheckedCreateWithoutLearningPathInput[]
+    connectOrCreate?: ModuleCreateOrConnectWithoutLearningPathInput | ModuleCreateOrConnectWithoutLearningPathInput[]
+    createMany?: ModuleCreateManyLearningPathInputEnvelope
+    connect?: ModuleWhereUniqueInput | ModuleWhereUniqueInput[]
+  }
+
+  export type UserLearningProgressCreateNestedManyWithoutLearningPathInput = {
+    create?: XOR<UserLearningProgressCreateWithoutLearningPathInput, UserLearningProgressUncheckedCreateWithoutLearningPathInput> | UserLearningProgressCreateWithoutLearningPathInput[] | UserLearningProgressUncheckedCreateWithoutLearningPathInput[]
+    connectOrCreate?: UserLearningProgressCreateOrConnectWithoutLearningPathInput | UserLearningProgressCreateOrConnectWithoutLearningPathInput[]
+    createMany?: UserLearningProgressCreateManyLearningPathInputEnvelope
+    connect?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+  }
+
+  export type ModuleUncheckedCreateNestedManyWithoutLearningPathInput = {
+    create?: XOR<ModuleCreateWithoutLearningPathInput, ModuleUncheckedCreateWithoutLearningPathInput> | ModuleCreateWithoutLearningPathInput[] | ModuleUncheckedCreateWithoutLearningPathInput[]
+    connectOrCreate?: ModuleCreateOrConnectWithoutLearningPathInput | ModuleCreateOrConnectWithoutLearningPathInput[]
+    createMany?: ModuleCreateManyLearningPathInputEnvelope
+    connect?: ModuleWhereUniqueInput | ModuleWhereUniqueInput[]
+  }
+
+  export type UserLearningProgressUncheckedCreateNestedManyWithoutLearningPathInput = {
+    create?: XOR<UserLearningProgressCreateWithoutLearningPathInput, UserLearningProgressUncheckedCreateWithoutLearningPathInput> | UserLearningProgressCreateWithoutLearningPathInput[] | UserLearningProgressUncheckedCreateWithoutLearningPathInput[]
+    connectOrCreate?: UserLearningProgressCreateOrConnectWithoutLearningPathInput | UserLearningProgressCreateOrConnectWithoutLearningPathInput[]
+    createMany?: UserLearningProgressCreateManyLearningPathInputEnvelope
+    connect?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+  }
+
+  export type ModuleUpdateManyWithoutLearningPathNestedInput = {
+    create?: XOR<ModuleCreateWithoutLearningPathInput, ModuleUncheckedCreateWithoutLearningPathInput> | ModuleCreateWithoutLearningPathInput[] | ModuleUncheckedCreateWithoutLearningPathInput[]
+    connectOrCreate?: ModuleCreateOrConnectWithoutLearningPathInput | ModuleCreateOrConnectWithoutLearningPathInput[]
+    upsert?: ModuleUpsertWithWhereUniqueWithoutLearningPathInput | ModuleUpsertWithWhereUniqueWithoutLearningPathInput[]
+    createMany?: ModuleCreateManyLearningPathInputEnvelope
+    set?: ModuleWhereUniqueInput | ModuleWhereUniqueInput[]
+    disconnect?: ModuleWhereUniqueInput | ModuleWhereUniqueInput[]
+    delete?: ModuleWhereUniqueInput | ModuleWhereUniqueInput[]
+    connect?: ModuleWhereUniqueInput | ModuleWhereUniqueInput[]
+    update?: ModuleUpdateWithWhereUniqueWithoutLearningPathInput | ModuleUpdateWithWhereUniqueWithoutLearningPathInput[]
+    updateMany?: ModuleUpdateManyWithWhereWithoutLearningPathInput | ModuleUpdateManyWithWhereWithoutLearningPathInput[]
+    deleteMany?: ModuleScalarWhereInput | ModuleScalarWhereInput[]
+  }
+
+  export type UserLearningProgressUpdateManyWithoutLearningPathNestedInput = {
+    create?: XOR<UserLearningProgressCreateWithoutLearningPathInput, UserLearningProgressUncheckedCreateWithoutLearningPathInput> | UserLearningProgressCreateWithoutLearningPathInput[] | UserLearningProgressUncheckedCreateWithoutLearningPathInput[]
+    connectOrCreate?: UserLearningProgressCreateOrConnectWithoutLearningPathInput | UserLearningProgressCreateOrConnectWithoutLearningPathInput[]
+    upsert?: UserLearningProgressUpsertWithWhereUniqueWithoutLearningPathInput | UserLearningProgressUpsertWithWhereUniqueWithoutLearningPathInput[]
+    createMany?: UserLearningProgressCreateManyLearningPathInputEnvelope
+    set?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    disconnect?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    delete?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    connect?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    update?: UserLearningProgressUpdateWithWhereUniqueWithoutLearningPathInput | UserLearningProgressUpdateWithWhereUniqueWithoutLearningPathInput[]
+    updateMany?: UserLearningProgressUpdateManyWithWhereWithoutLearningPathInput | UserLearningProgressUpdateManyWithWhereWithoutLearningPathInput[]
+    deleteMany?: UserLearningProgressScalarWhereInput | UserLearningProgressScalarWhereInput[]
+  }
+
+  export type ModuleUncheckedUpdateManyWithoutLearningPathNestedInput = {
+    create?: XOR<ModuleCreateWithoutLearningPathInput, ModuleUncheckedCreateWithoutLearningPathInput> | ModuleCreateWithoutLearningPathInput[] | ModuleUncheckedCreateWithoutLearningPathInput[]
+    connectOrCreate?: ModuleCreateOrConnectWithoutLearningPathInput | ModuleCreateOrConnectWithoutLearningPathInput[]
+    upsert?: ModuleUpsertWithWhereUniqueWithoutLearningPathInput | ModuleUpsertWithWhereUniqueWithoutLearningPathInput[]
+    createMany?: ModuleCreateManyLearningPathInputEnvelope
+    set?: ModuleWhereUniqueInput | ModuleWhereUniqueInput[]
+    disconnect?: ModuleWhereUniqueInput | ModuleWhereUniqueInput[]
+    delete?: ModuleWhereUniqueInput | ModuleWhereUniqueInput[]
+    connect?: ModuleWhereUniqueInput | ModuleWhereUniqueInput[]
+    update?: ModuleUpdateWithWhereUniqueWithoutLearningPathInput | ModuleUpdateWithWhereUniqueWithoutLearningPathInput[]
+    updateMany?: ModuleUpdateManyWithWhereWithoutLearningPathInput | ModuleUpdateManyWithWhereWithoutLearningPathInput[]
+    deleteMany?: ModuleScalarWhereInput | ModuleScalarWhereInput[]
+  }
+
+  export type UserLearningProgressUncheckedUpdateManyWithoutLearningPathNestedInput = {
+    create?: XOR<UserLearningProgressCreateWithoutLearningPathInput, UserLearningProgressUncheckedCreateWithoutLearningPathInput> | UserLearningProgressCreateWithoutLearningPathInput[] | UserLearningProgressUncheckedCreateWithoutLearningPathInput[]
+    connectOrCreate?: UserLearningProgressCreateOrConnectWithoutLearningPathInput | UserLearningProgressCreateOrConnectWithoutLearningPathInput[]
+    upsert?: UserLearningProgressUpsertWithWhereUniqueWithoutLearningPathInput | UserLearningProgressUpsertWithWhereUniqueWithoutLearningPathInput[]
+    createMany?: UserLearningProgressCreateManyLearningPathInputEnvelope
+    set?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    disconnect?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    delete?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    connect?: UserLearningProgressWhereUniqueInput | UserLearningProgressWhereUniqueInput[]
+    update?: UserLearningProgressUpdateWithWhereUniqueWithoutLearningPathInput | UserLearningProgressUpdateWithWhereUniqueWithoutLearningPathInput[]
+    updateMany?: UserLearningProgressUpdateManyWithWhereWithoutLearningPathInput | UserLearningProgressUpdateManyWithWhereWithoutLearningPathInput[]
+    deleteMany?: UserLearningProgressScalarWhereInput | UserLearningProgressScalarWhereInput[]
+  }
+
+  export type LearningPathCreateNestedOneWithoutModulesInput = {
+    create?: XOR<LearningPathCreateWithoutModulesInput, LearningPathUncheckedCreateWithoutModulesInput>
+    connectOrCreate?: LearningPathCreateOrConnectWithoutModulesInput
+    connect?: LearningPathWhereUniqueInput
+  }
+
+  export type LessonCreateNestedManyWithoutModuleInput = {
+    create?: XOR<LessonCreateWithoutModuleInput, LessonUncheckedCreateWithoutModuleInput> | LessonCreateWithoutModuleInput[] | LessonUncheckedCreateWithoutModuleInput[]
+    connectOrCreate?: LessonCreateOrConnectWithoutModuleInput | LessonCreateOrConnectWithoutModuleInput[]
+    createMany?: LessonCreateManyModuleInputEnvelope
+    connect?: LessonWhereUniqueInput | LessonWhereUniqueInput[]
+  }
+
+  export type UserModuleProgressCreateNestedManyWithoutModuleInput = {
+    create?: XOR<UserModuleProgressCreateWithoutModuleInput, UserModuleProgressUncheckedCreateWithoutModuleInput> | UserModuleProgressCreateWithoutModuleInput[] | UserModuleProgressUncheckedCreateWithoutModuleInput[]
+    connectOrCreate?: UserModuleProgressCreateOrConnectWithoutModuleInput | UserModuleProgressCreateOrConnectWithoutModuleInput[]
+    createMany?: UserModuleProgressCreateManyModuleInputEnvelope
+    connect?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+  }
+
+  export type LessonUncheckedCreateNestedManyWithoutModuleInput = {
+    create?: XOR<LessonCreateWithoutModuleInput, LessonUncheckedCreateWithoutModuleInput> | LessonCreateWithoutModuleInput[] | LessonUncheckedCreateWithoutModuleInput[]
+    connectOrCreate?: LessonCreateOrConnectWithoutModuleInput | LessonCreateOrConnectWithoutModuleInput[]
+    createMany?: LessonCreateManyModuleInputEnvelope
+    connect?: LessonWhereUniqueInput | LessonWhereUniqueInput[]
+  }
+
+  export type UserModuleProgressUncheckedCreateNestedManyWithoutModuleInput = {
+    create?: XOR<UserModuleProgressCreateWithoutModuleInput, UserModuleProgressUncheckedCreateWithoutModuleInput> | UserModuleProgressCreateWithoutModuleInput[] | UserModuleProgressUncheckedCreateWithoutModuleInput[]
+    connectOrCreate?: UserModuleProgressCreateOrConnectWithoutModuleInput | UserModuleProgressCreateOrConnectWithoutModuleInput[]
+    createMany?: UserModuleProgressCreateManyModuleInputEnvelope
+    connect?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+  }
+
+  export type LearningPathUpdateOneRequiredWithoutModulesNestedInput = {
+    create?: XOR<LearningPathCreateWithoutModulesInput, LearningPathUncheckedCreateWithoutModulesInput>
+    connectOrCreate?: LearningPathCreateOrConnectWithoutModulesInput
+    upsert?: LearningPathUpsertWithoutModulesInput
+    connect?: LearningPathWhereUniqueInput
+    update?: XOR<XOR<LearningPathUpdateToOneWithWhereWithoutModulesInput, LearningPathUpdateWithoutModulesInput>, LearningPathUncheckedUpdateWithoutModulesInput>
+  }
+
+  export type LessonUpdateManyWithoutModuleNestedInput = {
+    create?: XOR<LessonCreateWithoutModuleInput, LessonUncheckedCreateWithoutModuleInput> | LessonCreateWithoutModuleInput[] | LessonUncheckedCreateWithoutModuleInput[]
+    connectOrCreate?: LessonCreateOrConnectWithoutModuleInput | LessonCreateOrConnectWithoutModuleInput[]
+    upsert?: LessonUpsertWithWhereUniqueWithoutModuleInput | LessonUpsertWithWhereUniqueWithoutModuleInput[]
+    createMany?: LessonCreateManyModuleInputEnvelope
+    set?: LessonWhereUniqueInput | LessonWhereUniqueInput[]
+    disconnect?: LessonWhereUniqueInput | LessonWhereUniqueInput[]
+    delete?: LessonWhereUniqueInput | LessonWhereUniqueInput[]
+    connect?: LessonWhereUniqueInput | LessonWhereUniqueInput[]
+    update?: LessonUpdateWithWhereUniqueWithoutModuleInput | LessonUpdateWithWhereUniqueWithoutModuleInput[]
+    updateMany?: LessonUpdateManyWithWhereWithoutModuleInput | LessonUpdateManyWithWhereWithoutModuleInput[]
+    deleteMany?: LessonScalarWhereInput | LessonScalarWhereInput[]
+  }
+
+  export type UserModuleProgressUpdateManyWithoutModuleNestedInput = {
+    create?: XOR<UserModuleProgressCreateWithoutModuleInput, UserModuleProgressUncheckedCreateWithoutModuleInput> | UserModuleProgressCreateWithoutModuleInput[] | UserModuleProgressUncheckedCreateWithoutModuleInput[]
+    connectOrCreate?: UserModuleProgressCreateOrConnectWithoutModuleInput | UserModuleProgressCreateOrConnectWithoutModuleInput[]
+    upsert?: UserModuleProgressUpsertWithWhereUniqueWithoutModuleInput | UserModuleProgressUpsertWithWhereUniqueWithoutModuleInput[]
+    createMany?: UserModuleProgressCreateManyModuleInputEnvelope
+    set?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    disconnect?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    delete?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    connect?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    update?: UserModuleProgressUpdateWithWhereUniqueWithoutModuleInput | UserModuleProgressUpdateWithWhereUniqueWithoutModuleInput[]
+    updateMany?: UserModuleProgressUpdateManyWithWhereWithoutModuleInput | UserModuleProgressUpdateManyWithWhereWithoutModuleInput[]
+    deleteMany?: UserModuleProgressScalarWhereInput | UserModuleProgressScalarWhereInput[]
+  }
+
+  export type LessonUncheckedUpdateManyWithoutModuleNestedInput = {
+    create?: XOR<LessonCreateWithoutModuleInput, LessonUncheckedCreateWithoutModuleInput> | LessonCreateWithoutModuleInput[] | LessonUncheckedCreateWithoutModuleInput[]
+    connectOrCreate?: LessonCreateOrConnectWithoutModuleInput | LessonCreateOrConnectWithoutModuleInput[]
+    upsert?: LessonUpsertWithWhereUniqueWithoutModuleInput | LessonUpsertWithWhereUniqueWithoutModuleInput[]
+    createMany?: LessonCreateManyModuleInputEnvelope
+    set?: LessonWhereUniqueInput | LessonWhereUniqueInput[]
+    disconnect?: LessonWhereUniqueInput | LessonWhereUniqueInput[]
+    delete?: LessonWhereUniqueInput | LessonWhereUniqueInput[]
+    connect?: LessonWhereUniqueInput | LessonWhereUniqueInput[]
+    update?: LessonUpdateWithWhereUniqueWithoutModuleInput | LessonUpdateWithWhereUniqueWithoutModuleInput[]
+    updateMany?: LessonUpdateManyWithWhereWithoutModuleInput | LessonUpdateManyWithWhereWithoutModuleInput[]
+    deleteMany?: LessonScalarWhereInput | LessonScalarWhereInput[]
+  }
+
+  export type UserModuleProgressUncheckedUpdateManyWithoutModuleNestedInput = {
+    create?: XOR<UserModuleProgressCreateWithoutModuleInput, UserModuleProgressUncheckedCreateWithoutModuleInput> | UserModuleProgressCreateWithoutModuleInput[] | UserModuleProgressUncheckedCreateWithoutModuleInput[]
+    connectOrCreate?: UserModuleProgressCreateOrConnectWithoutModuleInput | UserModuleProgressCreateOrConnectWithoutModuleInput[]
+    upsert?: UserModuleProgressUpsertWithWhereUniqueWithoutModuleInput | UserModuleProgressUpsertWithWhereUniqueWithoutModuleInput[]
+    createMany?: UserModuleProgressCreateManyModuleInputEnvelope
+    set?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    disconnect?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    delete?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    connect?: UserModuleProgressWhereUniqueInput | UserModuleProgressWhereUniqueInput[]
+    update?: UserModuleProgressUpdateWithWhereUniqueWithoutModuleInput | UserModuleProgressUpdateWithWhereUniqueWithoutModuleInput[]
+    updateMany?: UserModuleProgressUpdateManyWithWhereWithoutModuleInput | UserModuleProgressUpdateManyWithWhereWithoutModuleInput[]
+    deleteMany?: UserModuleProgressScalarWhereInput | UserModuleProgressScalarWhereInput[]
+  }
+
+  export type ModuleCreateNestedOneWithoutLessonsInput = {
+    create?: XOR<ModuleCreateWithoutLessonsInput, ModuleUncheckedCreateWithoutLessonsInput>
+    connectOrCreate?: ModuleCreateOrConnectWithoutLessonsInput
+    connect?: ModuleWhereUniqueInput
+  }
+
+  export type UserLessonProgressCreateNestedManyWithoutLessonInput = {
+    create?: XOR<UserLessonProgressCreateWithoutLessonInput, UserLessonProgressUncheckedCreateWithoutLessonInput> | UserLessonProgressCreateWithoutLessonInput[] | UserLessonProgressUncheckedCreateWithoutLessonInput[]
+    connectOrCreate?: UserLessonProgressCreateOrConnectWithoutLessonInput | UserLessonProgressCreateOrConnectWithoutLessonInput[]
+    createMany?: UserLessonProgressCreateManyLessonInputEnvelope
+    connect?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+  }
+
+  export type UserLessonProgressUncheckedCreateNestedManyWithoutLessonInput = {
+    create?: XOR<UserLessonProgressCreateWithoutLessonInput, UserLessonProgressUncheckedCreateWithoutLessonInput> | UserLessonProgressCreateWithoutLessonInput[] | UserLessonProgressUncheckedCreateWithoutLessonInput[]
+    connectOrCreate?: UserLessonProgressCreateOrConnectWithoutLessonInput | UserLessonProgressCreateOrConnectWithoutLessonInput[]
+    createMany?: UserLessonProgressCreateManyLessonInputEnvelope
+    connect?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+  }
+
+  export type ModuleUpdateOneRequiredWithoutLessonsNestedInput = {
+    create?: XOR<ModuleCreateWithoutLessonsInput, ModuleUncheckedCreateWithoutLessonsInput>
+    connectOrCreate?: ModuleCreateOrConnectWithoutLessonsInput
+    upsert?: ModuleUpsertWithoutLessonsInput
+    connect?: ModuleWhereUniqueInput
+    update?: XOR<XOR<ModuleUpdateToOneWithWhereWithoutLessonsInput, ModuleUpdateWithoutLessonsInput>, ModuleUncheckedUpdateWithoutLessonsInput>
+  }
+
+  export type UserLessonProgressUpdateManyWithoutLessonNestedInput = {
+    create?: XOR<UserLessonProgressCreateWithoutLessonInput, UserLessonProgressUncheckedCreateWithoutLessonInput> | UserLessonProgressCreateWithoutLessonInput[] | UserLessonProgressUncheckedCreateWithoutLessonInput[]
+    connectOrCreate?: UserLessonProgressCreateOrConnectWithoutLessonInput | UserLessonProgressCreateOrConnectWithoutLessonInput[]
+    upsert?: UserLessonProgressUpsertWithWhereUniqueWithoutLessonInput | UserLessonProgressUpsertWithWhereUniqueWithoutLessonInput[]
+    createMany?: UserLessonProgressCreateManyLessonInputEnvelope
+    set?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    disconnect?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    delete?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    connect?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    update?: UserLessonProgressUpdateWithWhereUniqueWithoutLessonInput | UserLessonProgressUpdateWithWhereUniqueWithoutLessonInput[]
+    updateMany?: UserLessonProgressUpdateManyWithWhereWithoutLessonInput | UserLessonProgressUpdateManyWithWhereWithoutLessonInput[]
+    deleteMany?: UserLessonProgressScalarWhereInput | UserLessonProgressScalarWhereInput[]
+  }
+
+  export type UserLessonProgressUncheckedUpdateManyWithoutLessonNestedInput = {
+    create?: XOR<UserLessonProgressCreateWithoutLessonInput, UserLessonProgressUncheckedCreateWithoutLessonInput> | UserLessonProgressCreateWithoutLessonInput[] | UserLessonProgressUncheckedCreateWithoutLessonInput[]
+    connectOrCreate?: UserLessonProgressCreateOrConnectWithoutLessonInput | UserLessonProgressCreateOrConnectWithoutLessonInput[]
+    upsert?: UserLessonProgressUpsertWithWhereUniqueWithoutLessonInput | UserLessonProgressUpsertWithWhereUniqueWithoutLessonInput[]
+    createMany?: UserLessonProgressCreateManyLessonInputEnvelope
+    set?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    disconnect?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    delete?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    connect?: UserLessonProgressWhereUniqueInput | UserLessonProgressWhereUniqueInput[]
+    update?: UserLessonProgressUpdateWithWhereUniqueWithoutLessonInput | UserLessonProgressUpdateWithWhereUniqueWithoutLessonInput[]
+    updateMany?: UserLessonProgressUpdateManyWithWhereWithoutLessonInput | UserLessonProgressUpdateManyWithWhereWithoutLessonInput[]
+    deleteMany?: UserLessonProgressScalarWhereInput | UserLessonProgressScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutLearningProgressInput = {
+    create?: XOR<UserCreateWithoutLearningProgressInput, UserUncheckedCreateWithoutLearningProgressInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLearningProgressInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type LearningPathCreateNestedOneWithoutUserProgressInput = {
+    create?: XOR<LearningPathCreateWithoutUserProgressInput, LearningPathUncheckedCreateWithoutUserProgressInput>
+    connectOrCreate?: LearningPathCreateOrConnectWithoutUserProgressInput
+    connect?: LearningPathWhereUniqueInput
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type UserUpdateOneRequiredWithoutLearningProgressNestedInput = {
+    create?: XOR<UserCreateWithoutLearningProgressInput, UserUncheckedCreateWithoutLearningProgressInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLearningProgressInput
+    upsert?: UserUpsertWithoutLearningProgressInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLearningProgressInput, UserUpdateWithoutLearningProgressInput>, UserUncheckedUpdateWithoutLearningProgressInput>
+  }
+
+  export type LearningPathUpdateOneRequiredWithoutUserProgressNestedInput = {
+    create?: XOR<LearningPathCreateWithoutUserProgressInput, LearningPathUncheckedCreateWithoutUserProgressInput>
+    connectOrCreate?: LearningPathCreateOrConnectWithoutUserProgressInput
+    upsert?: LearningPathUpsertWithoutUserProgressInput
+    connect?: LearningPathWhereUniqueInput
+    update?: XOR<XOR<LearningPathUpdateToOneWithWhereWithoutUserProgressInput, LearningPathUpdateWithoutUserProgressInput>, LearningPathUncheckedUpdateWithoutUserProgressInput>
+  }
+
+  export type UserCreateNestedOneWithoutModuleProgressInput = {
+    create?: XOR<UserCreateWithoutModuleProgressInput, UserUncheckedCreateWithoutModuleProgressInput>
+    connectOrCreate?: UserCreateOrConnectWithoutModuleProgressInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type ModuleCreateNestedOneWithoutUserProgressInput = {
+    create?: XOR<ModuleCreateWithoutUserProgressInput, ModuleUncheckedCreateWithoutUserProgressInput>
+    connectOrCreate?: ModuleCreateOrConnectWithoutUserProgressInput
+    connect?: ModuleWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutModuleProgressNestedInput = {
+    create?: XOR<UserCreateWithoutModuleProgressInput, UserUncheckedCreateWithoutModuleProgressInput>
+    connectOrCreate?: UserCreateOrConnectWithoutModuleProgressInput
+    upsert?: UserUpsertWithoutModuleProgressInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutModuleProgressInput, UserUpdateWithoutModuleProgressInput>, UserUncheckedUpdateWithoutModuleProgressInput>
+  }
+
+  export type ModuleUpdateOneRequiredWithoutUserProgressNestedInput = {
+    create?: XOR<ModuleCreateWithoutUserProgressInput, ModuleUncheckedCreateWithoutUserProgressInput>
+    connectOrCreate?: ModuleCreateOrConnectWithoutUserProgressInput
+    upsert?: ModuleUpsertWithoutUserProgressInput
+    connect?: ModuleWhereUniqueInput
+    update?: XOR<XOR<ModuleUpdateToOneWithWhereWithoutUserProgressInput, ModuleUpdateWithoutUserProgressInput>, ModuleUncheckedUpdateWithoutUserProgressInput>
+  }
+
+  export type UserCreateNestedOneWithoutLessonProgressInput = {
+    create?: XOR<UserCreateWithoutLessonProgressInput, UserUncheckedCreateWithoutLessonProgressInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLessonProgressInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type LessonCreateNestedOneWithoutUserProgressInput = {
+    create?: XOR<LessonCreateWithoutUserProgressInput, LessonUncheckedCreateWithoutUserProgressInput>
+    connectOrCreate?: LessonCreateOrConnectWithoutUserProgressInput
+    connect?: LessonWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutLessonProgressNestedInput = {
+    create?: XOR<UserCreateWithoutLessonProgressInput, UserUncheckedCreateWithoutLessonProgressInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLessonProgressInput
+    upsert?: UserUpsertWithoutLessonProgressInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLessonProgressInput, UserUpdateWithoutLessonProgressInput>, UserUncheckedUpdateWithoutLessonProgressInput>
+  }
+
+  export type LessonUpdateOneRequiredWithoutUserProgressNestedInput = {
+    create?: XOR<LessonCreateWithoutUserProgressInput, LessonUncheckedCreateWithoutUserProgressInput>
+    connectOrCreate?: LessonCreateOrConnectWithoutUserProgressInput
+    upsert?: LessonUpsertWithoutUserProgressInput
+    connect?: LessonWhereUniqueInput
+    update?: XOR<XOR<LessonUpdateToOneWithWhereWithoutUserProgressInput, LessonUpdateWithoutUserProgressInput>, LessonUncheckedUpdateWithoutUserProgressInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -9101,6 +17897,31 @@ export namespace Prisma {
     isSet?: boolean
   }
 
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type CategoryStatCreateWithoutUserInput = {
     id?: string
     attempts?: number
@@ -9126,6 +17947,83 @@ export namespace Prisma {
 
   export type CategoryStatCreateManyUserInputEnvelope = {
     data: CategoryStatCreateManyUserInput | CategoryStatCreateManyUserInput[]
+  }
+
+  export type UserLearningProgressCreateWithoutUserInput = {
+    id?: string
+    startedAt?: Date | string
+    lastAccessedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+    learningPath: LearningPathCreateNestedOneWithoutUserProgressInput
+  }
+
+  export type UserLearningProgressUncheckedCreateWithoutUserInput = {
+    id?: string
+    learningPathId: string
+    startedAt?: Date | string
+    lastAccessedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+  }
+
+  export type UserLearningProgressCreateOrConnectWithoutUserInput = {
+    where: UserLearningProgressWhereUniqueInput
+    create: XOR<UserLearningProgressCreateWithoutUserInput, UserLearningProgressUncheckedCreateWithoutUserInput>
+  }
+
+  export type UserLearningProgressCreateManyUserInputEnvelope = {
+    data: UserLearningProgressCreateManyUserInput | UserLearningProgressCreateManyUserInput[]
+  }
+
+  export type UserModuleProgressCreateWithoutUserInput = {
+    id?: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+    module: ModuleCreateNestedOneWithoutUserProgressInput
+  }
+
+  export type UserModuleProgressUncheckedCreateWithoutUserInput = {
+    id?: string
+    moduleId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+  }
+
+  export type UserModuleProgressCreateOrConnectWithoutUserInput = {
+    where: UserModuleProgressWhereUniqueInput
+    create: XOR<UserModuleProgressCreateWithoutUserInput, UserModuleProgressUncheckedCreateWithoutUserInput>
+  }
+
+  export type UserModuleProgressCreateManyUserInputEnvelope = {
+    data: UserModuleProgressCreateManyUserInput | UserModuleProgressCreateManyUserInput[]
+  }
+
+  export type UserLessonProgressCreateWithoutUserInput = {
+    id?: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    timeSpent?: number
+    lesson: LessonCreateNestedOneWithoutUserProgressInput
+  }
+
+  export type UserLessonProgressUncheckedCreateWithoutUserInput = {
+    id?: string
+    lessonId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    timeSpent?: number
+  }
+
+  export type UserLessonProgressCreateOrConnectWithoutUserInput = {
+    where: UserLessonProgressWhereUniqueInput
+    create: XOR<UserLessonProgressCreateWithoutUserInput, UserLessonProgressUncheckedCreateWithoutUserInput>
+  }
+
+  export type UserLessonProgressCreateManyUserInputEnvelope = {
+    data: UserLessonProgressCreateManyUserInput | UserLessonProgressCreateManyUserInput[]
   }
 
   export type CategoryStatUpsertWithWhereUniqueWithoutUserInput = {
@@ -9155,6 +18053,91 @@ export namespace Prisma {
     completed?: IntFilter<"CategoryStat"> | number
     averageScore?: FloatNullableFilter<"CategoryStat"> | number | null
     lastAttempt?: DateTimeNullableFilter<"CategoryStat"> | Date | string | null
+  }
+
+  export type UserLearningProgressUpsertWithWhereUniqueWithoutUserInput = {
+    where: UserLearningProgressWhereUniqueInput
+    update: XOR<UserLearningProgressUpdateWithoutUserInput, UserLearningProgressUncheckedUpdateWithoutUserInput>
+    create: XOR<UserLearningProgressCreateWithoutUserInput, UserLearningProgressUncheckedCreateWithoutUserInput>
+  }
+
+  export type UserLearningProgressUpdateWithWhereUniqueWithoutUserInput = {
+    where: UserLearningProgressWhereUniqueInput
+    data: XOR<UserLearningProgressUpdateWithoutUserInput, UserLearningProgressUncheckedUpdateWithoutUserInput>
+  }
+
+  export type UserLearningProgressUpdateManyWithWhereWithoutUserInput = {
+    where: UserLearningProgressScalarWhereInput
+    data: XOR<UserLearningProgressUpdateManyMutationInput, UserLearningProgressUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type UserLearningProgressScalarWhereInput = {
+    AND?: UserLearningProgressScalarWhereInput | UserLearningProgressScalarWhereInput[]
+    OR?: UserLearningProgressScalarWhereInput[]
+    NOT?: UserLearningProgressScalarWhereInput | UserLearningProgressScalarWhereInput[]
+    id?: StringFilter<"UserLearningProgress"> | string
+    userId?: StringFilter<"UserLearningProgress"> | string
+    learningPathId?: StringFilter<"UserLearningProgress"> | string
+    startedAt?: DateTimeFilter<"UserLearningProgress"> | Date | string
+    lastAccessedAt?: DateTimeFilter<"UserLearningProgress"> | Date | string
+    completedAt?: DateTimeNullableFilter<"UserLearningProgress"> | Date | string | null
+    progressPercent?: IntFilter<"UserLearningProgress"> | number
+  }
+
+  export type UserModuleProgressUpsertWithWhereUniqueWithoutUserInput = {
+    where: UserModuleProgressWhereUniqueInput
+    update: XOR<UserModuleProgressUpdateWithoutUserInput, UserModuleProgressUncheckedUpdateWithoutUserInput>
+    create: XOR<UserModuleProgressCreateWithoutUserInput, UserModuleProgressUncheckedCreateWithoutUserInput>
+  }
+
+  export type UserModuleProgressUpdateWithWhereUniqueWithoutUserInput = {
+    where: UserModuleProgressWhereUniqueInput
+    data: XOR<UserModuleProgressUpdateWithoutUserInput, UserModuleProgressUncheckedUpdateWithoutUserInput>
+  }
+
+  export type UserModuleProgressUpdateManyWithWhereWithoutUserInput = {
+    where: UserModuleProgressScalarWhereInput
+    data: XOR<UserModuleProgressUpdateManyMutationInput, UserModuleProgressUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type UserModuleProgressScalarWhereInput = {
+    AND?: UserModuleProgressScalarWhereInput | UserModuleProgressScalarWhereInput[]
+    OR?: UserModuleProgressScalarWhereInput[]
+    NOT?: UserModuleProgressScalarWhereInput | UserModuleProgressScalarWhereInput[]
+    id?: StringFilter<"UserModuleProgress"> | string
+    userId?: StringFilter<"UserModuleProgress"> | string
+    moduleId?: StringFilter<"UserModuleProgress"> | string
+    startedAt?: DateTimeFilter<"UserModuleProgress"> | Date | string
+    completedAt?: DateTimeNullableFilter<"UserModuleProgress"> | Date | string | null
+    progressPercent?: IntFilter<"UserModuleProgress"> | number
+  }
+
+  export type UserLessonProgressUpsertWithWhereUniqueWithoutUserInput = {
+    where: UserLessonProgressWhereUniqueInput
+    update: XOR<UserLessonProgressUpdateWithoutUserInput, UserLessonProgressUncheckedUpdateWithoutUserInput>
+    create: XOR<UserLessonProgressCreateWithoutUserInput, UserLessonProgressUncheckedCreateWithoutUserInput>
+  }
+
+  export type UserLessonProgressUpdateWithWhereUniqueWithoutUserInput = {
+    where: UserLessonProgressWhereUniqueInput
+    data: XOR<UserLessonProgressUpdateWithoutUserInput, UserLessonProgressUncheckedUpdateWithoutUserInput>
+  }
+
+  export type UserLessonProgressUpdateManyWithWhereWithoutUserInput = {
+    where: UserLessonProgressScalarWhereInput
+    data: XOR<UserLessonProgressUpdateManyMutationInput, UserLessonProgressUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type UserLessonProgressScalarWhereInput = {
+    AND?: UserLessonProgressScalarWhereInput | UserLessonProgressScalarWhereInput[]
+    OR?: UserLessonProgressScalarWhereInput[]
+    NOT?: UserLessonProgressScalarWhereInput | UserLessonProgressScalarWhereInput[]
+    id?: StringFilter<"UserLessonProgress"> | string
+    userId?: StringFilter<"UserLessonProgress"> | string
+    lessonId?: StringFilter<"UserLessonProgress"> | string
+    startedAt?: DateTimeFilter<"UserLessonProgress"> | Date | string
+    completedAt?: DateTimeNullableFilter<"UserLessonProgress"> | Date | string | null
+    timeSpent?: IntFilter<"UserLessonProgress"> | number
   }
 
   export type QuizCreateWithoutCategoryInput = {
@@ -9486,12 +18469,18 @@ export namespace Prisma {
     id?: string
     clerkId: string
     role?: string
+    learningProgress?: UserLearningProgressCreateNestedManyWithoutUserInput
+    moduleProgress?: UserModuleProgressCreateNestedManyWithoutUserInput
+    lessonProgress?: UserLessonProgressCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutCategoryStatsInput = {
     id?: string
     clerkId: string
     role?: string
+    learningProgress?: UserLearningProgressUncheckedCreateNestedManyWithoutUserInput
+    moduleProgress?: UserModuleProgressUncheckedCreateNestedManyWithoutUserInput
+    lessonProgress?: UserLessonProgressUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutCategoryStatsInput = {
@@ -9534,11 +18523,17 @@ export namespace Prisma {
   export type UserUpdateWithoutCategoryStatsInput = {
     clerkId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    learningProgress?: UserLearningProgressUpdateManyWithoutUserNestedInput
+    moduleProgress?: UserModuleProgressUpdateManyWithoutUserNestedInput
+    lessonProgress?: UserLessonProgressUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCategoryStatsInput = {
     clerkId?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    learningProgress?: UserLearningProgressUncheckedUpdateManyWithoutUserNestedInput
+    moduleProgress?: UserModuleProgressUncheckedUpdateManyWithoutUserNestedInput
+    lessonProgress?: UserLessonProgressUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type CategoryUpsertWithoutCategoryStatsInput = {
@@ -9566,6 +18561,680 @@ export namespace Prisma {
     quizzes?: QuizUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
+  export type ModuleCreateWithoutLearningPathInput = {
+    id?: string
+    title: string
+    description: string
+    duration: string
+    order: number
+    lessons?: LessonCreateNestedManyWithoutModuleInput
+    userProgress?: UserModuleProgressCreateNestedManyWithoutModuleInput
+  }
+
+  export type ModuleUncheckedCreateWithoutLearningPathInput = {
+    id?: string
+    title: string
+    description: string
+    duration: string
+    order: number
+    lessons?: LessonUncheckedCreateNestedManyWithoutModuleInput
+    userProgress?: UserModuleProgressUncheckedCreateNestedManyWithoutModuleInput
+  }
+
+  export type ModuleCreateOrConnectWithoutLearningPathInput = {
+    where: ModuleWhereUniqueInput
+    create: XOR<ModuleCreateWithoutLearningPathInput, ModuleUncheckedCreateWithoutLearningPathInput>
+  }
+
+  export type ModuleCreateManyLearningPathInputEnvelope = {
+    data: ModuleCreateManyLearningPathInput | ModuleCreateManyLearningPathInput[]
+  }
+
+  export type UserLearningProgressCreateWithoutLearningPathInput = {
+    id?: string
+    startedAt?: Date | string
+    lastAccessedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+    user: UserCreateNestedOneWithoutLearningProgressInput
+  }
+
+  export type UserLearningProgressUncheckedCreateWithoutLearningPathInput = {
+    id?: string
+    userId: string
+    startedAt?: Date | string
+    lastAccessedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+  }
+
+  export type UserLearningProgressCreateOrConnectWithoutLearningPathInput = {
+    where: UserLearningProgressWhereUniqueInput
+    create: XOR<UserLearningProgressCreateWithoutLearningPathInput, UserLearningProgressUncheckedCreateWithoutLearningPathInput>
+  }
+
+  export type UserLearningProgressCreateManyLearningPathInputEnvelope = {
+    data: UserLearningProgressCreateManyLearningPathInput | UserLearningProgressCreateManyLearningPathInput[]
+  }
+
+  export type ModuleUpsertWithWhereUniqueWithoutLearningPathInput = {
+    where: ModuleWhereUniqueInput
+    update: XOR<ModuleUpdateWithoutLearningPathInput, ModuleUncheckedUpdateWithoutLearningPathInput>
+    create: XOR<ModuleCreateWithoutLearningPathInput, ModuleUncheckedCreateWithoutLearningPathInput>
+  }
+
+  export type ModuleUpdateWithWhereUniqueWithoutLearningPathInput = {
+    where: ModuleWhereUniqueInput
+    data: XOR<ModuleUpdateWithoutLearningPathInput, ModuleUncheckedUpdateWithoutLearningPathInput>
+  }
+
+  export type ModuleUpdateManyWithWhereWithoutLearningPathInput = {
+    where: ModuleScalarWhereInput
+    data: XOR<ModuleUpdateManyMutationInput, ModuleUncheckedUpdateManyWithoutLearningPathInput>
+  }
+
+  export type ModuleScalarWhereInput = {
+    AND?: ModuleScalarWhereInput | ModuleScalarWhereInput[]
+    OR?: ModuleScalarWhereInput[]
+    NOT?: ModuleScalarWhereInput | ModuleScalarWhereInput[]
+    id?: StringFilter<"Module"> | string
+    title?: StringFilter<"Module"> | string
+    description?: StringFilter<"Module"> | string
+    duration?: StringFilter<"Module"> | string
+    order?: IntFilter<"Module"> | number
+    learningPathId?: StringFilter<"Module"> | string
+  }
+
+  export type UserLearningProgressUpsertWithWhereUniqueWithoutLearningPathInput = {
+    where: UserLearningProgressWhereUniqueInput
+    update: XOR<UserLearningProgressUpdateWithoutLearningPathInput, UserLearningProgressUncheckedUpdateWithoutLearningPathInput>
+    create: XOR<UserLearningProgressCreateWithoutLearningPathInput, UserLearningProgressUncheckedCreateWithoutLearningPathInput>
+  }
+
+  export type UserLearningProgressUpdateWithWhereUniqueWithoutLearningPathInput = {
+    where: UserLearningProgressWhereUniqueInput
+    data: XOR<UserLearningProgressUpdateWithoutLearningPathInput, UserLearningProgressUncheckedUpdateWithoutLearningPathInput>
+  }
+
+  export type UserLearningProgressUpdateManyWithWhereWithoutLearningPathInput = {
+    where: UserLearningProgressScalarWhereInput
+    data: XOR<UserLearningProgressUpdateManyMutationInput, UserLearningProgressUncheckedUpdateManyWithoutLearningPathInput>
+  }
+
+  export type LearningPathCreateWithoutModulesInput = {
+    id?: string
+    name: string
+    title: string
+    description: string
+    image?: string | null
+    order: number
+    userProgress?: UserLearningProgressCreateNestedManyWithoutLearningPathInput
+  }
+
+  export type LearningPathUncheckedCreateWithoutModulesInput = {
+    id?: string
+    name: string
+    title: string
+    description: string
+    image?: string | null
+    order: number
+    userProgress?: UserLearningProgressUncheckedCreateNestedManyWithoutLearningPathInput
+  }
+
+  export type LearningPathCreateOrConnectWithoutModulesInput = {
+    where: LearningPathWhereUniqueInput
+    create: XOR<LearningPathCreateWithoutModulesInput, LearningPathUncheckedCreateWithoutModulesInput>
+  }
+
+  export type LessonCreateWithoutModuleInput = {
+    id?: string
+    title: string
+    content: string
+    videoUrl?: string | null
+    codeExample?: string | null
+    resources?: string | null
+    duration: string
+    order: number
+    userProgress?: UserLessonProgressCreateNestedManyWithoutLessonInput
+  }
+
+  export type LessonUncheckedCreateWithoutModuleInput = {
+    id?: string
+    title: string
+    content: string
+    videoUrl?: string | null
+    codeExample?: string | null
+    resources?: string | null
+    duration: string
+    order: number
+    userProgress?: UserLessonProgressUncheckedCreateNestedManyWithoutLessonInput
+  }
+
+  export type LessonCreateOrConnectWithoutModuleInput = {
+    where: LessonWhereUniqueInput
+    create: XOR<LessonCreateWithoutModuleInput, LessonUncheckedCreateWithoutModuleInput>
+  }
+
+  export type LessonCreateManyModuleInputEnvelope = {
+    data: LessonCreateManyModuleInput | LessonCreateManyModuleInput[]
+  }
+
+  export type UserModuleProgressCreateWithoutModuleInput = {
+    id?: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+    user: UserCreateNestedOneWithoutModuleProgressInput
+  }
+
+  export type UserModuleProgressUncheckedCreateWithoutModuleInput = {
+    id?: string
+    userId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+  }
+
+  export type UserModuleProgressCreateOrConnectWithoutModuleInput = {
+    where: UserModuleProgressWhereUniqueInput
+    create: XOR<UserModuleProgressCreateWithoutModuleInput, UserModuleProgressUncheckedCreateWithoutModuleInput>
+  }
+
+  export type UserModuleProgressCreateManyModuleInputEnvelope = {
+    data: UserModuleProgressCreateManyModuleInput | UserModuleProgressCreateManyModuleInput[]
+  }
+
+  export type LearningPathUpsertWithoutModulesInput = {
+    update: XOR<LearningPathUpdateWithoutModulesInput, LearningPathUncheckedUpdateWithoutModulesInput>
+    create: XOR<LearningPathCreateWithoutModulesInput, LearningPathUncheckedCreateWithoutModulesInput>
+    where?: LearningPathWhereInput
+  }
+
+  export type LearningPathUpdateToOneWithWhereWithoutModulesInput = {
+    where?: LearningPathWhereInput
+    data: XOR<LearningPathUpdateWithoutModulesInput, LearningPathUncheckedUpdateWithoutModulesInput>
+  }
+
+  export type LearningPathUpdateWithoutModulesInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    userProgress?: UserLearningProgressUpdateManyWithoutLearningPathNestedInput
+  }
+
+  export type LearningPathUncheckedUpdateWithoutModulesInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    userProgress?: UserLearningProgressUncheckedUpdateManyWithoutLearningPathNestedInput
+  }
+
+  export type LessonUpsertWithWhereUniqueWithoutModuleInput = {
+    where: LessonWhereUniqueInput
+    update: XOR<LessonUpdateWithoutModuleInput, LessonUncheckedUpdateWithoutModuleInput>
+    create: XOR<LessonCreateWithoutModuleInput, LessonUncheckedCreateWithoutModuleInput>
+  }
+
+  export type LessonUpdateWithWhereUniqueWithoutModuleInput = {
+    where: LessonWhereUniqueInput
+    data: XOR<LessonUpdateWithoutModuleInput, LessonUncheckedUpdateWithoutModuleInput>
+  }
+
+  export type LessonUpdateManyWithWhereWithoutModuleInput = {
+    where: LessonScalarWhereInput
+    data: XOR<LessonUpdateManyMutationInput, LessonUncheckedUpdateManyWithoutModuleInput>
+  }
+
+  export type LessonScalarWhereInput = {
+    AND?: LessonScalarWhereInput | LessonScalarWhereInput[]
+    OR?: LessonScalarWhereInput[]
+    NOT?: LessonScalarWhereInput | LessonScalarWhereInput[]
+    id?: StringFilter<"Lesson"> | string
+    title?: StringFilter<"Lesson"> | string
+    content?: StringFilter<"Lesson"> | string
+    videoUrl?: StringNullableFilter<"Lesson"> | string | null
+    codeExample?: StringNullableFilter<"Lesson"> | string | null
+    resources?: StringNullableFilter<"Lesson"> | string | null
+    duration?: StringFilter<"Lesson"> | string
+    order?: IntFilter<"Lesson"> | number
+    moduleId?: StringFilter<"Lesson"> | string
+  }
+
+  export type UserModuleProgressUpsertWithWhereUniqueWithoutModuleInput = {
+    where: UserModuleProgressWhereUniqueInput
+    update: XOR<UserModuleProgressUpdateWithoutModuleInput, UserModuleProgressUncheckedUpdateWithoutModuleInput>
+    create: XOR<UserModuleProgressCreateWithoutModuleInput, UserModuleProgressUncheckedCreateWithoutModuleInput>
+  }
+
+  export type UserModuleProgressUpdateWithWhereUniqueWithoutModuleInput = {
+    where: UserModuleProgressWhereUniqueInput
+    data: XOR<UserModuleProgressUpdateWithoutModuleInput, UserModuleProgressUncheckedUpdateWithoutModuleInput>
+  }
+
+  export type UserModuleProgressUpdateManyWithWhereWithoutModuleInput = {
+    where: UserModuleProgressScalarWhereInput
+    data: XOR<UserModuleProgressUpdateManyMutationInput, UserModuleProgressUncheckedUpdateManyWithoutModuleInput>
+  }
+
+  export type ModuleCreateWithoutLessonsInput = {
+    id?: string
+    title: string
+    description: string
+    duration: string
+    order: number
+    learningPath: LearningPathCreateNestedOneWithoutModulesInput
+    userProgress?: UserModuleProgressCreateNestedManyWithoutModuleInput
+  }
+
+  export type ModuleUncheckedCreateWithoutLessonsInput = {
+    id?: string
+    title: string
+    description: string
+    duration: string
+    order: number
+    learningPathId: string
+    userProgress?: UserModuleProgressUncheckedCreateNestedManyWithoutModuleInput
+  }
+
+  export type ModuleCreateOrConnectWithoutLessonsInput = {
+    where: ModuleWhereUniqueInput
+    create: XOR<ModuleCreateWithoutLessonsInput, ModuleUncheckedCreateWithoutLessonsInput>
+  }
+
+  export type UserLessonProgressCreateWithoutLessonInput = {
+    id?: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    timeSpent?: number
+    user: UserCreateNestedOneWithoutLessonProgressInput
+  }
+
+  export type UserLessonProgressUncheckedCreateWithoutLessonInput = {
+    id?: string
+    userId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    timeSpent?: number
+  }
+
+  export type UserLessonProgressCreateOrConnectWithoutLessonInput = {
+    where: UserLessonProgressWhereUniqueInput
+    create: XOR<UserLessonProgressCreateWithoutLessonInput, UserLessonProgressUncheckedCreateWithoutLessonInput>
+  }
+
+  export type UserLessonProgressCreateManyLessonInputEnvelope = {
+    data: UserLessonProgressCreateManyLessonInput | UserLessonProgressCreateManyLessonInput[]
+  }
+
+  export type ModuleUpsertWithoutLessonsInput = {
+    update: XOR<ModuleUpdateWithoutLessonsInput, ModuleUncheckedUpdateWithoutLessonsInput>
+    create: XOR<ModuleCreateWithoutLessonsInput, ModuleUncheckedCreateWithoutLessonsInput>
+    where?: ModuleWhereInput
+  }
+
+  export type ModuleUpdateToOneWithWhereWithoutLessonsInput = {
+    where?: ModuleWhereInput
+    data: XOR<ModuleUpdateWithoutLessonsInput, ModuleUncheckedUpdateWithoutLessonsInput>
+  }
+
+  export type ModuleUpdateWithoutLessonsInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    learningPath?: LearningPathUpdateOneRequiredWithoutModulesNestedInput
+    userProgress?: UserModuleProgressUpdateManyWithoutModuleNestedInput
+  }
+
+  export type ModuleUncheckedUpdateWithoutLessonsInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    learningPathId?: StringFieldUpdateOperationsInput | string
+    userProgress?: UserModuleProgressUncheckedUpdateManyWithoutModuleNestedInput
+  }
+
+  export type UserLessonProgressUpsertWithWhereUniqueWithoutLessonInput = {
+    where: UserLessonProgressWhereUniqueInput
+    update: XOR<UserLessonProgressUpdateWithoutLessonInput, UserLessonProgressUncheckedUpdateWithoutLessonInput>
+    create: XOR<UserLessonProgressCreateWithoutLessonInput, UserLessonProgressUncheckedCreateWithoutLessonInput>
+  }
+
+  export type UserLessonProgressUpdateWithWhereUniqueWithoutLessonInput = {
+    where: UserLessonProgressWhereUniqueInput
+    data: XOR<UserLessonProgressUpdateWithoutLessonInput, UserLessonProgressUncheckedUpdateWithoutLessonInput>
+  }
+
+  export type UserLessonProgressUpdateManyWithWhereWithoutLessonInput = {
+    where: UserLessonProgressScalarWhereInput
+    data: XOR<UserLessonProgressUpdateManyMutationInput, UserLessonProgressUncheckedUpdateManyWithoutLessonInput>
+  }
+
+  export type UserCreateWithoutLearningProgressInput = {
+    id?: string
+    clerkId: string
+    role?: string
+    categoryStats?: CategoryStatCreateNestedManyWithoutUserInput
+    moduleProgress?: UserModuleProgressCreateNestedManyWithoutUserInput
+    lessonProgress?: UserLessonProgressCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutLearningProgressInput = {
+    id?: string
+    clerkId: string
+    role?: string
+    categoryStats?: CategoryStatUncheckedCreateNestedManyWithoutUserInput
+    moduleProgress?: UserModuleProgressUncheckedCreateNestedManyWithoutUserInput
+    lessonProgress?: UserLessonProgressUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutLearningProgressInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutLearningProgressInput, UserUncheckedCreateWithoutLearningProgressInput>
+  }
+
+  export type LearningPathCreateWithoutUserProgressInput = {
+    id?: string
+    name: string
+    title: string
+    description: string
+    image?: string | null
+    order: number
+    modules?: ModuleCreateNestedManyWithoutLearningPathInput
+  }
+
+  export type LearningPathUncheckedCreateWithoutUserProgressInput = {
+    id?: string
+    name: string
+    title: string
+    description: string
+    image?: string | null
+    order: number
+    modules?: ModuleUncheckedCreateNestedManyWithoutLearningPathInput
+  }
+
+  export type LearningPathCreateOrConnectWithoutUserProgressInput = {
+    where: LearningPathWhereUniqueInput
+    create: XOR<LearningPathCreateWithoutUserProgressInput, LearningPathUncheckedCreateWithoutUserProgressInput>
+  }
+
+  export type UserUpsertWithoutLearningProgressInput = {
+    update: XOR<UserUpdateWithoutLearningProgressInput, UserUncheckedUpdateWithoutLearningProgressInput>
+    create: XOR<UserCreateWithoutLearningProgressInput, UserUncheckedCreateWithoutLearningProgressInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutLearningProgressInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutLearningProgressInput, UserUncheckedUpdateWithoutLearningProgressInput>
+  }
+
+  export type UserUpdateWithoutLearningProgressInput = {
+    clerkId?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    categoryStats?: CategoryStatUpdateManyWithoutUserNestedInput
+    moduleProgress?: UserModuleProgressUpdateManyWithoutUserNestedInput
+    lessonProgress?: UserLessonProgressUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutLearningProgressInput = {
+    clerkId?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    categoryStats?: CategoryStatUncheckedUpdateManyWithoutUserNestedInput
+    moduleProgress?: UserModuleProgressUncheckedUpdateManyWithoutUserNestedInput
+    lessonProgress?: UserLessonProgressUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type LearningPathUpsertWithoutUserProgressInput = {
+    update: XOR<LearningPathUpdateWithoutUserProgressInput, LearningPathUncheckedUpdateWithoutUserProgressInput>
+    create: XOR<LearningPathCreateWithoutUserProgressInput, LearningPathUncheckedCreateWithoutUserProgressInput>
+    where?: LearningPathWhereInput
+  }
+
+  export type LearningPathUpdateToOneWithWhereWithoutUserProgressInput = {
+    where?: LearningPathWhereInput
+    data: XOR<LearningPathUpdateWithoutUserProgressInput, LearningPathUncheckedUpdateWithoutUserProgressInput>
+  }
+
+  export type LearningPathUpdateWithoutUserProgressInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    modules?: ModuleUpdateManyWithoutLearningPathNestedInput
+  }
+
+  export type LearningPathUncheckedUpdateWithoutUserProgressInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    modules?: ModuleUncheckedUpdateManyWithoutLearningPathNestedInput
+  }
+
+  export type UserCreateWithoutModuleProgressInput = {
+    id?: string
+    clerkId: string
+    role?: string
+    categoryStats?: CategoryStatCreateNestedManyWithoutUserInput
+    learningProgress?: UserLearningProgressCreateNestedManyWithoutUserInput
+    lessonProgress?: UserLessonProgressCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutModuleProgressInput = {
+    id?: string
+    clerkId: string
+    role?: string
+    categoryStats?: CategoryStatUncheckedCreateNestedManyWithoutUserInput
+    learningProgress?: UserLearningProgressUncheckedCreateNestedManyWithoutUserInput
+    lessonProgress?: UserLessonProgressUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutModuleProgressInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutModuleProgressInput, UserUncheckedCreateWithoutModuleProgressInput>
+  }
+
+  export type ModuleCreateWithoutUserProgressInput = {
+    id?: string
+    title: string
+    description: string
+    duration: string
+    order: number
+    learningPath: LearningPathCreateNestedOneWithoutModulesInput
+    lessons?: LessonCreateNestedManyWithoutModuleInput
+  }
+
+  export type ModuleUncheckedCreateWithoutUserProgressInput = {
+    id?: string
+    title: string
+    description: string
+    duration: string
+    order: number
+    learningPathId: string
+    lessons?: LessonUncheckedCreateNestedManyWithoutModuleInput
+  }
+
+  export type ModuleCreateOrConnectWithoutUserProgressInput = {
+    where: ModuleWhereUniqueInput
+    create: XOR<ModuleCreateWithoutUserProgressInput, ModuleUncheckedCreateWithoutUserProgressInput>
+  }
+
+  export type UserUpsertWithoutModuleProgressInput = {
+    update: XOR<UserUpdateWithoutModuleProgressInput, UserUncheckedUpdateWithoutModuleProgressInput>
+    create: XOR<UserCreateWithoutModuleProgressInput, UserUncheckedCreateWithoutModuleProgressInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutModuleProgressInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutModuleProgressInput, UserUncheckedUpdateWithoutModuleProgressInput>
+  }
+
+  export type UserUpdateWithoutModuleProgressInput = {
+    clerkId?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    categoryStats?: CategoryStatUpdateManyWithoutUserNestedInput
+    learningProgress?: UserLearningProgressUpdateManyWithoutUserNestedInput
+    lessonProgress?: UserLessonProgressUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutModuleProgressInput = {
+    clerkId?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    categoryStats?: CategoryStatUncheckedUpdateManyWithoutUserNestedInput
+    learningProgress?: UserLearningProgressUncheckedUpdateManyWithoutUserNestedInput
+    lessonProgress?: UserLessonProgressUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ModuleUpsertWithoutUserProgressInput = {
+    update: XOR<ModuleUpdateWithoutUserProgressInput, ModuleUncheckedUpdateWithoutUserProgressInput>
+    create: XOR<ModuleCreateWithoutUserProgressInput, ModuleUncheckedCreateWithoutUserProgressInput>
+    where?: ModuleWhereInput
+  }
+
+  export type ModuleUpdateToOneWithWhereWithoutUserProgressInput = {
+    where?: ModuleWhereInput
+    data: XOR<ModuleUpdateWithoutUserProgressInput, ModuleUncheckedUpdateWithoutUserProgressInput>
+  }
+
+  export type ModuleUpdateWithoutUserProgressInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    learningPath?: LearningPathUpdateOneRequiredWithoutModulesNestedInput
+    lessons?: LessonUpdateManyWithoutModuleNestedInput
+  }
+
+  export type ModuleUncheckedUpdateWithoutUserProgressInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    learningPathId?: StringFieldUpdateOperationsInput | string
+    lessons?: LessonUncheckedUpdateManyWithoutModuleNestedInput
+  }
+
+  export type UserCreateWithoutLessonProgressInput = {
+    id?: string
+    clerkId: string
+    role?: string
+    categoryStats?: CategoryStatCreateNestedManyWithoutUserInput
+    learningProgress?: UserLearningProgressCreateNestedManyWithoutUserInput
+    moduleProgress?: UserModuleProgressCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutLessonProgressInput = {
+    id?: string
+    clerkId: string
+    role?: string
+    categoryStats?: CategoryStatUncheckedCreateNestedManyWithoutUserInput
+    learningProgress?: UserLearningProgressUncheckedCreateNestedManyWithoutUserInput
+    moduleProgress?: UserModuleProgressUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutLessonProgressInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutLessonProgressInput, UserUncheckedCreateWithoutLessonProgressInput>
+  }
+
+  export type LessonCreateWithoutUserProgressInput = {
+    id?: string
+    title: string
+    content: string
+    videoUrl?: string | null
+    codeExample?: string | null
+    resources?: string | null
+    duration: string
+    order: number
+    module: ModuleCreateNestedOneWithoutLessonsInput
+  }
+
+  export type LessonUncheckedCreateWithoutUserProgressInput = {
+    id?: string
+    title: string
+    content: string
+    videoUrl?: string | null
+    codeExample?: string | null
+    resources?: string | null
+    duration: string
+    order: number
+    moduleId: string
+  }
+
+  export type LessonCreateOrConnectWithoutUserProgressInput = {
+    where: LessonWhereUniqueInput
+    create: XOR<LessonCreateWithoutUserProgressInput, LessonUncheckedCreateWithoutUserProgressInput>
+  }
+
+  export type UserUpsertWithoutLessonProgressInput = {
+    update: XOR<UserUpdateWithoutLessonProgressInput, UserUncheckedUpdateWithoutLessonProgressInput>
+    create: XOR<UserCreateWithoutLessonProgressInput, UserUncheckedCreateWithoutLessonProgressInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutLessonProgressInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutLessonProgressInput, UserUncheckedUpdateWithoutLessonProgressInput>
+  }
+
+  export type UserUpdateWithoutLessonProgressInput = {
+    clerkId?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    categoryStats?: CategoryStatUpdateManyWithoutUserNestedInput
+    learningProgress?: UserLearningProgressUpdateManyWithoutUserNestedInput
+    moduleProgress?: UserModuleProgressUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutLessonProgressInput = {
+    clerkId?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    categoryStats?: CategoryStatUncheckedUpdateManyWithoutUserNestedInput
+    learningProgress?: UserLearningProgressUncheckedUpdateManyWithoutUserNestedInput
+    moduleProgress?: UserModuleProgressUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type LessonUpsertWithoutUserProgressInput = {
+    update: XOR<LessonUpdateWithoutUserProgressInput, LessonUncheckedUpdateWithoutUserProgressInput>
+    create: XOR<LessonCreateWithoutUserProgressInput, LessonUncheckedCreateWithoutUserProgressInput>
+    where?: LessonWhereInput
+  }
+
+  export type LessonUpdateToOneWithWhereWithoutUserProgressInput = {
+    where?: LessonWhereInput
+    data: XOR<LessonUpdateWithoutUserProgressInput, LessonUncheckedUpdateWithoutUserProgressInput>
+  }
+
+  export type LessonUpdateWithoutUserProgressInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    codeExample?: NullableStringFieldUpdateOperationsInput | string | null
+    resources?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    module?: ModuleUpdateOneRequiredWithoutLessonsNestedInput
+  }
+
+  export type LessonUncheckedUpdateWithoutUserProgressInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    codeExample?: NullableStringFieldUpdateOperationsInput | string | null
+    resources?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    moduleId?: StringFieldUpdateOperationsInput | string
+  }
+
   export type CategoryStatCreateManyUserInput = {
     id?: string
     categoryId: string
@@ -9573,6 +19242,31 @@ export namespace Prisma {
     completed?: number
     averageScore?: number | null
     lastAttempt?: Date | string | null
+  }
+
+  export type UserLearningProgressCreateManyUserInput = {
+    id?: string
+    learningPathId: string
+    startedAt?: Date | string
+    lastAccessedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+  }
+
+  export type UserModuleProgressCreateManyUserInput = {
+    id?: string
+    moduleId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+  }
+
+  export type UserLessonProgressCreateManyUserInput = {
+    id?: string
+    lessonId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    timeSpent?: number
   }
 
   export type CategoryStatUpdateWithoutUserInput = {
@@ -9597,6 +19291,72 @@ export namespace Prisma {
     completed?: IntFieldUpdateOperationsInput | number
     averageScore?: NullableFloatFieldUpdateOperationsInput | number | null
     lastAttempt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type UserLearningProgressUpdateWithoutUserInput = {
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastAccessedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+    learningPath?: LearningPathUpdateOneRequiredWithoutUserProgressNestedInput
+  }
+
+  export type UserLearningProgressUncheckedUpdateWithoutUserInput = {
+    learningPathId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastAccessedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserLearningProgressUncheckedUpdateManyWithoutUserInput = {
+    learningPathId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastAccessedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserModuleProgressUpdateWithoutUserInput = {
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+    module?: ModuleUpdateOneRequiredWithoutUserProgressNestedInput
+  }
+
+  export type UserModuleProgressUncheckedUpdateWithoutUserInput = {
+    moduleId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserModuleProgressUncheckedUpdateManyWithoutUserInput = {
+    moduleId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserLessonProgressUpdateWithoutUserInput = {
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeSpent?: IntFieldUpdateOperationsInput | number
+    lesson?: LessonUpdateOneRequiredWithoutUserProgressNestedInput
+  }
+
+  export type UserLessonProgressUncheckedUpdateWithoutUserInput = {
+    lessonId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeSpent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserLessonProgressUncheckedUpdateManyWithoutUserInput = {
+    lessonId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeSpent?: IntFieldUpdateOperationsInput | number
   }
 
   export type QuizCreateManyCategoryInput = {
@@ -9701,6 +19461,173 @@ export namespace Prisma {
   export type OptionUncheckedUpdateManyWithoutQuestionInput = {
     text?: StringFieldUpdateOperationsInput | string
     isCorret?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ModuleCreateManyLearningPathInput = {
+    id?: string
+    title: string
+    description: string
+    duration: string
+    order: number
+  }
+
+  export type UserLearningProgressCreateManyLearningPathInput = {
+    id?: string
+    userId: string
+    startedAt?: Date | string
+    lastAccessedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+  }
+
+  export type ModuleUpdateWithoutLearningPathInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    lessons?: LessonUpdateManyWithoutModuleNestedInput
+    userProgress?: UserModuleProgressUpdateManyWithoutModuleNestedInput
+  }
+
+  export type ModuleUncheckedUpdateWithoutLearningPathInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    lessons?: LessonUncheckedUpdateManyWithoutModuleNestedInput
+    userProgress?: UserModuleProgressUncheckedUpdateManyWithoutModuleNestedInput
+  }
+
+  export type ModuleUncheckedUpdateManyWithoutLearningPathInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserLearningProgressUpdateWithoutLearningPathInput = {
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastAccessedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+    user?: UserUpdateOneRequiredWithoutLearningProgressNestedInput
+  }
+
+  export type UserLearningProgressUncheckedUpdateWithoutLearningPathInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastAccessedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserLearningProgressUncheckedUpdateManyWithoutLearningPathInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastAccessedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LessonCreateManyModuleInput = {
+    id?: string
+    title: string
+    content: string
+    videoUrl?: string | null
+    codeExample?: string | null
+    resources?: string | null
+    duration: string
+    order: number
+  }
+
+  export type UserModuleProgressCreateManyModuleInput = {
+    id?: string
+    userId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    progressPercent?: number
+  }
+
+  export type LessonUpdateWithoutModuleInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    codeExample?: NullableStringFieldUpdateOperationsInput | string | null
+    resources?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    userProgress?: UserLessonProgressUpdateManyWithoutLessonNestedInput
+  }
+
+  export type LessonUncheckedUpdateWithoutModuleInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    codeExample?: NullableStringFieldUpdateOperationsInput | string | null
+    resources?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    userProgress?: UserLessonProgressUncheckedUpdateManyWithoutLessonNestedInput
+  }
+
+  export type LessonUncheckedUpdateManyWithoutModuleInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    codeExample?: NullableStringFieldUpdateOperationsInput | string | null
+    resources?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserModuleProgressUpdateWithoutModuleInput = {
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+    user?: UserUpdateOneRequiredWithoutModuleProgressNestedInput
+  }
+
+  export type UserModuleProgressUncheckedUpdateWithoutModuleInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserModuleProgressUncheckedUpdateManyWithoutModuleInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    progressPercent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserLessonProgressCreateManyLessonInput = {
+    id?: string
+    userId: string
+    startedAt?: Date | string
+    completedAt?: Date | string | null
+    timeSpent?: number
+  }
+
+  export type UserLessonProgressUpdateWithoutLessonInput = {
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeSpent?: IntFieldUpdateOperationsInput | number
+    user?: UserUpdateOneRequiredWithoutLessonProgressNestedInput
+  }
+
+  export type UserLessonProgressUncheckedUpdateWithoutLessonInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeSpent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserLessonProgressUncheckedUpdateManyWithoutLessonInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    startedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeSpent?: IntFieldUpdateOperationsInput | number
   }
 
 

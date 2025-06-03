@@ -19,6 +19,9 @@ model User{
   clerkId String @unique
   role String @default("user")
   categoryStats CategoryStat[]
+  learningProgress UserLearningProgress[]
+  moduleProgress UserModuleProgress[]
+  lessonProgress UserLessonProgress[]
 }
 
 model Category{
@@ -69,4 +72,81 @@ model CategoryStat{
   lastAttempt   DateTime?
 
   @@unique([userId, categoryId])
+}
+
+model LearningPath {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  name        String // "principiante", "intermedio", "avanzado"
+  title       String // "Principiante", "Intermedio", "Avanzado"
+  description String
+  image       String?
+  order       Int
+  modules     Module[]
+  userProgress UserLearningProgress[]
+}
+
+model Module {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  title           String
+  description     String
+  duration        String // "30 minutos"
+  order           Int
+  learningPathId  String @db.ObjectId
+  learningPath    LearningPath @relation(fields: [learningPathId], references: [id])
+  lessons         Lesson[]
+  userProgress    UserModuleProgress[]
+}
+
+model Lesson {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  content     String // JSON string con el contenido estructurado
+  videoUrl    String?
+  codeExample String? // JSON string con ejemplos de código
+  resources   String? // JSON string con recursos
+  duration    String
+  order       Int
+  moduleId    String @db.ObjectId
+  module      Module @relation(fields: [moduleId], references: [id])
+  userProgress UserLessonProgress[]
+}
+
+model UserLearningProgress {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  userId          String @db.ObjectId
+  user            User @relation(fields: [userId], references: [id])
+  learningPathId  String @db.ObjectId
+  learningPath    LearningPath @relation(fields: [learningPathId], references: [id])
+  startedAt       DateTime @default(now())
+  lastAccessedAt  DateTime @default(now())
+  completedAt     DateTime?
+  progressPercent Int @default(0)
+
+  @@unique([userId, learningPathId])
+}
+
+model UserModuleProgress {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String @db.ObjectId
+  user        User @relation(fields: [userId], references: [id])
+  moduleId    String @db.ObjectId
+  module      Module @relation(fields: [moduleId], references: [id])
+  startedAt   DateTime @default(now())
+  completedAt DateTime?
+  progressPercent Int @default(0)
+
+  @@unique([userId, moduleId])
+}
+
+model UserLessonProgress {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String @db.ObjectId
+  user        User @relation(fields: [userId], references: [id])
+  lessonId    String @db.ObjectId
+  lesson      Lesson @relation(fields: [lessonId], references: [id])
+  startedAt   DateTime @default(now())
+  completedAt DateTime?
+  timeSpent   Int @default(0) // en segundos
+
+  @@unique([userId, lessonId])
 }

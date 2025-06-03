@@ -1,6 +1,7 @@
 "use client";
 
 import Banner from "@/components/Componentes-Home/Banner";
+import RutaAprendizaje from "@/components/Componentes-Home/RutaAprendizaje";
 import RecursosDocumentacion from "@/components/Componentes-Home/RecursosDocumentacion"
 import { useGlobalContext } from "@/Context/globalContext";
 import { ICategory } from "@/types/types";
@@ -11,8 +12,9 @@ export default function Home() {
   return (
     <div>
       <Banner/>
+      <RutaAprendizaje/>
       <div className='flex flex-col justify-center items-center pt-10 pb-10'>
-        <h1 className='text-xl md:text-4xl font-extrabold text-black mb-10 mt-6'>Quizzes</h1>
+        <h1 className='text-xl md:text-4xl font-extrabold text-black mb-10 mt-6'>Pon a Prueba tus Conocimientos</h1>
         <div className="flex flex-row gap-32 flex-wrap justify-center">
           {categories.map((category: ICategory) => (
             <div 
