@@ -94,7 +94,7 @@ function UserStats({ userStats }: any) {
             </div>
           </div>
         </div>
-        <div className="mt-6 flex flex-wrap gap-10">
+        <div className="mt-6 flex flex-wrap justify-center gap-10">
           {latestStats?.map((category: any) => (
             <CategoryBarChart key={category.id} categoryData={category} />
           ))}
