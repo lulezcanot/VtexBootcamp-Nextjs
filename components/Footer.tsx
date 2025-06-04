@@ -11,13 +11,13 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="flex items-center mb-4">
               <Image
-                src="/imagenes/logo.jpg"
-                alt="VTEX Academy Logo"
-                width={32}
-                height={32}
+                src="/imagenes/logo.png"
+                alt="VTEX BootCamp Logo"
+                width={40}
+                height={40}
                 className="mr-3 rounded"
               />
-              <h3 className="text-white font-semibold text-lg">VTEX Academy</h3>
+              <h3 className="text-white font-semibold text-lg">VTEX BootCamp</h3>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Formando la próxima generación de desarrolladores de comercio digital

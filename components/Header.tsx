@@ -3,7 +3,7 @@ import { chart, home, login } from '@/utils/icons';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import Logo from '../public/imagenes/logo.jpg';
+import Logo from '../public/imagenes/transformacin_digital_sac_logo.jpg';
 import { usePathname, useRouter } from 'next/navigation';
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import { Button } from './ui/button';
@@ -39,8 +39,8 @@ function Header() {
     <header className='min-h-[8vh] px-[10rem] xl:px-[15rem] border-b-2 flex items-center'>
         <nav className='flex-1 flex items-center justify-between'>
             <Link href="/" className='flex items-center gap-2'>
-            <Image src={Logo} alt='logo' className="h-8 w-8 text-purple-600"  />
-            <span className="text-xl font-semibold text-purple-600">VTEX Academy</span>
+            <Image src={Logo} alt='logo' className="h-10 w-10 text-purple-600"  />
+            <span className="text-xl font-semibold text-purple-600">VTEX BootCamp</span>
             </Link>
             <ul className='flex items-center gap-8'>
                 {menu.map((item, index)=>(
