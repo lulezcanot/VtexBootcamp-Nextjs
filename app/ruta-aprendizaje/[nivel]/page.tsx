@@ -2,192 +2,133 @@
 
 import { useParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { useUser } from '@clerk/nextjs';
+import toast from 'react-hot-toast';
 
 interface ModuleData {
   id: string;
   title: string;
   description: string;
   duration: string;
-  icon: string;
-  status: 'available' | 'locked';
   order: number;
+  lessons: Array<{
+    id: string;
+    title: string;
+    duration: string;
+    order: number;
+  }>;
 }
 
-interface LevelData {
+interface LearningPathData {
+  id: string;
+  name: string;
   title: string;
   description: string;
+  image: string;
+  order: number;
   modules: ModuleData[];
-  resources: {
-    documentation: Array<{ title: string; url: string; }>;
-    tools: Array<{ title: string; description: string; url: string; }>;
-  };
 }
-
-const levelData: Record<string, LevelData> = {
-  principiante: {
-    title: "Fundamentos de VTEX IO",
-    description: "Fundamentos de Vtex IO, Vtex CLI, Vtex Init & Link",
-    modules: [
-      {
-        id: "fundamentos-vtex-io",
-        title: "Fundamentos de Vtex IO",
-        description: "Conoce los conceptos básicos, arquitectura y componentes principales de VTEX IO",
-        duration: "2 horas",
-        icon: "📚",
-        status: "available",
-        order: 1
-      },
-      {
-        id: "vtex-cli",
-        title: "Vtex CLI",
-        description: "Aprende a usar la interfaz de línea de comandos de VTEX para gestionar proyectos",
-        duration: "1.5 horas",
-        icon: "⚙️",
-        status: "locked",
-        order: 2
-      },
-      {
-        id: "vtex-init-link",
-        title: "Vtex Init & Link",
-        description: "Domina los comandos vtex init y vtex link para inicializar y vincular aplicaciones",
-        duration: "2 horas",
-        icon: "🔗",
-        status: "locked",
-        order: 3
-      }
-    ],
-    resources: {
-      documentation: [
-        { title: "Guía de Inicio Rápido VTEX IO", url: "https://developers.vtex.com/docs/guides/vtex-io-documentation-what-is-vtex-io" },
-        { title: "Referencia de CLI", url: "https://developers.vtex.com/docs/guides/vtex-io-documentation-vtex-io-cli-installation-and-command-reference" }
-      ],
-      tools: [
-        { title: "Node.js", description: "Versión 14 o superior", url: "https://nodejs.org" },
-        { title: "VTEX CLI", description: "Herramienta de línea de comandos", url: "https://www.npmjs.com/package/@vtex/cli" },
-        { title: "Git", description: "Control de versiones", url: "https://git-scm.com" }
-      ]
-    }
-  },
-  intermedio: {
-    title: "Desarrollo Intermedio",
-    description: "PLP, PDP, Minicartv2, My account",
-    modules: [
-      {
-        id: "plp",
-        title: "PLP (Product List Page)",
-        description: "Desarrolla y personaliza páginas de listado de productos con componentes avanzados",
-        duration: "3 horas",
-        icon: "📋",
-        status: "available",
-        order: 1
-      },
-      {
-        id: "pdp",
-        title: "PDP (Product Detail Page)",
-        description: "Crea páginas de detalle de producto interactivas y funcionales",
-        duration: "3.5 horas",
-        icon: "🛍️",
-        status: "locked",
-        order: 2
-      },
-      {
-        id: "minicartv2",
-        title: "Minicartv2",
-        description: "Implementa el componente Minicart v2 para una experiencia de compra mejorada",
-        duration: "2.5 horas",
-        icon: "🛒",
-        status: "locked",
-        order: 3
-      },
-      {
-        id: "my-account",
-        title: "My Account",
-        description: "Desarrolla la sección de cuenta de usuario con todas sus funcionalidades",
-        duration: "4 horas",
-        icon: "👤",
-        status: "locked",
-        order: 4
-      }
-    ],
-    resources: {
-      documentation: [
-        { title: "Guía de Store Framework", url: "https://developers.vtex.com/docs/guides/vtex-io-documentation-what-is-vtex-store-framework" },
-        { title: "Componentes de Producto", url: "https://developers.vtex.com/docs/guides/vtex-io-documentation-building-a-product-list-page" }
-      ],
-      tools: [
-        { title: "React DevTools", description: "Herramientas de desarrollo para React", url: "https://react.dev/learn/react-developer-tools" },
-        { title: "VTEX Styleguide", description: "Guía de estilos de VTEX", url: "https://styleguide.vtex.com" },
-        { title: "GraphQL Playground", description: "IDE para GraphQL", url: "https://github.com/graphql/graphql-playground" }
-      ]
-    }
-  },
-  avanzado: {
-    title: "Desarrollo Avanzado",
-    description: "Checkout, Componentes custom, Mails",
-    modules: [
-      {
-        id: "checkout",
-        title: "Checkout",
-        description: "Personaliza y optimiza el proceso de checkout para mejorar la conversión",
-        duration: "4 horas",
-        icon: "💳",
-        status: "available",
-        order: 1
-      },
-      {
-        id: "componentes-custom",
-        title: "Componentes Custom",
-        description: "Desarrolla componentes personalizados desde cero con React y VTEX IO",
-        duration: "5 horas",
-        icon: "🧩",
-        status: "locked",
-        order: 2
-      },
-      {
-        id: "mails",
-        title: "Mails",
-        description: "Crea y personaliza templates de email transaccionales y promocionales",
-        duration: "3 horas",
-        icon: "📧",
-        status: "locked",
-        order: 3
-      }
-    ],
-    resources: {
-      documentation: [
-        { title: "Guía de Checkout", url: "https://developers.vtex.com/docs/guides/checkout-overview" },
-        { title: "Desarrollo de Apps", url: "https://developers.vtex.com/docs/guides/vtex-io-documentation-developing-an-app" },
-        { title: "Message Center", url: "https://help.vtex.com/en/tutorial/understanding-the-message-center--tutorials_84" }
-      ],
-      tools: [
-        { title: "TypeScript", description: "Superset tipado de JavaScript", url: "https://www.typescriptlang.org" },
-        { title: "VTEX IO CLI", description: "Herramientas avanzadas de desarrollo", url: "https://www.npmjs.com/package/@vtex/cli" },
-        { title: "Postman", description: "Testing de APIs", url: "https://www.postman.com" }
-      ]
-    }
-  }
-};
 
 export default function RutaAprendizajePage() {
   const params = useParams();
   const router = useRouter();
+  const { user } = useUser();
   const nivel = params.nivel as string;
+  
+  const [learningPath, setLearningPath] = useState<LearningPathData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [progressPercent, setProgressPercent] = useState(0);
-
-  const data = levelData[nivel];
+  const [userProgress, setUserProgress] = useState<any>(null);
 
   useEffect(() => {
-    // Aquí calcularías el progreso real desde la base de datos
-    setProgressPercent(0);
-  }, [nivel]);
+    if (!user) {
+      router.push(`/sign-in?redirect_url=${encodeURIComponent(`/ruta-aprendizaje/${nivel}`)}`);
+      return;
+    }
 
-  if (!data) {
+    fetchLearningPath();
+  }, [nivel, user]);
+
+  const fetchLearningPath = async () => {
+    try {
+      setLoading(true);
+      
+      // Verificar acceso primero
+      const accessResponse = await fetch(`/api/user/check-access/${nivel}`);
+      const accessData = await accessResponse.json();
+      
+      if (!accessData.hasAccess) {
+        toast.error('Primero empieza con la ruta principiante');
+        router.push('/');
+        return;
+      }
+
+      // Obtener datos de la ruta de aprendizaje
+      const [pathResponse, progressResponse] = await Promise.all([
+        fetch(`/api/learning-paths/${nivel}`),
+        fetch(`/api/user/progress/${nivel}`)
+      ]);
+      
+      if (!pathResponse.ok) {
+        throw new Error('Error al cargar la ruta de aprendizaje');
+      }
+      
+      const pathData = await pathResponse.json();
+      setLearningPath(pathData);
+      
+      // Obtener progreso real del usuario
+      if (progressResponse.ok) {
+        const progressData = await progressResponse.json();
+        setUserProgress(progressData);
+        setProgressPercent(progressData.levelProgress || 0);
+      }
+      
+    } catch (error) {
+      console.error('Error fetching learning path:', error);
+      setError('Error al cargar la ruta de aprendizaje');
+      toast.error('Error al cargar la ruta de aprendizaje');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleModuleClick = (moduleId: string, isUnlocked: boolean, moduleTitle: string) => {
+    if (!isUnlocked) {
+      toast.error('Completa el módulo anterior para desbloquear este módulo', {
+        duration: 3000,
+      });
+      return;
+    }
+
+    // Navegar a la primera lección del módulo
+    const moduleSlug = moduleTitle
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[()]/g, '');
+    
+    router.push(`/ruta-aprendizaje/${nivel}/${moduleSlug}/leccion-1`);
+  };
+
+  if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">Nivel no encontrado</h1>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Cargando ruta de aprendizaje...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !learningPath) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-800 mb-4">
+            {error || 'Ruta de aprendizaje no encontrada'}
+          </h1>
           <button 
             onClick={() => router.push('/')}
             className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
@@ -198,12 +139,6 @@ export default function RutaAprendizajePage() {
       </div>
     );
   }
-
-  const handleModuleClick = (moduleId: string, status: string) => {
-    if (status === 'available') {
-      router.push(`/ruta-aprendizaje/${nivel}/${moduleId}/leccion-1`);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -222,8 +157,6 @@ export default function RutaAprendizajePage() {
             <span>Cursos</span>
             <span>/</span>
             <span className="text-gray-900 capitalize">{nivel}</span>
-            <span>/</span>
-            <span className="text-gray-900">Fundamentos</span>
           </nav>
         </div>
       </div>
@@ -231,8 +164,8 @@ export default function RutaAprendizajePage() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">{data.title}</h1>
-          <p className="text-xl text-gray-600 mb-6">{data.description}</p>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">{learningPath.title}</h1>
+          <p className="text-xl text-gray-600 mb-6">{learningPath.description}</p>
           
           {/* Progress Bar */}
           <div className="bg-white rounded-lg p-4 shadow-sm">
@@ -255,40 +188,120 @@ export default function RutaAprendizajePage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Módulos de Aprendizaje</h2>
             
             <div className="space-y-4">
-              {data.modules.map((module) => (
+              {userProgress?.modules?.map((moduleProgress: any, index: number) => {
+                const module = learningPath.modules.find(m => m.id === moduleProgress.moduleId);
+                if (!module) return null;
+
+                return (
+                  <div 
+                    key={module.id}
+                    className={`bg-white rounded-lg shadow-sm border p-6 transition-all duration-200 ${
+                      moduleProgress.isUnlocked 
+                        ? 'cursor-pointer hover:shadow-md hover:border-purple-300' 
+                        : 'opacity-60 cursor-not-allowed'
+                    }`}
+                    onClick={() => handleModuleClick(module.id, moduleProgress.isUnlocked, module.title)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="relative">
+                          <div className="text-3xl">
+                            {index === 0 ? '📚' : index === 1 ? '⚙️' : '🔗'}
+                          </div>
+                          {!moduleProgress.isUnlocked && (
+                            <div className="absolute -top-1 -right-1 text-gray-400">
+                              <i className="fas fa-lock text-sm"></i>
+                            </div>
+                          )}
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <h3 className={`text-lg font-semibold ${
+                              moduleProgress.isUnlocked ? 'text-gray-900' : 'text-gray-500'
+                            }`}>
+                              {module.title}
+                            </h3>
+                            {moduleProgress.isCompleted && (
+                              <div className="text-green-500">
+                                <i className="fas fa-check-circle"></i>
+                              </div>
+                            )}
+                          </div>
+                          <p className={`${
+                            moduleProgress.isUnlocked ? 'text-gray-600' : 'text-gray-400'
+                          }`}>
+                            {module.description}
+                          </p>
+                          <div className="flex items-center mt-2 text-sm text-gray-500">
+                            <i className="fas fa-clock mr-1"></i>
+                            <span>{module.duration}</span>
+                            <span className="mx-2">•</span>
+                            <span>{moduleProgress.totalLessons} lecciones</span>
+                            {moduleProgress.completedLessons > 0 && (
+                              <>
+                                <span className="mx-2">•</span>
+                                <span className="text-purple-600 font-medium">
+                                  {moduleProgress.progressPercent}% completado
+                                </span>
+                              </>
+                            )}
+                          </div>
+                          {moduleProgress.progressPercent > 0 && (
+                            <div className="mt-2 w-full bg-gray-200 rounded-full h-1">
+                              <div 
+                                className="bg-purple-600 h-1 rounded-full transition-all duration-300"
+                                style={{ width: `${moduleProgress.progressPercent}%` }}
+                              ></div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center">
+                        {moduleProgress.isUnlocked ? (
+                          <button className={`px-4 py-2 rounded-lg ${
+                            moduleProgress.isCompleted 
+                              ? 'bg-green-600 text-white hover:bg-green-700' 
+                              : 'bg-purple-600 text-white hover:bg-purple-700'
+                          }`}>
+                            {moduleProgress.isCompleted ? 'Revisar' : 'Comenzar'}
+                          </button>
+                        ) : (
+                          <div className="px-4 py-2 bg-gray-300 text-gray-500 rounded-lg cursor-not-allowed">
+                            Bloqueado
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }) || learningPath.modules.map((module, index) => (
                 <div 
                   key={module.id}
-                  className={`bg-white rounded-lg shadow-sm border p-6 transition-all duration-200 ${
-                    module.status === 'available' 
-                      ? 'cursor-pointer hover:shadow-md hover:border-purple-300' 
-                      : 'opacity-60'
-                  }`}
-                  onClick={() => handleModuleClick(module.id, module.status)}
+                  className="bg-white rounded-lg shadow-sm border p-6 transition-all duration-200 cursor-pointer hover:shadow-md hover:border-purple-300"
+                  onClick={() => handleModuleClick(module.id, index === 0, module.title)}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-4">
-                      <div className="text-3xl">{module.icon}</div>
+                      <div className="text-3xl">
+                        {index === 0 ? '📚' : index === 1 ? '⚙️' : '🔗'}
+                      </div>
                       <div>
                         <h3 className="text-lg font-semibold text-gray-900">{module.title}</h3>
                         <p className="text-gray-600">{module.description}</p>
                         <div className="flex items-center mt-2 text-sm text-gray-500">
                           <i className="fas fa-clock mr-1"></i>
                           <span>{module.duration}</span>
+                          <span className="mx-2">•</span>
+                          <span>{module.lessons.length} lecciones</span>
                         </div>
                       </div>
                     </div>
                     
                     <div className="flex items-center">
-                      {module.status === 'available' ? (
-                        <button className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
-                          Comenzar
-                        </button>
-                      ) : (
-                        <div className="flex items-center text-gray-400">
-                          <i className="fas fa-lock mr-2"></i>
-                          <span>Bloqueado</span>
-                        </div>
-                      )}
+                      <button className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+                        Comenzar
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -306,18 +319,24 @@ export default function RutaAprendizajePage() {
               </h3>
               <p className="text-sm text-gray-600 mb-4">Recursos adicionales para tu aprendizaje</p>
               <div className="space-y-3">
-                {data.resources.documentation.map((doc, index) => (
-                  <a 
-                    key={index}
-                    href={doc.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-purple-600 hover:text-purple-800 text-sm"
-                  >
-                    <i className="fas fa-external-link-alt mr-2"></i>
-                    {doc.title}
-                  </a>
-                ))}
+                <a 
+                  href="https://developers.vtex.com/docs/guides/vtex-io-documentation-what-is-vtex-io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-purple-600 hover:text-purple-800 text-sm"
+                >
+                  <i className="fas fa-external-link-alt mr-2"></i>
+                  Documentación oficial de VTEX IO
+                </a>
+                <a 
+                  href="https://developers.vtex.com/docs/guides/vtex-io-documentation-vtex-io-cli-installation-and-command-reference"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-purple-600 hover:text-purple-800 text-sm"
+                >
+                  <i className="fas fa-external-link-alt mr-2"></i>
+                  Guía de VTEX CLI
+                </a>
               </div>
             </div>
 
@@ -329,20 +348,42 @@ export default function RutaAprendizajePage() {
               </h3>
               <p className="text-sm text-gray-600 mb-4">Software requerido para el curso</p>
               <div className="space-y-4">
-                {data.resources.tools.map((tool, index) => (
-                  <div key={index} className="border-l-4 border-purple-200 pl-4">
-                    <h4 className="font-medium text-gray-900">{tool.title}</h4>
-                    <p className="text-sm text-gray-600 mb-2">{tool.description}</p>
-                    <a 
-                      href={tool.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-purple-600 hover:text-purple-800 text-sm"
-                    >
-                      Descargar
-                    </a>
-                  </div>
-                ))}
+                <div className="border-l-4 border-purple-200 pl-4">
+                  <h4 className="font-medium text-gray-900">Node.js</h4>
+                  <p className="text-sm text-gray-600 mb-2">Versión 14 o superior</p>
+                  <a 
+                    href="https://nodejs.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-600 hover:text-purple-800 text-sm"
+                  >
+                    Descargar
+                  </a>
+                </div>
+                <div className="border-l-4 border-purple-200 pl-4">
+                  <h4 className="font-medium text-gray-900">VTEX CLI</h4>
+                  <p className="text-sm text-gray-600 mb-2">Herramienta de línea de comandos</p>
+                  <a 
+                    href="https://www.npmjs.com/package/@vtex/cli"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-600 hover:text-purple-800 text-sm"
+                  >
+                    Instalar
+                  </a>
+                </div>
+                <div className="border-l-4 border-purple-200 pl-4">
+                  <h4 className="font-medium text-gray-900">Git</h4>
+                  <p className="text-sm text-gray-600 mb-2">Control de versiones</p>
+                  <a 
+                    href="https://git-scm.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-600 hover:text-purple-800 text-sm"
+                  >
+                    Descargar
+                  </a>
+                </div>
               </div>
             </div>
 

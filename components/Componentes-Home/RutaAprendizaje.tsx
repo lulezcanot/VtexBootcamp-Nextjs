@@ -1,7 +1,10 @@
 import { useRouter } from 'next/navigation';
+import { useUser } from '@clerk/nextjs';
+import toast from 'react-hot-toast';
 
 const RutaAprendizaje = () => {
   const router = useRouter();
+  const { user } = useUser();
 
   const learningPaths = [
     {
@@ -37,8 +40,35 @@ const RutaAprendizaje = () => {
     }
   ];
 
-  const handlePathClick = (pathId: string) => {
-    router.push(`/ruta-aprendizaje/${pathId}`);
+  const handlePathClick = async (pathId: string) => {
+    // Si no está autenticado, redirigir a login
+    if (!user) {
+      router.push(`/sign-in?redirect_url=${encodeURIComponent(`/ruta-aprendizaje/${pathId}`)}`);
+      return;
+    }
+
+    // Si es principiante, permitir acceso directo
+    if (pathId === 'principiante') {
+      router.push(`/ruta-aprendizaje/${pathId}`);
+      return;
+    }
+
+    // Para intermedio y avanzado, verificar acceso
+    try {
+      const response = await fetch(`/api/user/check-access/${pathId}`);
+      const data = await response.json();
+
+      if (data.hasAccess) {
+        router.push(`/ruta-aprendizaje/${pathId}`);
+      } else {
+        toast.error(`Primero empieza con la ruta principiante. Te falta ${data.progressToUnlock}% para desbloquear este nivel`, {
+          duration: 4000,
+        });
+      }
+    } catch (error) {
+      console.error('Error checking access:', error);
+      toast.error('Error al verificar acceso');
+    }
   };
 
   return (

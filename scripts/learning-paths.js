@@ -1,4 +1,4 @@
-import { PrismaClient } from '../lib/generated/prisma';
+const { PrismaClient } = require('../lib/generated/prisma');
 
 const prisma = new PrismaClient();
 
@@ -457,4 +457,4 @@ if (require.main === module) {
   main();
 }
 
-export { seedLearningPaths };
+module.exports = { seedLearningPaths };
