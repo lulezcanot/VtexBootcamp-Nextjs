@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 const RutaAprendizaje = () => {
@@ -8,26 +7,32 @@ const RutaAprendizaje = () => {
     {
       id: 'principiante',
       title: 'Principiante',
-      description: 'Comienza tu viaje en el desarrollo de comercio digital con VTEX IO',
-      image: '/imagenes/image--básico.png',
-      duration: '2-3 horas',
-      modules: 3
+      icon: '📖',
+      items: [
+        'Fundamentos de VTEX IO',
+        'Configuración inicial',
+        'Primeros pasos'
+      ]
     },
     {
       id: 'intermedio',
       title: 'Intermedio',
-      description: 'Profundiza en conceptos avanzados y mejores prácticas',
-      image: '/imagenes/image--intermedio.png',
-      duration: '4-5 horas',
-      modules: 4
+      icon: '</>',
+      items: [
+        'Desarrollo de componentes',
+        'Integración de APIs',
+        'Personalización de temas'
+      ]
     },
     {
       id: 'avanzado',
       title: 'Avanzado',
-      description: 'Domina técnicas avanzadas y arquitecturas complejas',
-      image: '/imagenes/image--avanzado.png',
-      duration: '6-8 horas',
-      modules: 5
+      icon: '🚀',
+      items: [
+        'Arquitectura avanzada',
+        'Optimización',
+        'Casos de estudio'
+      ]
     }
   ];
 
@@ -36,58 +41,40 @@ const RutaAprendizaje = () => {
   };
 
   return (
-    <div className='flex flex-col justify-center items-center pt-16 pb-16 bg-gray-50'>
-      <h2 className='text-3xl md:text-4xl font-extrabold text-gray-800 mb-4'>
+    <div className='flex flex-col justify-center items-center pt-16 pb-16 bg-white'>
+      <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center'>
         Ruta de Aprendizaje
       </h2>
-      <p className='text-lg text-gray-600 mb-12 text-center max-w-2xl'>
-        Elige tu nivel y comienza a dominar VTEX IO paso a paso
-      </p>
       
-      <div className="flex flex-col lg:flex-row gap-8 justify-center items-stretch max-w-7xl w-full px-4">
+      <div className="flex flex-col lg:flex-row gap-6 justify-center items-stretch max-w-7xl w-full px-4">
         {learningPaths.map((path, index) => (
           <div 
             key={path.id}
-            className="flex flex-col bg-gradient-to-br from-purple-300 to-purple-500 rounded-xl shadow-lg p-6 w-full max-w-sm cursor-pointer hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl"
+            className="flex flex-col bg-purple-200 rounded-2xl p-8 w-full max-w-sm cursor-pointer hover:shadow-lg transition-all duration-300 ease-in-out"
             onClick={() => handlePathClick(path.id)}
           >
-            {/* Contenido superior */}
-            <div className="flex flex-col items-center flex-grow">
-              <div className="rounded-lg h-32 w-32 flex items-center justify-center mb-4 bg-white/20 backdrop-blur-sm">
-                <Image
-                  src={path.image}
-                  width={80}
-                  height={80}
-                  alt={path.title}
-                  className="object-contain"
-                />
+            {/* Icono */}
+            <div className="flex justify-start mb-6">
+              <div className="text-4xl text-purple-700">
+                {path.icon}
               </div>
-              
-              <h3 className='text-2xl font-bold text-white mb-2 text-center'>
-                {path.title}
-              </h3>
-              
-              <p className='text-white/90 text-center text-sm mb-6 leading-relaxed'>
-                {path.description}
-              </p>
             </div>
             
-            {/* Contenido inferior fijo */}
-            <div className="flex flex-col space-y-3 mt-auto">
-              <div className="flex justify-between items-center text-white/80 text-sm">
-                <span className="flex items-center">
-                  <i className="fas fa-clock mr-2"></i>
-                  {path.duration}
-                </span>
-                <span className="flex items-center">
-                  <i className="fas fa-book mr-2"></i>
-                  {path.modules} módulos
-                </span>
-              </div>
-              
-              <button className="w-full py-3 bg-white text-purple-600 font-semibold rounded-lg hover:bg-purple-50 transition-colors duration-200">
-                Comenzar
-              </button>
+            {/* Título */}
+            <h3 className='text-xl font-bold text-gray-900 mb-6'>
+              {path.title}
+            </h3>
+            
+            {/* Lista de elementos */}
+            <div className="flex flex-col space-y-3">
+              {path.items.map((item, itemIndex) => (
+                <div key={itemIndex} className="flex items-center space-x-3">
+                  <div className="w-5 h-5 border-2 border-purple-400 rounded-full flex items-center justify-center">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                  </div>
+                  <span className="text-gray-700 text-sm font-medium">{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         ))}

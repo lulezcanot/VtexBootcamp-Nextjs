@@ -14,13 +14,23 @@ function Header() {
 
     const menu = [
         {
-            name: "Home",
-            icon: home,
+            name: "Inicio",
             link: "/"
         },
         {
+            name: "Cursos",
+            link: "/cursos"
+        },
+        {
+            name: "Documentación",
+            link: "/documentacion"
+        },
+        {
+            name: "Recursos",
+            link: "/recursos"
+        },
+        {
             name: "Stats",
-            icon: chart,
             link: "/stats"
         }
     ];
@@ -36,16 +46,12 @@ function Header() {
                 {menu.map((item, index)=>(
                     <li key={index}>
                         <Link href={item.link} 
-                        className={`py-1 px-6 flex items-center gap-2 text-lg leadind-none text-gray-400 rounde-lg
+                        className={`py-2 px-4 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors
                             ${
-                                pathname === item.link ? "bg-blue-500/20 text-blue-400 border-2 border-blue-400"
-                                : ""
+                                pathname === item.link ? "text-purple-600 font-semibold" : ""
                             }
                             `}>
-                        <span className='text-2xl text-blue-400'>{item.icon}</span>
-                        <span className={`font-bold uppercase
-                            ${pathname === item.link ? "text-blue-400" : "text-gray-400"}
-                            `}>{item.name}</span>
+                        {item.name}
                         </Link>
                     </li>
                 ))}

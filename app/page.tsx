@@ -13,6 +13,7 @@ export default function Home() {
     <div>
       <Banner/>
       <RutaAprendizaje/>
+      <RecursosDocumentacion/>
       <div className='flex flex-col justify-center items-center pt-10 pb-10'>
         <h1 className='text-xl md:text-4xl font-extrabold text-black mb-10 mt-6'>Pon a Prueba tus Conocimientos</h1>
         <div className="flex flex-row gap-32 flex-wrap justify-center">
@@ -44,7 +45,6 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <RecursosDocumentacion/>
     </div>
   );
 }
