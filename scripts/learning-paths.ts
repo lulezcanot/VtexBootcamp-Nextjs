@@ -11,7 +11,7 @@ async function seedLearningPaths() {
       data: {
         name: 'principiante',
         title: 'Principiante',
-        description: 'Comienza tu viaje en el desarrollo de comercio digital con VTEX IO',
+        description: 'Fundamentos de Vtex IO, Vtex CLI, Vtex Init & Link',
         image: '/imagenes/image--básico.png',
         order: 1,
         modules: {
@@ -206,7 +206,7 @@ vtex link`,
       data: {
         name: 'intermedio',
         title: 'Intermedio',
-        description: 'Profundiza en conceptos avanzados y mejores prácticas',
+        description: 'PLP, PDP, Minicartv2, My account',
         image: '/imagenes/image--intermedio.png',
         order: 2,
         modules: {
@@ -245,7 +245,7 @@ vtex link`,
       data: {
         name: 'avanzado',
         title: 'Avanzado',
-        description: 'Domina técnicas avanzadas y arquitecturas complejas',
+        description: 'Checkout, Componentes custom, Mails',
         image: '/imagenes/image--avanzado.png',
         order: 3,
         modules: {

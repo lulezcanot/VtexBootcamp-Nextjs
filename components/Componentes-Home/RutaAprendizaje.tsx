@@ -9,9 +9,9 @@ const RutaAprendizaje = () => {
       title: 'Principiante',
       icon: '📖',
       items: [
-        'Fundamentos de VTEX IO',
-        'Configuración inicial',
-        'Primeros pasos'
+        'Fundamentos de Vtex IO',
+        'Vtex CLI',
+        'Vtex Init & Link'
       ]
     },
     {
@@ -19,9 +19,10 @@ const RutaAprendizaje = () => {
       title: 'Intermedio',
       icon: '</>',
       items: [
-        'Desarrollo de componentes',
-        'Integración de APIs',
-        'Personalización de temas'
+        'PLP',
+        'PDP',
+        'Minicartv2',
+        'My account'
       ]
     },
     {
@@ -29,9 +30,9 @@ const RutaAprendizaje = () => {
       title: 'Avanzado',
       icon: '🚀',
       items: [
-        'Arquitectura avanzada',
-        'Optimización',
-        'Casos de estudio'
+        'Checkout',
+        'Componentes custom',
+        'Mails'
       ]
     }
   ];
