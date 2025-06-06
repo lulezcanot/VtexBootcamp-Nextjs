@@ -150,3 +150,37 @@ model UserLessonProgress {
 
   @@unique([userId, lessonId])
 }
+
+model DocumentationCategory {
+  id          String                 @id @default(auto()) @map("_id") @db.ObjectId
+  name        String // "VTEX IO", "Guías Paso a Paso", etc.
+  slug        String                 @unique
+  icon        String // Nombre del icono
+  description String
+  order       Int
+  sections    DocumentationSection[]
+}
+
+model DocumentationSection {
+  id         String                @id @default(auto()) @map("_id") @db.ObjectId
+  title      String
+  slug       String
+  content    String // JSON con el contenido
+  categoryId String                @db.ObjectId
+  category   DocumentationCategory @relation(fields: [categoryId], references: [id])
+  order      Int
+
+  @@unique([categoryId, slug])
+}
+
+model CodeExample {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String // "Minicart-Protuner", "Accesorios-Custom", etc.
+  slug        String   @unique
+  description String?
+  code        String // El código real de producción
+  language    String   @default("typescript")
+  tags        String[] // Para filtrado
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

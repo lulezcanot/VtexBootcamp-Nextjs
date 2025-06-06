@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-slate-800 text-gray-300 py-12 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Main footer content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           {/* VTEX Academy Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-4">
@@ -29,12 +29,12 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Recursos</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <a href="/documentacion" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Documentación
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <a href="/documentacion/guias-paso-a-paso" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Tutoriales
                 </a>
               </li>
@@ -46,44 +46,18 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Compañía</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <a href="/acerca-de" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Acerca de
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <a href="https://wa.link/jnje1w" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Contacto
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Legal Section */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Legal</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Términos
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Privacidad
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Cookies
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Licencias
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
 
         {/* Bottom section with copyright and social links */}
@@ -96,25 +70,31 @@ const Footer = () => {
             {/* Social Media Icons */}
             <div className="flex space-x-4">
               <a 
-                href="#" 
+                href="https://github.com/lulezcanot" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
                 aria-label="GitHub"
               >
                 <i className="fab fa-github text-xl"></i>
               </a>
               <a 
-                href="#" 
+                href="https://www.linkedin.com/in/luis-lezcano-tirado-66b4b5285/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
                 aria-label="LinkedIn"
               >
                 <i className="fab fa-linkedin text-xl"></i>
               </a>
               <a 
-                href="#" 
+                href="https://www.instagram.com/luis_lezcanot/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
-                aria-label="Twitter"
+                aria-label="Instagram"
               >
-                <i className="fab fa-twitter text-xl"></i>
+                <i className="fab fa-instagram text-xl"></i>
               </a>
             </div>
           </div>
