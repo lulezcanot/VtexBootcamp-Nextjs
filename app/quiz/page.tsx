@@ -1,6 +1,6 @@
 "use client"
 import { Button } from '@/components/ui/button';
-import { useGlobalContext } from '@/Context/globalContext';
+import { useGlobalContext } from '@/context/globalContext';
 import { IOption, IQuestion, IResponse } from '@/types/types';
 import { flag, next } from '@/utils/icons';
 import axios from 'axios';

@@ -5,12 +5,24 @@ import Link from 'next/link';
 import React from 'react';
 import Logo from '../public/imagenes/transformacin_digital_sac_logo.jpg';
 import { usePathname, useRouter } from 'next/navigation';
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { SignedIn, SignedOut, UserButton, useUser } from '@clerk/nextjs';
 import { Button } from './ui/button';
 
 function Header() {
     const pathname = usePathname();
     const router = useRouter();
+    const { isSignedIn, isLoaded } = useUser();
+
+    const handleCursosClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (!isLoaded) return;
+        
+        if (isSignedIn) {
+            router.push('/ruta-aprendizaje/principiante');
+        } else {
+            router.push('/sign-in');
+        }
+    };
 
     const menu = [
         {
@@ -19,15 +31,12 @@ function Header() {
         },
         {
             name: "Cursos",
-            link: "/cursos"
+            link: "/cursos",
+            onClick: handleCursosClick
         },
         {
             name: "Documentación",
             link: "/documentacion"
-        },
-        {
-            name: "Recursos",
-            link: "/recursos"
         },
         {
             name: "Stats",
@@ -45,14 +54,26 @@ function Header() {
             <ul className='flex items-center gap-8'>
                 {menu.map((item, index)=>(
                     <li key={index}>
-                        <Link href={item.link} 
-                        className={`py-2 px-4 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors
-                            ${
-                                pathname === item.link ? "text-purple-600 font-semibold" : ""
-                            }
-                            `}>
-                        {item.name}
-                        </Link>
+                        {item.onClick ? (
+                            <button
+                                onClick={item.onClick}
+                                className={`py-2 px-4 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors cursor-pointer
+                                    ${
+                                        pathname === item.link ? "text-purple-600 font-semibold" : ""
+                                    }
+                                    `}>
+                                {item.name}
+                            </button>
+                        ) : (
+                            <Link href={item.link} 
+                            className={`py-2 px-4 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors
+                                ${
+                                    pathname === item.link ? "text-purple-600 font-semibold" : ""
+                                }
+                                `}>
+                            {item.name}
+                            </Link>
+                        )}
                     </li>
                 ))}
             </ul>

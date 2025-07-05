@@ -1,6 +1,23 @@
+'use client'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import { useUser } from '@clerk/nextjs'
 
 const Banner = () => {
+  const router = useRouter()
+  const { isSignedIn, isLoaded } = useUser()
+
+  const handleEmpezarClick = () => {
+    if (!isLoaded) return // Esperar a que se cargue el estado del usuario
+    
+    if (isSignedIn) {
+      // Si está logueado, redirigir al curso principiante
+      router.push('/ruta-aprendizaje/principiante')
+    } else {
+      // Si no está logueado, redirigir al login
+      router.push('/sign-in')
+    }
+  }
     
   return (
     <div className='flex flex-col lg:flex-row justify-around items-center max-h-[645px] w-full bg-gradient-to-br from-purple-300 to-purple-700 p-6 lg:p-12'>
@@ -12,9 +29,15 @@ const Banner = () => {
           Aprende a crear experiencias de ecommerce
         </h2>
         <p className='text-white text-lg mb-8 leading-relaxed'>¡La educación no tiene ningún valor si no la pones en práctica!</p>
-        <button className='w-[200px] px-8 py-3 bg-white text-purple-600 text-xl font-medium rounded-full 
+        <button 
+          onClick={handleEmpezarClick}
+          disabled={!isLoaded}
+          className='w-[200px] px-8 py-3 bg-white text-purple-600 text-xl font-medium rounded-full 
       transition-all duration-300 hover:bg-purple-100 hover:shadow-lg 
-      focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50'>Empezar</button>
+      focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50
+      disabled:opacity-50 disabled:cursor-not-allowed'>
+          Empezar
+        </button>
       </div>
       <div className='relative rounded-lg overflow-hidden w-full max-w-sm bg-[#ffffff67]'>
         <Image

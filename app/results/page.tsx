@@ -1,6 +1,6 @@
 "use client"
 import { Button } from '@/components/ui/button';
-import { useGlobalContext } from '@/Context/globalContext';
+import { useGlobalContext } from '@/context/globalContext';
 import { play } from '@/utils/icons';
 import { useRouter } from 'next/navigation'
 import React from 'react'

@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useGlobalContext } from '@/Context/globalContext';
+import { useGlobalContext } from '@/context/globalContext';
 import { play } from '@/utils/icons';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';

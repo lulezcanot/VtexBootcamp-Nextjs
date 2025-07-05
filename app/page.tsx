@@ -3,7 +3,7 @@
 import Banner from "@/components/Componentes-Home/Banner";
 import RutaAprendizaje from "@/components/Componentes-Home/RutaAprendizaje";
 import RecursosDocumentacion from "@/components/Componentes-Home/RecursosDocumentacion"
-import { useGlobalContext } from "@/Context/globalContext";
+import { useGlobalContext } from "@/context/globalContext";
 import { ICategory } from "@/types/types";
 import Image from "next/image";
 

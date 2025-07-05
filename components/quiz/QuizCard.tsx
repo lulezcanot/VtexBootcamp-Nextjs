@@ -4,7 +4,7 @@ import { IQuiz } from "@/types/types";
 import Image from "next/image";
 import { dots } from "@/utils/icons";
 import { useRouter } from "next/navigation";
-import { useGlobalContext } from "@/Context/globalContext";
+import { useGlobalContext } from "@/context/globalContext";
 
 interface Props {
   quiz: IQuiz;
