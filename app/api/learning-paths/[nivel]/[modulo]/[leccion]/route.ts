@@ -3,10 +3,10 @@ import prisma from '@/utils/connect';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { nivel: string; modulo: string; leccion: string } }
+  { params }: { params: Promise<{ nivel: string; modulo: string; leccion: string }> }
 ) {
   try {
-    const { nivel, modulo, leccion } = params;
+    const { nivel, modulo, leccion } = await params;
 
     // Primero obtener la ruta de aprendizaje
     const learningPath = await prisma.learningPath.findFirst({

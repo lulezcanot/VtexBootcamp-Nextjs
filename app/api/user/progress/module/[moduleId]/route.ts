@@ -4,11 +4,11 @@ import prisma from '@/utils/connect';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { moduleId: string } }
+  { params }: { params: Promise<{ moduleId: string }> }
 ) {
   try {
     const { userId } = await auth();
-    const { moduleId } = params;
+    const { moduleId } = await params;
 
     if (!userId) {
       return NextResponse.json(
